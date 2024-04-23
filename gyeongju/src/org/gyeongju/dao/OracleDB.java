@@ -44,8 +44,7 @@ public class OracleDB {
 			}
 		}
 	}
-	
-	
+		         
 	public void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
 		if(rs!=null) {
 			try {
