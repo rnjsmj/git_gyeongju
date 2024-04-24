@@ -50,7 +50,8 @@
 			<c:forEach var="dto" items="${foodList }">
 				<div class="food-test">
 					<ul class="food-ul">
-						<li><a href="${path0 }/GetFood.do?fno=${dto.fno}">
+						<li><a href="${path0 }/GetFood.do?ftype=all&fno=${dto.fno}">
+						<!-- 사진 위치  -->
 						<figure style="background-color:#ebe1e1; text-align:center;">사진</figure>
 						<span class="item_tit">${dto.fname }</span></a>
 						<span class="item_type">${dto.ftype }</span>
@@ -62,7 +63,7 @@
 			</c:if>
 		</div>
 		<div class="buttons">
-			<a role="button" href="">식도락 등록</a>
+			<a role="button" href="${path0 }/FoodInsert.do">식도락 등록</a>
 		</div>
 	</section>
 </div>
