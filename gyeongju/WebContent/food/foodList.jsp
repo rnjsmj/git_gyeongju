@@ -6,29 +6,38 @@
 <!DOCTYPE html>
 <html>
 <style>
-	* {margin:0; padding:0;}
-	body { width:100%; overflow-x:hidden;}
+	* {margin:0; padding:0; box-sizing:border-box;}
+	html, body { width:100%; min-width:100%; box-sizing:border-box; overflow-x:hidden;}
 	
-	.temp-header { width:100%; background-color: #848c45; height:90px; text-align:center; line-height:90px; display:block;}
+	hr { box-sizing:content-box; margin : 0 10px; }
+	
+	.temp-header { width:100%; background-color: #848c45; height:90px; text-align:center; 
+		line-height:90px; display:block; box-sizing:border-box;}
 	#header::after { content:""; display:block; width:100%; clear:both; }
 	
-	#contents { min-height:100vh; margin-bottom:5rem;}
+	#contents { min-height:100%; margin-bottom:5rem; box-sizing:border-box; }
 	#contents::after { content:""; display:block; width:100%; clear:both; }
-	#contents .page { width:1200px; margin:0 auto; }
+	#contents .page { max-width:1200px; width:100%; margin:0 auto; box-sizing:border-box;}
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
-	.page .lst-food {padding:10px 0; clear:both;}
-    .food-test { width: 33.3%; float:left; }
+	.page .lst-food {padding:10px 0; clear:both; }
+    .food-test { width: 33.3%; float:left;}
+    @media (max-width:1198px) {
+    	.food-test {width:50%; float:left;  }
+    }
+    @media (max-width:798px) {
+    	.food-test {width:100%; float:left; min-width:399px;}
+    }
     .food-test ul {margin:0 auto;}
-    .food-test li {  width: 95%; 
-        height: 415px; overflow:hidden; box-sizing:border-box;
+    .food-test li {  width: 94%; 
+        height: auto; overflow:hidden; box-sizing:border-box; padding-bottom:50px;
      border-radius:10px 10px 0px 0px; box-shadow:5px 5px 5px #666; margin:20px auto;}
 	.lst-food .food-test li a figure { display:block; width: 100%; height:auto; aspect-ratio:16/9;}
     .lst-food .food-test li span { display:block; padding-left:18px; padding-top: 18px; }
 	
 	.page .buttons { clear:both;}
-	 #footer { width:100%; background-color: #000; height:200px; padding:20px;}
+	 #footer { width:100%; background-color: #000; height:200px; padding:20px; box-sizing:border-box;}
 	.temp-footer { width:1200px; height:100%; text-align:left; color:#999;
-		display:block; margin: 0 auto;}
+		display:block; margin: 0 auto; }
 	
 	
 	
