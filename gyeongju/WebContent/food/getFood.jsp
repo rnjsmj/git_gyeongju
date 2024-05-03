@@ -45,7 +45,7 @@
 		<hr>
 		<div class="food-wrap">
 			<div class="food-col1">
-				<figure style="background-color:#ebe1e1; text-align:center;">사진</figure>
+				<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
 			</div>
 			<div class="food-col2">
 				<div class="food-dtl">
