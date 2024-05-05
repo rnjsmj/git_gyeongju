@@ -1,12 +1,12 @@
 package org.gyeongju.dao;
 
 public interface SqlLang {
-	//½Äµµ¶ô
+	//ì‹ë„ë½
 	String SELECT_ALL_FOOD = "select * from food order by fno desc";
 	String SELECT_FOOD_BYNO = "select * from food where fno=?";
-	String SELECT_FOOD_REST = "select * from food where ftype='À½½ÄÁ¡' order by fno desc";
-	String SELECT_FOOD_CAFE = "select * from food where ftype='Ä«Æä' order by fno desc";
-	String SELECT_FOOD_ETC = "select * from food where ftype='±âÅ¸' order by fno desc";
+	String SELECT_FOOD_REST = "select * from food where ftype='ìŒì‹ì ' order by fno desc";
+	String SELECT_FOOD_CAFE = "select * from food where ftype='ì¹´í˜' order by fno desc";
+	String SELECT_FOOD_ETC = "select * from food where ftype='ê¸°íƒ€' order by fno desc";
 	String UPD_FOOD = "update food set fname=?, ftype=?, ftel=?, faddr=?, fcomm=? where fno=?";
 	String INS_FOOD = "insert into food values(fd_seq.nextval, ?, ?, ?, ?, null, ?, null)";
 	String DEL_FOOD = "delete from food where fno=?";

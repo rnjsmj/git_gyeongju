@@ -32,7 +32,6 @@ public class GetFoodCtrl extends HttpServlet {
 		FoodDAO dao = new FoodDAO();
 		Food food = dao.getFood(fno);
 		
-		//상세보기에서 파라미터로 전달받은 ftype에 따라 목록 버튼의 url을 foodList, fRestList, fCafeList, fEtcList 로 나눔
 		request.setAttribute("ftype", ftype);
 		request.setAttribute("food", food);
 		RequestDispatcher view = request.getRequestDispatcher("/food/getFood.jsp");

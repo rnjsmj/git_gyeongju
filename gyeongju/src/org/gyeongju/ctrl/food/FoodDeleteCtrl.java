@@ -1,10 +1,7 @@
 package org.gyeongju.ctrl.food;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,13 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.gyeongju.dao.FoodDAO;
-import org.gyeongju.dto.Food;
 
-@WebServlet("/FoodList.do")
-public class FoodListCtrl extends HttpServlet {
+
+@WebServlet("/FoodDelete.do")
+public class FoodDeleteCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public FoodListCtrl() {
+    public FoodDeleteCtrl() {
         super();
     }
 
@@ -28,27 +25,16 @@ public class FoodListCtrl extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		String ftype = request.getParameter("ftype");
+		int fno = Integer.parseInt(request.getParameter("fno"));
 		
 		FoodDAO dao = new FoodDAO();
-		List<Food> foodList = new ArrayList<>();
+		int cnt = dao.deleteFood(fno);
 		
-		if (ftype.equals("all")) {
-			foodList = dao.getFoodList();
-		} else if (ftype.equals("rest")) {
-			foodList = dao.getRestList();
-		} else if (ftype.equals("cafe")) {
-			foodList = dao.getCafeList();
-		} else if (ftype.equals("etc")) {
-			foodList = dao.getEtcList();
+		if(cnt>0) {
+			response.sendRedirect("/gyeongju/FoodList.do?ftype="+ftype);
 		} else {
+			response.sendRedirect("/gyeongju/GetFood.do?ftype="+ftype+"&fno="+fno);
 		}
-		
-		
-		request.setAttribute("foodList", foodList);
-		request.setAttribute("ftype", ftype);
-		
-		RequestDispatcher view = request.getRequestDispatcher("/food/foodList.jsp");
-		view.forward(request, response);
 	}
 
 }

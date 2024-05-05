@@ -1,21 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <c:set var="path0" value="<%=request.getContextPath() %>" /> 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>°æÁÖ½Ã ¹®È­°ü±¤ - ½Äµµ¶ô</title>
+<meta charset="UTF-8">
+<title>ê²½ì£¼ì‹œ ë¬¸í™”ê´€ê´‘ - ì‹ë„ë½</title>
 <style>
 	* {margin:0; padding:0;}
-	body { width:100%; overflow-x:hidden;}
+	html, body { width:100%; box-sizing:border-box; }
+	a {text-decoration:none;}
 	
-	.temp-header { width:100%; background-color: #848c45; height:90px; text-align:center; line-height:90px; display:block;}
+	.temp-header { width:100%; background-color: #848c45; height:90px; text-align:center; line-height:90px; display:block; min-width:1200px;}
 	#header::after { content:""; display:block; width:100%; clear:both; }
 	
-	#contents { min-height:100vh; margin-bottom:5rem;}
+	#contents { min-height:100vh; margin-bottom:5rem; min-width:1200px;}
 	#contents::after { content:""; display:block; width:100%; clear:both; }
 	#contents .page { width:1200px; margin:0 auto; }
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
@@ -30,31 +31,31 @@
 	
 	
 	.page .buttons { clear:both;}
-	 #footer { width:100%; background-color: #000; height:200px; padding:20px;}
+	 #footer { width:100%; background-color: #000; height:200px; padding:20px 0; min-width:1200px;}
 	.temp-footer { width:1200px; height:100%; text-align:left; color:#999;
-		display:block; margin: 0 auto;}
+		display:block; margin: 0 auto; }
 </style>
 </head>
 <body>
 <div id="header">
-	<div class="temp-header">¸Ş´º¹Ù</div>
+	<div class="temp-header">ë©”ë‰´ë°”</div>
 </div>
 <div id="contents">
 	<section class="page">
-		<h2 class="page-title">½Äµµ¶ô »ó¼¼º¸±â</h2>
+		<h2 class="page-title">ì‹ë„ë½ ìƒì„¸ë³´ê¸°</h2>
 		<hr>
 		<div class="food-wrap">
 			<div class="food-col1">
-				<figure style="background-color:#ebe1e1; text-align:center;"><p>»çÁø</p></figure>
+				<figure style="background-color:#ebe1e1; text-align:center;"><p>ì‚¬ì§„</p></figure>
 			</div>
 			<div class="food-col2">
 				<div class="food-dtl">
 				<h3>${food.fname }</h3>
 				<hr>
 				<ul>
-					<li><strong>ºĞ·ù</strong>    ${food.ftype }</li>
-					<li><strong>ÁÖ¼Ò</strong>    ${food.faddr }</li>
-					<li><strong>¿¬¶ôÃ³</strong>   ${food.ftel }</li>
+					<li><strong>ë¶„ë¥˜</strong>    ${food.ftype }</li>
+					<li><strong>ì£¼ì†Œ</strong>    ${food.faddr }</li>
+					<li><strong>ì—°ë½ì²˜</strong>   ${food.ftel }</li>
 				</ul>
 				<hr>
 				<p>${food.fcomm }<p>
@@ -62,23 +63,23 @@
 		</div>
 		</div>
 		<div class="buttons">
-			<c:if test="${ftype.equals('all')}">
-				<a role="button" href="${path0 }/FoodList.do">¸ñ·Ï</a>
-			</c:if>
-			<c:if test="${ftype.equals('rest')}" >
-				<a role="button" href="${path0 }/fRestList.do">¸ñ·Ï</a>
-			</c:if>
-			<c:if test="${ftype.equals('cafe') }">
-				<a role="button" href="${path0 }/fCafeList.do">¸ñ·Ï</a>
-			</c:if>
-			<c:if test="${ftype.equals('etc') }">
-				<a role="button" href="${path0 }/fEtcList.do">¸ñ·Ï</a>
-			</c:if>
+			<a role="button" id="delbtn">ì‚­ì œ</a>
+			<a href="${path0 }/FoodUpdate.do?ftype=${ftype }&fno=${food.fno }" role="button">ìˆ˜ì •</a>
+			<a role="button" href="${path0 }/FoodList.do?ftype=${ftype}">ëª©ë¡</a>
+			
 		</div>
 	</section>
 </div>
 <div id="footer">
-	<div class="temp-footer">ÇªÅÍ</div>
+	<div class="temp-footer">í‘¸í„°</div>
 </div>
+<script>
+	var delbtn = document.getElementById('delbtn');
+	delbtn.addEventListener("click", function() {
+		if(confirm("í•´ë‹¹ ì‹ë„ë½ ì •ë³´ë¥¼ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) {
+			location.replace("${path0 }/FoodDelete.do?ftype=${ftype }&fno=${food.fno }");
+		}
+	})
+</script>
 </body>
 </html>

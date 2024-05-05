@@ -13,7 +13,7 @@ public class FoodDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	//½Äµµ¶ô ¸ñ·Ï
+	//ì‹ë„ë½ ëª©ë¡
 	public List<Food> getFoodList() {
 		List<Food> foodList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
@@ -41,7 +41,7 @@ public class FoodDAO {
 		return foodList;
 	}
 	
-	//À½½ÄÁ¡ ¸ñ·Ï
+	//ìŒì‹ì  ëª©ë¡
 	public List<Food> getRestList() {
 		List<Food> restList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
@@ -69,7 +69,7 @@ public class FoodDAO {
 		return restList;
 	}
 	
-	//Ä«Æä ¸ñ·Ï
+	//ì¹´í˜ ëª©ë¡
 	public List<Food> getCafeList() {
 		List<Food> cafeList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
@@ -97,7 +97,7 @@ public class FoodDAO {
 		return cafeList;
 	}
 	
-	//±âÅ¸ ¸ñ·Ï
+	//ê¸°íƒ€ ëª©ë¡
 	public List<Food> getEtcList() {
 		List<Food> etcList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
@@ -126,7 +126,7 @@ public class FoodDAO {
 	}
 	
 	
-	//½Äµµ¶ô »ó¼¼º¸±â
+	//ì‹ë„ë½ ìƒì„¸ë³´ê¸°
 	public Food getFood(int fno) {
 		Food food = new Food();
 		OracleDB oracle = new OracleDB();
@@ -153,7 +153,7 @@ public class FoodDAO {
 		return food;
 	}
 	
-	//½Äµµ¶ô µî·Ï
+	//ì‹ë„ë½ ë“±ë¡
 	public int insertFood(Food food) {
 		int cnt = 0;
 		OracleDB oracle = new OracleDB();
@@ -167,7 +167,7 @@ public class FoodDAO {
 			pstmt.setString(5, food.getFcomm());
 			cnt = pstmt.executeUpdate();
 			
-			//ÆÄÀÏ Ã³¸® Ãß°¡
+			//íŒŒì¼ ì²˜ë¦¬ ì¶”ê°€
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -176,7 +176,7 @@ public class FoodDAO {
 		return cnt;
 	}
 	
-	//½Äµµ¶ô ¼öÁ¤
+	//ì‹ë„ë½ ìˆ˜ì •
 	public int updateFood(Food food) {
 		int cnt = 0;
 		OracleDB oracle = new OracleDB();
@@ -192,7 +192,7 @@ public class FoodDAO {
 			pstmt.setInt(6, food.getFno());
 			cnt = pstmt.executeUpdate();
 			
-			//ÆÄÀÏ Ã³¸® Ãß°¡
+			//íŒŒì¼ ì²˜ë¦¬ ì¶”ê°€
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -201,7 +201,7 @@ public class FoodDAO {
 		return cnt;
 	}
 	
-	//½Äµµ¶ô »èÁ¦
+	//ì‹ë„ë½ ì‚­ì œ
 	public int deleteFood(int fno) {
 		int cnt = 0;
 		OracleDB mysql = new OracleDB();

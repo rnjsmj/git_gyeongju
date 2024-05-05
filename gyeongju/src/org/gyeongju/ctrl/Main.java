@@ -20,9 +20,9 @@ public class Main extends HttpServlet {
     }
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//¼­¹ö ¿¬°á Å×½ºÆ® + Ä¿¹Ô&Çª½Ã Å×½ºÆ®
+		//ì„œë²„ ì—°ê²° í…ŒìŠ¤íŠ¸
 		ServletContext application = request.getServletContext();
-		application.setAttribute("title", "°æÁÖ½Ã ¹®È­°ü±¤ À¥ ¾ÖÇÃ¸®ÄÉÀÌ¼Ç");
+		application.setAttribute("title", "ê²½ì£¼ì‹œ ë¬¸í™”ê´€ê´‘ ì›¹ ì• í”Œë¦¬ì¼€ì´ì…˜");
 		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/index.jsp");
 		view.forward(request, response);
