@@ -33,10 +33,19 @@ public class FoodUpdateProCtrl extends HttpServlet {
 		food.setFtel(request.getParameter("ftel"));
 		food.setFcomm(request.getParameter("fcomm"));
 		
+		String ftype = "";
+		if(request.getParameter("ftype").equals("all")) {
+			ftype = "all";
+		} else if (food.getFtype().equals("음식점")) {
+			ftype ="rest";
+		} else if (food.getFtype().equals("카페")) {
+			ftype ="cafe";
+		} else if (food.getFtype().equals("기타")) {
+			ftype ="etc";
+		} 
+		
 		FoodDAO dao = new FoodDAO();
 		int cnt = dao.updateFood(food);
-		String ftype = request.getParameter("ftype");
-		
 		
 		if(cnt>0) {
 			response.sendRedirect("/gyeongju/GetFood.do?ftype="+ftype+"&fno="+food.getFno());

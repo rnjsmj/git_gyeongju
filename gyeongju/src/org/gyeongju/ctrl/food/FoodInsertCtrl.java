@@ -37,9 +37,9 @@ public class FoodInsertCtrl extends HttpServlet {
 		String ftype = request.getParameter("ftype");
 		
 		if(cnt>0) {
-			response.sendRedirect("/gyeongju/FoodList.do?ftype="+ftype);
+			response.sendRedirect("/gyeongju/FoodList.do?ftype=all");
 		} else {
-			response.sendRedirect("/gyeongju/food/insertFood.jsp");
+			response.sendRedirect("/gyeongju/food/insertFood.jsp?ftype="+ftype);
 		}
 	}
 

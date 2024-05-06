@@ -21,14 +21,14 @@
 	
 	.insForm {width:1000px; margin:0 auto;}
 	.insForm td {padding-bottom:10px; }
-	.insForm .td-ftype {width:200px; padding-right:5px;}
-	.insForm .td-ftype select {width:100%; height:40px; }
+	.insForm .td-ptype {width:200px; padding-right:5px;}
+	.insForm .td-ptype select {width:100%; height:40px; }
 	.insForm input {width:100%; height:40px; padding:10px; }
 	.insForm .td-comm textarea {width:100%; height:200px; resize:none; padding:10px;}
-	.insForm .td-ffile .btn-upload {width:100px; text-align:center; padding:5px; display:inline-block;
+	.insForm .td-pfile .btn-upload {width:100px; text-align:center; padding:5px; display:inline-block;
 		border:1px solid #6b717b; border-radius:3px;}
-	.insForm .td-ffile #ffile {width:800px;}
-	.insForm .td-ffile #ffile::file-selector-button {display:none;}
+	.insForm .td-pfile #pfile {width:800px;}
+	.insForm .td-pfile #pfile::file-selector-button {display:none;}
 	.insForm .td-submit .btn-group { width:300px; margin:0 auto; text-align:center;}
 	.insForm .td-submit #submit {width:100px; padding:10px 20px; display:inline-block;  }
 	.insForm .td-submit .btn-back {width:100px; padding:10px 20px; display:inline-block; background-color:#747a86; border:1px solid #6b717b;
@@ -40,7 +40,7 @@
 </style>
 <head>
 <meta charset="UTF-8">
-<title>경주시 문화관광 - 식도락</title>
+<title>경주시 문화관광 - 여기어때</title>
 <script src="${path0 }/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
@@ -49,51 +49,51 @@
 </div>
 <div id="contents">
 	<section class="page">
-		<h2 class="page-title">식도락</h2>
+		<h2 class="page-title">여기어때</h2>
 		<hr>
-		<form action="${path0 }/FoodInsert.do?ftype=<%=request.getParameter("ftype") %>" method="post" onsubmit="return typeCheck(this)" >
+		<form action="${path0 }/PlaceInsert.do?ptype=<%=request.getParameter("ptype") %>" method="post" onsubmit="return typeCheck(this)" >
 			<table class="insForm">
 				<tbody>
 					<tr>
-						<td class="td-ftype">
-							<select name="ftypeval" id="ftypeval">
+						<td class="td-ptype">
+							<select name="ptypeval" id="ptypeval">
 								<option>분류</option>
-								<option>음식점</option>
-								<option>카페</option>
-								<option>기타</option>
+								<option>문화재</option>
+								<option>테마파크</option>
+								<option>해변</option>
 							</select>
 						</td>
-						<td class="td-fname">
-							<input type="text" name="fname" id="fname" maxlength="40" placeholder="이름" required>
+						<td class="td-pname">
+							<input type="text" name="pname" id="pname" maxlength="40" placeholder="이름" required>
 						</td>
 					</tr>	
 					<tr>
-						<td colspan="2" class="td-faddr">
-							<input type="text" name="faddr" id="faddr" maxlength="50" placeholder="주소" required>
+						<td colspan="2" class="td-paddr">
+							<input type="text" name="paddr" id="paddr" maxlength="50" placeholder="주소" required>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2" class="td-ftel">
-							<input type="tel" name="ftel" id="ftel" maxlength="20" placeholder="연락처">
+						<td colspan="2" class="td-ptel">
+							<input type="tel" name="ptel" id="ptel" maxlength="20" placeholder="연락처">
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2" class="td-comm">
-							<textarea name="fcomm" id="fcomm" maxlength="2000"></textarea>
+							<textarea name="pcomm" id="pcomm" maxlength="2000"></textarea>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2" class="td-ffile">
-							<label for="ffile">
+						<td colspan="2" class="td-pfile">
+							<label for="pfile">
 								<div class="btn-upload">사진 첨부</div>
 							</label>
-							<input type="file" name="ffile" id="ffile">
+							<input type="file" name="pfile" id="pfile">
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2" class="td-submit">
 							<div class="btn-group">
-								<a class="btn-back" href="${path0 }/FoodList.do?ftype=<%=request.getParameter("ftype")%>">취소</a>
+								<a class="btn-back" href="${path0 }/PlaceList.do?ptype=<%=request.getParameter("ptype")%>">취소</a>
 								<input id="submit" type="submit" value="등록" >
 							</div>
 							
@@ -111,22 +111,22 @@
 </div>
 <script>
 	function typeCheck(f) {
-		if(f.ftypeval.value=='분류') {
+		if(f.ptypeval.value=='분류') {
 			alert("분류를 선택하시오.");
 			return false;
 		}
 	}
 	
 	var url = window.location.search;
-	var ftype = new URLSearchParams(url).get('ftype');
-	if(ftype == 'rest') {
-		document.querySelector('#ftypeval option:nth-child(2)').selected = true;
-	} else if(ftype == 'cafe') {
-		document.querySelector('#ftypeval option:nth-child(3)').selected = true;
-	} else if(ftype == 'etc') {
-		document.querySelector('#ftypeval option:nth-child(4)').selected = true;
+	var ptype = new URLSearchParams(url).get('ptype');
+	if(ptype == 'curtural') {
+		document.querySelector('#ptypeval option:nth-child(2)').selected = true;
+	} else if(ptype == 'theme') {
+		document.querySelector('#ptypeval option:nth-child(3)').selected = true;
+	} else if(ptype == 'beach') {
+		document.querySelector('#ptypeval option:nth-child(4)').selected = true;
 	} else {
-		document.querySelector('#ftypeval option:nth-child(1)').selected = true;
+		document.querySelector('#ptypeval option:nth-child(1)').selected = true;
 	}
 </script>
 </body>
