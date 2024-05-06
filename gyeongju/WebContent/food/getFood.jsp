@@ -22,7 +22,8 @@
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
 	.page .food-wrap { width:100%; box-sizing:border-box; padding:20px 0;}
 	.page .food-wrap .food-col1 {width:50%; float:left;}
-	.page .food-wrap .food-col1 figure {display:block; width:90%; height:auto; aspect-ratio:16/9; margin:0 auto;}
+	.page .food-wrap .food-col1 .fig {display:block; width:90%; height:auto; aspect-ratio:16/9; margin:0 auto;}
+	.page .food-wrap .food-col1 .fig img { width:100%; height:auto;}
 	.page .food-wrap .food-col2 {width:50%; float:right;}
 	.page .food-wrap .food-col2 .food-dtl {width:100%; box-sizing:border-box; padding-right:5%; }
 	.page .food-wrap .food-col2 .food-dtl h3 {box-sizing:border-box; padding:15px 5px;}
@@ -46,7 +47,7 @@
 		<hr>
 		<div class="food-wrap">
 			<div class="food-col1">
-				<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
+				<figure class="fig"><img src="${path0 }/upload/food/${food.filename}" alt="식도락${food.fno }"></figure>
 			</div>
 			<div class="food-col2">
 				<div class="food-dtl">

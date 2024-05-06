@@ -1,5 +1,6 @@
 package org.gyeongju.ctrl.food;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -28,6 +29,14 @@ public class FoodDeleteCtrl extends HttpServlet {
 		int fno = Integer.parseInt(request.getParameter("fno"));
 		
 		FoodDAO dao = new FoodDAO();
+		
+		String filename = dao.getFood(fno).getFilename();
+		String filepath = request.getServletContext().getRealPath("/upload/food/")+filename;
+		File delFile = new File(filepath);
+		delFile.delete();
+//		System.out.println(filepath);
+//		System.out.println(isDel==true?"파일삭제성공" : "파일삭제실패");
+		
 		int cnt = dao.deleteFood(fno);
 		
 		if(cnt>0) {

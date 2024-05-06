@@ -28,7 +28,8 @@ public class FoodDAO {
 						rs.getString("ftype"),
 						rs.getString("ftel"),
 						rs.getString("faddr"),
-						rs.getString("fcomm")
+						rs.getString("fcomm"),
+						rs.getString("filename")
 						);
 				foodList.add(food);
 			}
@@ -56,7 +57,8 @@ public class FoodDAO {
 						rs.getString("ftype"),
 						rs.getString("ftel"),
 						rs.getString("faddr"),
-						rs.getString("fcomm")
+						rs.getString("fcomm"),
+						rs.getString("filename")
 						);
 				restList.add(food);
 			}
@@ -84,7 +86,8 @@ public class FoodDAO {
 						rs.getString("ftype"),
 						rs.getString("ftel"),
 						rs.getString("faddr"),
-						rs.getString("fcomm")
+						rs.getString("fcomm"),
+						rs.getString("filename")
 						);
 				cafeList.add(food);
 			}
@@ -112,7 +115,8 @@ public class FoodDAO {
 						rs.getString("ftype"),
 						rs.getString("ftel"),
 						rs.getString("faddr"),
-						rs.getString("fcomm")
+						rs.getString("fcomm"),
+						rs.getString("filename")
 						);
 				etcList.add(food);
 			}
@@ -144,6 +148,7 @@ public class FoodDAO {
 				food.setFtel(rs.getString("ftel"));
 				food.setFaddr(rs.getString("faddr"));
 				food.setFcomm(rs.getString("fcomm"));
+				food.setFilename(rs.getString("filename"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -165,6 +170,7 @@ public class FoodDAO {
 			pstmt.setString(3, food.getFtel());
 			pstmt.setString(4, food.getFaddr());
 			pstmt.setString(5, food.getFcomm());
+			pstmt.setString(6,  food.getFilename());
 			cnt = pstmt.executeUpdate();
 			
 			//파일 처리 추가
@@ -209,7 +215,11 @@ public class FoodDAO {
 			con = mysql.connect();
 			pstmt = con.prepareStatement(SqlLang.DEL_FOOD);
 			pstmt.setInt(1, fno);
+			
+			
 			cnt = pstmt.executeUpdate();
+			
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

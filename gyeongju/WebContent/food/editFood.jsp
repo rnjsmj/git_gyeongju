@@ -28,8 +28,9 @@
 	.updForm .td-fcomm textarea {width:100%; height:200px; resize:none; padding:10px;}
 	.updForm .td-ffile .btn-upload {width:100px; text-align:center; padding:5px; display:inline-block;
 		border:1px solid #6b717b; border-radius:3px;}
-	.updForm .td-ffile #ffile {width:800px;}
-	.updForm .td-ffile #ffile::file-selector-button {display:none;}
+	.updForm .td-ffile #filename {width:800px; display:none;}
+	.updForm .td-ffile #filename::file-selector-button {display:none;}
+	.updForm .td-ffile p {display:inline-block; font-size:14px; color:#777; margin-left:5px; }
 	.updForm .td-submit .btn-group { width:300px; margin:0 auto; text-align:center;}
 	.updForm .td-submit #submit {width:100px; padding:10px 20px; display:inline-block;  }
 	.updForm .td-submit .btn-back {width:100px; padding:10px 20px; display:inline-block; background-color:#747a86; border:1px solid #6b717b;
@@ -52,7 +53,8 @@
 	<section class="page">
 		<h2 class="page-title">식도락</h2>
 		<hr>
-		<form action="${path0 }/FoodUpdatePro.do?ftype=<%=request.getParameter("ftype") %>" method="post" onsubmit="return typeCheck(this)" >
+		<form action="${path0 }/FoodUpdatePro.do?ftype=<%=request.getParameter("ftype") %>" method="post" 
+			onsubmit="return typeCheck(this)" enctype="multipart/form-data">
 			<table class="updForm">
 				<tbody>
 					<tr class="tr-fno">
@@ -93,10 +95,10 @@
 					</tr>
 					<tr>
 						<td colspan="2" class="td-ffile">
-							<label for="ffile">
-								<div class="btn-upload">사진 첨부</div>
-							</label>
-							<input type="file" name="ffile" id="ffile">
+							<div class="btn-upload" >사진 첨부</div>
+							<input type="file" name="filename" id="filename" accept=".jpg, .png, .jpeg, .svg" 
+								value="${path0 }/upload/food/${food.filename}" disabled/>
+							<p>${food.filename}</p>
 						</td>
 					</tr>
 					<tr>
@@ -136,6 +138,8 @@
 	} else {
 		document.querySelector('#ftypeval option:nth-child(1)').selected = true;
 	}
+	
+	
 </script>
 </body>
 </html>

@@ -22,20 +22,23 @@
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
 	.page .lst-food { clear:both; width:1170px; margin:0 auto; min-width:1170px; margin-bottom:50px; }
 	.page .lst-food::after { content:""; display:block; width:100%; clear:both; }
-    .lst-food .food-test { width: 370px; float:left; padding-bottom:50px; height:485px;
+    .lst-food .food-div { width: 370px; float:left; padding-bottom:50px; height:485px;
      border-radius:10px 10px 0px 0px; box-shadow:4px 4px 6px #66666625; margin: 20px 10px 0 10px;}
     /* @media (max-width:1198px) {
-    	.food-test {width:617px; float:left;  }
+    	.food-div {width:617px; float:left;  }
     }
     @media (max-width:798px) {
-    	.food-test {width:100%; float:left; min-width:399px;}
+    	.food-div {width:100%; float:left; min-width:399px;}
     } */
     
-    .food-test li {  overflow:hidden; box-sizing:border-box; }
-	.lst-food .food-test figure { display:block; width: 100%; height:auto; aspect-ratio:4/3;}
-    .lst-food .food-test li span { display:block; padding-left:18px; padding-top: 18px; }
-	.lst-food .food-test .item_tit {font-weight:600; font-size:20px;}
-	.lst-food .food-test .item_tit:hover {text-decoration:underline;}
+    .food-div li {  overflow:hidden; box-sizing:border-box; }
+	.lst-food .food-div .fig { display:block; width: 100%; height:auto; aspect-ratio:4/3; overflow:hidden; margin:0 auto;}
+	.lst-food .food-div .fig img {width:100%; height:100%; object-fit:cover; transition:0.5s; }
+	.lst-food .food-div:hover .fig img {transform:scale(1.1);}
+	.lst-food .food-div:hover .item_tit {font-weight: 600;}
+	
+    .lst-food .food-div li span { display:block; padding-left:18px; padding-top: 18px; }
+	.lst-food .food-div .item_tit {font-weight:500; font-size:20px;}
 	
 	.page .buttons { clear:both; margin-top:30px;}
 	 #footer { width:100%; background-color: #000; height:200px; padding:20px 0; box-sizing:border-box; min-width:1200px;}
@@ -79,16 +82,18 @@
 					<c:if test="${not empty foodList }">
 					<c:forEach var="dto" items="${foodList }">
 						<a href="${path0}/GetFood.do?ftype=all&fno=${dto.fno}">
-						<div class="food-test" id="food-test">
+						<div class="food-div" id="food-div">
+							<div class="card-image">
+								<figure class="fig"><img src="${path0 }/upload/food/${dto.filename}" alt="식도락${dto.fno }"></figure>
+							</div>
+							<div class="card-body">
 							<ul class="food-ul">
-								<li><!-- 사진 위치  -->
-									<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
-								</li>
 								<li><span class="item_tit">${dto.fname }</span></li>
 								<li><span class="item_type">${dto.ftype }</span></li>
 								<li><span class="item_tel">${dto.ftel }</span></li>
 								<li><span class="item_addr">${dto.faddr }</span></li>
 							</ul>
+							</div>
 						</div>
 						</a>
 					</c:forEach>
@@ -101,16 +106,18 @@
 					<c:if test="${not empty foodList }">
 					<c:forEach var="dto" items="${foodList }">
 						<a href="${path0}/GetFood.do?ftype=rest&fno=${dto.fno}">
-						<div class="food-test" id="food-test">
+						<div class="food-div" id="food-div">
+							<div class="card-image">
+								<figure class="fig"><img src="${path0 }/upload/food/${dto.filename}" alt="식도락${dto.fno }"></figure>
+							</div>
+							<div class="card-body">
 							<ul class="food-ul">
-								<li><!-- 사진 위치  -->
-									<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
-								</li>
 								<li><span class="item_tit">${dto.fname }</span></li>
 								<li><span class="item_type">${dto.ftype }</span></li>
 								<li><span class="item_tel">${dto.ftel }</span></li>
 								<li><span class="item_addr">${dto.faddr }</span></li>
 							</ul>
+							</div>
 						</div>
 						</a>
 					</c:forEach>
@@ -123,16 +130,18 @@
 					<c:if test="${not empty foodList }">
 					<c:forEach var="dto" items="${foodList }">
 						<a href="${path0}/GetFood.do?ftype=cafe&fno=${dto.fno}">
-						<div class="food-test" id="food-test">
+						<div class="food-div" id="food-div">
+							<div class="card-image">
+								<figure class="fig"><img src="${path0 }/upload/food/${dto.filename}" alt="식도락${dto.fno }"></figure>
+							</div>
+							<div class="card-body">
 							<ul class="food-ul">
-								<li><!-- 사진 위치  -->
-									<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
-								</li>
 								<li><span class="item_tit">${dto.fname }</span></li>
 								<li><span class="item_type">${dto.ftype }</span></li>
 								<li><span class="item_tel">${dto.ftel }</span></li>
 								<li><span class="item_addr">${dto.faddr }</span></li>
 							</ul>
+							</div>
 						</div>
 						</a>
 					</c:forEach>
@@ -145,16 +154,18 @@
 					<c:if test="${not empty foodList }">
 					<c:forEach var="dto" items="${foodList }">
 						<a href="${path0}/GetFood.do?ftype=etc&fno=${dto.fno}">
-						<div class="food-test" id="food-test">
+						<div class="food-div" id="food-div">
+							<div class="card-image">
+								<figure class="fig"><img src="${path0 }/upload/food/${dto.filename}" alt="식도락${dto.fno }"></figure>
+							</div>
+							<div class="card-body">
 							<ul class="food-ul">
-								<li><!-- 사진 위치  -->
-									<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
-								</li>
 								<li><span class="item_tit">${dto.fname }</span></li>
 								<li><span class="item_type">${dto.ftype }</span></li>
 								<li><span class="item_tel">${dto.ftel }</span></li>
 								<li><span class="item_addr">${dto.faddr }</span></li>
 							</ul>
+							</div>
 						</div>
 						</a>
 					</c:forEach>
@@ -168,16 +179,18 @@
 					<c:if test="${not empty foodList }">
 					<c:forEach var="dto" items="${foodList }">
 						<a href="${path0}/GetFood.do?ftype=test&fno=${dto.fno}">
-						<div class="food-test" id="food-test">
+						<div class="food-div" id="food-div">
+							<div class="card-image">
+								<figure class="fig"><img src="${path0 }/upload/food/${dto.filename}" alt="식도락${dto.fno }"></figure>
+							</div>
+							<div class="card-body">
 							<ul class="food-ul">
-								<li><!-- 사진 위치  -->
-									<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
-								</li>
 								<li><span class="item_tit">${dto.fname }</span></li>
 								<li><span class="item_type">${dto.ftype }</span></li>
 								<li><span class="item_tel">${dto.ftel }</span></li>
 								<li><span class="item_addr">${dto.faddr }</span></li>
 							</ul>
+							</div>
 						</div>
 						</a>
 					</c:forEach>

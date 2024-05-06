@@ -27,8 +27,8 @@
 	.insForm .td-comm textarea {width:100%; height:200px; resize:none; padding:10px;}
 	.insForm .td-ffile .btn-upload {width:100px; text-align:center; padding:5px; display:inline-block;
 		border:1px solid #6b717b; border-radius:3px;}
-	.insForm .td-ffile #ffile {width:800px;}
-	.insForm .td-ffile #ffile::file-selector-button {display:none;}
+	.insForm .td-ffile #filename {width:800px;}
+	.insForm .td-ffile #filename::file-selector-button {display:none;}
 	.insForm .td-submit .btn-group { width:300px; margin:0 auto; text-align:center;}
 	.insForm .td-submit #submit {width:100px; padding:10px 20px; display:inline-block;  }
 	.insForm .td-submit .btn-back {width:100px; padding:10px 20px; display:inline-block; background-color:#747a86; border:1px solid #6b717b;
@@ -51,7 +51,8 @@
 	<section class="page">
 		<h2 class="page-title">식도락</h2>
 		<hr>
-		<form action="${path0 }/FoodInsert.do?ftype=<%=request.getParameter("ftype") %>" method="post" onsubmit="return typeCheck(this)" >
+		<form action="${path0 }/FoodInsert.do?ftype=<%=request.getParameter("ftype") %>" method="post" 
+			onsubmit="return typeCheck(this)" enctype="multipart/form-data" >
 			<table class="insForm">
 				<tbody>
 					<tr>
@@ -84,10 +85,10 @@
 					</tr>
 					<tr>
 						<td colspan="2" class="td-ffile">
-							<label for="ffile">
+							<label for="filename">
 								<div class="btn-upload">사진 첨부</div>
 							</label>
-							<input type="file" name="ffile" id="ffile">
+							<input type="file" name="filename" id="filename" accept=".jpg, .png, .jpeg, .svg">
 						</td>
 					</tr>
 					<tr>

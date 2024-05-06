@@ -8,7 +8,7 @@ public interface SqlLang {
 	String SELECT_FOOD_CAFE = "select * from food where ftype='카페' order by fname";
 	String SELECT_FOOD_ETC = "select * from food where ftype='기타' order by fname";
 	String UPD_FOOD = "update food set fname=?, ftype=?, ftel=?, faddr=?, fcomm=? where fno=?";
-	String INS_FOOD = "insert into food values(fd_seq.nextval, ?, ?, ?, ?, null, ?, null)";
+	String INS_FOOD = "insert into food values(fd_seq.nextval, ?, ?, ?, ?, null, ?, ?)";
 	String DEL_FOOD = "delete from food where fno=?";
 	
 	//여기어때

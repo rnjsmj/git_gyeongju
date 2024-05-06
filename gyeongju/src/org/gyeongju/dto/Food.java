@@ -1,17 +1,18 @@
 package org.gyeongju.dto;
 
 public class Food {
-	//gps Á¦¿Ü
-	private int fno; //¹øÈ£
-	private String fname; //ÁöÁ¡ ÀÌ¸§
-	private String ftype; //ºĞ·ù
-	private String ftel; //¿¬¶ôÃ³
-	private String faddr; //ÁöÁ¡ ÁÖ¼Ò
-	private String fcomm; //ÁöÁ¡ ¼³¸í
+	//gps ï¿½ï¿½ï¿½ï¿½
+	private int fno; //ï¿½ï¿½È£
+	private String fname; //ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	private String ftype; //ï¿½Ğ·ï¿½
+	private String ftel; //ï¿½ï¿½ï¿½ï¿½Ã³
+	private String faddr; //ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½
+	private String fcomm; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String filename; //íŒŒì¼ì´ë¦„
 	
 	public Food() {}
 
-	public Food(int fno, String fname, String ftype, String ftel, String faddr, String fcomm) {
+	public Food(int fno, String fname, String ftype, String ftel, String faddr, String fcomm, String filename) {
 		super();
 		this.fno = fno;
 		this.fname = fname;
@@ -19,6 +20,7 @@ public class Food {
 		this.ftel = ftel;
 		this.faddr = faddr;
 		this.fcomm = fcomm;
+		this.filename = filename;
 	}
 
 	public int getFno() {
@@ -68,11 +70,19 @@ public class Food {
 	public void setFcomm(String fcomm) {
 		this.fcomm = fcomm;
 	}
+	
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 
 	@Override
 	public String toString() {
 		return "Food [fno=" + fno + ", fname=" + fname + ", ftype=" + ftype + ", ftel=" + ftel + ", faddr=" + faddr
-				+ ", fcomm=" + fcomm + "]";
+				+ ", fcomm=" + fcomm + "filename=" + filename + "]";
 	}
 	
 	
