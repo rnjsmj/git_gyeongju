@@ -30,6 +30,7 @@
 		border:1px solid #6b717b; border-radius:3px;}
 	.updForm .td-pfile #pfile {width:800px;}
 	.updForm .td-pfile #pfile::file-selector-button {display:none;}
+	.updForm .td-pfile p {display:inline-block; font-size:14px; color:#777; margin-left:5px; }
 	.updForm .td-submit .btn-group { width:300px; margin:0 auto; text-align:center;}
 	.updForm .td-submit #submit {width:100px; padding:10px 20px; display:inline-block;  }
 	.updForm .td-submit .btn-back {width:100px; padding:10px 20px; display:inline-block; background-color:#747a86; border:1px solid #6b717b;
@@ -93,10 +94,10 @@
 					</tr>
 					<tr>
 						<td colspan="2" class="td-pfile">
-							<label for="pfile">
-								<div class="btn-upload">사진 첨부</div>
-							</label>
-							<input type="file" name="pfile" id="pfile">
+							<div class="btn-upload" >사진 첨부</div>
+							<input type="file" name="filename" id="filename" accept=".jpg, .png, .jpeg, .svg, .JPG, .PNG, .JPEG, .SVG" 
+								value="${path0 }/upload/place/${place.filename}" disabled/>
+							<p>${place.filename}</p>
 						</td>
 					</tr>
 					<tr>

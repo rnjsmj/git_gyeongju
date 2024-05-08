@@ -88,7 +88,7 @@
 							<label for="filename">
 								<div class="btn-upload">사진 첨부</div>
 							</label>
-							<input type="file" name="filename" id="filename" accept=".jpg, .png, .jpeg, .svg">
+							<input type="file" name="filename" id="filename" accept=".jpg, .png, .jpeg, .svg, .PNG, .JPG, .JPEG, .SVG">
 						</td>
 					</tr>
 					<tr>

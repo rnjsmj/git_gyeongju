@@ -31,12 +31,10 @@ public class FoodUpdateCtrl extends HttpServlet {
 		Food food = dao.getFood(fno);
 		String ftypeOp = food.getFtype();
 		String ftype = request.getParameter("ftype");
-		String fileval = food.getFilename();
 		
 		request.setAttribute("food", food);
 		request.setAttribute("ftypeOp", ftypeOp);
 		request.setAttribute("ftype", ftype);
-		request.setAttribute("fileval", fileval);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/food/editFood.jsp");
 		view.forward(request, response);

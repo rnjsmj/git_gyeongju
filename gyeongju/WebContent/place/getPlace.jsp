@@ -22,7 +22,8 @@
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
 	.page .place-wrap { width:100%; box-sizing:border-box; padding:20px 0;}
 	.page .place-wrap .place-col1 {width:50%; float:left;}
-	.page .place-wrap .place-col1 figure {display:block; width:90%; height:auto; aspect-ratio:16/9; margin:0 auto;}
+	.page .place-wrap .place-col1 .fig {display:block; width:90%; height:auto; aspect-ratio:16/9; margin:0 auto;}
+	.page .place-wrap .place-col1 .fig img {width:100%; height:auto;}
 	.page .place-wrap .place-col2 {width:50%; float:right;}
 	.page .place-wrap .place-col2 .place-dtl {width:100%; box-sizing:border-box; padding-right:5%; }
 	.page .place-wrap .place-col2 .place-dtl h3 {box-sizing:border-box; padding:15px 5px;}
@@ -46,7 +47,7 @@
 		<hr>
 		<div class="place-wrap">
 			<div class="place-col1">
-				<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
+				<figure class="fig"><img src="${path0 }/upload/place/${place.filename}" alt="여기어때${place.pno }"></figure>
 			</div>
 			<div class="place-col2">
 				<div class="place-dtl">

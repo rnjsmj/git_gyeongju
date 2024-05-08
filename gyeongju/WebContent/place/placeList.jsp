@@ -22,14 +22,17 @@
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
 	.page .lst-place { clear:both; width:1170px; margin:0 auto; min-width:1170px; margin-bottom:50px; }
 	.page .lst-place::after { content:""; display:block; width:100%; clear:both; }
-    .lst-place .place-test { width: 370px; float:left; padding-bottom:50px; height:485px;
+    .lst-place .place-div { width: 370px; float:left; padding-bottom:50px; height:485px;
      border-radius:10px 10px 0px 0px; box-shadow:4px 4px 6px #66666625; margin: 20px 10px 0 10px;}
     
-    .place-test li {  overflow:hidden; box-sizing:border-box; }
-	.lst-place .place-test figure { display:block; width: 100%; height:auto; aspect-ratio:4/3;}
-    .lst-place .place-test li span { display:block; padding-left:18px; padding-top: 18px; }
-	.lst-place .place-test .item_tit {font-weight:600; font-size:20px;}
-	.lst-place .place-test .item_tit:hover {text-decoration:underline;}
+    .place-div li {  overflow:hidden; box-sizing:border-box; }
+	.lst-place .place-div .fig { display:block; width: 100%; height:auto; aspect-ratio:4/3; overflow:hidden; margin:0 auto;}
+	.lst-place .place-div .fig img {width:100%; height:100%; object-fit:cover; transition:0.5s; }
+	.lst-place .place-div:hover .fig img {transform:scale(1.1);}
+    .lst-place .place-div:hover .item_tit {font-weight:600;}
+    
+    .lst-place .place-div li span { display:block; padding-left:18px; padding-top: 18px; }
+	.lst-place .place-div .item_tit {font-weight:600; font-size:20px;}
 	
 	.page .buttons { clear:both; margin-top:30px;}
 	 #footer { width:100%; background-color: #000; height:200px; padding:20px 0; box-sizing:border-box; min-width:1200px;}
@@ -73,22 +76,24 @@
 					<c:if test="${not empty placeList }">
 					<c:forEach var="dto" items="${placeList }">
 						<a href="${path0}/GetPlace.do?ptype=all&pno=${dto.pno}">
-						<div class="place-test" id="place-test">
-							<ul class="place-ul">
-								<li><!-- 사진 위치  -->
-									<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
-								</li>
-								<li><span class="item_tit">${dto.pname }</span></li>
-								<li><span class="item_type">${dto.ptype }</span></li>
-								<li><span class="item_tel">
-									<c:if test="${empty dto.ptel }">
-										정보 없음
-									</c:if>
-									<c:if test="${not empty dto.ptel }">
-										${dto.ptel }
-									</c:if></span></li>
-								<li><span class="item_addr">${dto.paddr }</span></li>
-							</ul>
+						<div class="place-div" id="place-div">
+							<div class="card-image">
+								<figure class="fig"><img src="${path0 }/upload/place/${dto.filename }" alt="여기어때${dto.pno }"></figure>
+							</div>
+							<div class="card-body">
+								<ul class="place-ul">
+									<li><span class="item_tit">${dto.pname }</span></li>
+									<li><span class="item_type">${dto.ptype }</span></li>
+									<li><span class="item_tel">
+										<c:if test="${empty dto.ptel }">
+											정보 없음
+										</c:if>
+										<c:if test="${not empty dto.ptel }">
+											${dto.ptel }
+										</c:if></span></li>
+									<li><span class="item_addr">${dto.paddr }</span></li>
+								</ul>
+							</div>
 						</div>
 						</a>
 					</c:forEach>
@@ -101,22 +106,24 @@
 					<c:if test="${not empty placeList }">
 					<c:forEach var="dto" items="${placeList }">
 						<a href="${path0}/GetPlace.do?ptype=curtural&pno=${dto.pno}">
-						<div class="place-test" id="place-test">
-							<ul class="place-ul">
-								<li><!-- 사진 위치  -->
-									<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
-								</li>
-								<li><span class="item_tit">${dto.pname }</span></li>
-								<li><span class="item_type">${dto.ptype }</span></li>
-								<li><span class="item_tel">
-									<c:if test="${empty dto.ptel }">
-										정보 없음
-									</c:if>
-									<c:if test="${not empty dto.ptel }">
-										${dto.ptel }
-									</c:if></span></li>
-								<li><span class="item_addr">${dto.paddr }</span></li>
-							</ul>
+						<div class="place-div" id="place-div">
+							<div class="card-image">
+								<figure class="fig"><img src="${path0 }/upload/place/${dto.filename }" alt="여기어때${dto.pno }"></figure>
+							</div>
+							<div class="card-body">
+								<ul class="place-ul">
+									<li><span class="item_tit">${dto.pname }</span></li>
+									<li><span class="item_type">${dto.ptype }</span></li>
+									<li><span class="item_tel">
+										<c:if test="${empty dto.ptel }">
+											정보 없음
+										</c:if>
+										<c:if test="${not empty dto.ptel }">
+											${dto.ptel }
+										</c:if></span></li>
+									<li><span class="item_addr">${dto.paddr }</span></li>
+								</ul>
+							</div>
 						</div>
 						</a>
 					</c:forEach>
@@ -129,22 +136,24 @@
 					<c:if test="${not empty placeList }">
 					<c:forEach var="dto" items="${placeList }">
 						<a href="${path0}/GetPlace.do?ptype=theme&pno=${dto.pno}">
-						<div class="place-test" id="place-test">
-							<ul class="place-ul">
-								<li><!-- 사진 위치  -->
-									<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
-								</li>
-								<li><span class="item_tit">${dto.pname }</span></li>
-								<li><span class="item_type">${dto.ptype }</span></li>
-								<li><span class="item_tel">
-									<c:if test="${empty dto.ptel }">
-										정보 없음
-									</c:if>
-									<c:if test="${not empty dto.ptel }">
-										${dto.ptel }
-									</c:if></span></li>
-								<li><span class="item_addr">${dto.paddr }</span></li>
-							</ul>
+						<div class="place-div" id="place-div">
+							<div class="card-image">
+								<figure class="fig"><img src="${path0 }/upload/place/${dto.filename }" alt="여기어때${dto.pno }"></figure>
+							</div>
+							<div class="card-body">
+								<ul class="place-ul">
+									<li><span class="item_tit">${dto.pname }</span></li>
+									<li><span class="item_type">${dto.ptype }</span></li>
+									<li><span class="item_tel">
+										<c:if test="${empty dto.ptel }">
+											정보 없음
+										</c:if>
+										<c:if test="${not empty dto.ptel }">
+											${dto.ptel }
+										</c:if></span></li>
+									<li><span class="item_addr">${dto.paddr }</span></li>
+								</ul>
+							</div>
 						</div>
 						</a>
 					</c:forEach>
@@ -157,22 +166,24 @@
 					<c:if test="${not empty placeList }">
 					<c:forEach var="dto" items="${placeList }">
 						<a href="${path0}/GetPlace.do?ptype=beach&pno=${dto.pno}">
-						<div class="place-test" id="place-test">
-							<ul class="place-ul">
-								<li><!-- 사진 위치  -->
-									<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
-								</li>
-								<li><span class="item_tit">${dto.pname }</span></li>
-								<li><span class="item_type">${dto.ptype }</span></li>
-								<li><span class="item_tel">
-									<c:if test="${empty dto.ptel }">
-										정보 없음
-									</c:if>
-									<c:if test="${not empty dto.ptel }">
-										${dto.ptel }
-									</c:if></span></li>
-								<li><span class="item_addr">${dto.paddr }</span></li>
-							</ul>
+						<div class="place-div" id="place-div">
+							<div class="card-image">
+								<figure class="fig"><img src="${path0 }/upload/place/${dto.filename }" alt="여기어때${dto.pno }"></figure>
+							</div>
+							<div class="card-body">
+								<ul class="place-ul">
+									<li><span class="item_tit">${dto.pname }</span></li>
+									<li><span class="item_type">${dto.ptype }</span></li>
+									<li><span class="item_tel">
+										<c:if test="${empty dto.ptel }">
+											정보 없음
+										</c:if>
+										<c:if test="${not empty dto.ptel }">
+											${dto.ptel }
+										</c:if></span></li>
+									<li><span class="item_addr">${dto.paddr }</span></li>
+								</ul>
+							</div>
 						</div>
 						</a>
 					</c:forEach>
@@ -186,22 +197,24 @@
 					<c:if test="${not empty placeList }">
 					<c:forEach var="dto" items="${placeList }">
 						<a href="${path0}/GetPlace.do?ptype=test&pno=${dto.pno}">
-						<div class="place-test" id="place-test">
-							<ul class="place-ul">
-								<li><!-- 사진 위치  -->
-									<figure style="background-color:#ebe1e1; text-align:center;"><p>사진</p></figure>
-								</li>
-								<li><span class="item_tit">${dto.pname }</span></li>
-								<li><span class="item_type">${dto.ptype }</span></li>
-								<li><span class="item_tel">
-									<c:if test="${empty dto.ptel }">
-										정보 없음
-									</c:if>
-									<c:if test="${not empty dto.ptel }">
-										${dto.ptel }
-									</c:if></span></li>
-								<li><span class="item_addr">${dto.paddr }</span></li>
-							</ul>
+						<div class="place-div" id="place-div">
+							<div class="card-image">
+								<figure class="fig"><img src="${path0 }/upload/place/${dto.filename }" alt="여기어때${dto.pno }"></figure>
+							</div>
+							<div class="card-body">
+								<ul class="place-ul">
+									<li><span class="item_tit">${dto.pname }</span></li>
+									<li><span class="item_type">${dto.ptype }</span></li>
+									<li><span class="item_tel">
+										<c:if test="${empty dto.ptel }">
+											정보 없음
+										</c:if>
+										<c:if test="${not empty dto.ptel }">
+											${dto.ptel }
+										</c:if></span></li>
+									<li><span class="item_addr">${dto.paddr }</span></li>
+								</ul>
+							</div>
 						</div>
 						</a>
 					</c:forEach>
@@ -211,6 +224,11 @@
 					</c:if>
 				</c:if>
 				
+		</div>
+		<div class="paging">
+			<ul class="page-list">
+				
+			</ul>
 		</div>
 		<div class="buttons">
 			<a role="button" href="${path0 }/place/insertPlace.jsp?ptype=${ptype}">여기어때 등록</a>

@@ -14,12 +14,15 @@ public class FoodDAO {
 	ResultSet rs = null;
 	
 	//식도락 목록
-	public List<Food> getFoodList() {
+	public List<Food> getFoodList(int curPage) {
 		List<Food> foodList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_ALL_FOOD);
+			
+			pstmt.setInt(1, ((curPage-1)*9+1));
+			pstmt.setInt(2, curPage*9);
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -210,9 +213,9 @@ public class FoodDAO {
 	//식도락 삭제
 	public int deleteFood(int fno) {
 		int cnt = 0;
-		OracleDB mysql = new OracleDB();
+		OracleDB oracle = new OracleDB();
 		try {
-			con = mysql.connect();
+			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.DEL_FOOD);
 			pstmt.setInt(1, fno);
 			
@@ -223,8 +226,44 @@ public class FoodDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			mysql.close(con, pstmt);
+			oracle.close(con, pstmt);
 		}
 		return cnt;
+	}
+	
+	//식도락 레코드 개수
+	public int cntPage(String ftype) {
+		int rcnt = 0;
+		int pcnt = 0;
+		OracleDB oracle = new OracleDB();
+		try {
+			con = oracle.connect();
+			if (ftype.equals("all")) {
+				pstmt = con.prepareStatement(SqlLang.CNT_ALL_FOOD);
+			} else if (ftype.equals("rest")) {
+				pstmt = con.prepareStatement(SqlLang.CNT_ALL_FOOD + " where ftype='음식점'");
+			} else if (ftype.equals("cafe")) {
+				pstmt = con.prepareStatement(SqlLang.CNT_ALL_FOOD + " where ftype='카페'");
+			} else {
+				pstmt = con.prepareStatement(SqlLang.CNT_ALL_FOOD + " where ftype='기타'");
+			}
+			
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				rcnt = rs.getInt("count(*)");
+			}
+			
+			if (rcnt%9 != 0) {
+				pcnt = rcnt/9 + 1;
+			} else {
+				pcnt = rcnt/9;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			oracle.close(con, pstmt);
+		}
+		return pcnt;
 	}
 }

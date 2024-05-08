@@ -28,12 +28,21 @@ public class FoodListCtrl extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		String ftype = request.getParameter("ftype");
+		int curPage = 0;
+		if (request.getParameter("page") == null ) {
+			curPage = 1;
+		} else {
+			curPage = Integer.parseInt(request.getParameter("page"));
+		}
 		
 		FoodDAO dao = new FoodDAO();
 		List<Food> foodList = new ArrayList<>();
 		
+		int pcnt = dao.cntPage(ftype);
+		
+		
 		if (ftype.equals("all")) {
-			foodList = dao.getFoodList();
+			foodList = dao.getFoodList(curPage);
 		} else if (ftype.equals("rest")) {
 			foodList = dao.getRestList();
 		} else if (ftype.equals("cafe")) {
@@ -42,10 +51,9 @@ public class FoodListCtrl extends HttpServlet {
 			foodList = dao.getEtcList();
 		} else {
 		}
-		
-		
 		request.setAttribute("foodList", foodList);
 		request.setAttribute("ftype", ftype);
+		request.setAttribute("pcnt", pcnt);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/food/foodList.jsp");
 		view.forward(request, response);

@@ -5,14 +5,14 @@
 <c:set var="path0" value="<%=request.getContextPath() %>" /> 
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
+<title>경주시 문화관광 - 식도락</title>
+<%@ include file="/head.jsp" %>
+<script src="${path0 }/js/jquery-3.2.1.min.js"></script>
 <style>
-	* {margin:0; padding:0; box-sizing:border-box; list-style:none;}
-	html, body { width:100%; box-sizing:border-box; }
+
 	hr { box-sizing:content-box; margin-bottom:30px; }
-	
-	.temp-header { width:100%; background-color: #848c45; height:90px; text-align:center; 
-		line-height:90px; display:block; box-sizing:border-box; min-width:1200px;}
-	#header::after { content:""; display:block; width:100%; clear:both; }
 	
 	#contents { width:100%; min-height:100vh;  box-sizing:border-box; min-width:1200px;}
 	#contents::after { content:""; display:block; width:100%; clear:both; }
@@ -36,18 +36,12 @@
 	.updForm .td-submit .btn-back {width:100px; padding:10px 20px; display:inline-block; background-color:#747a86; border:1px solid #6b717b;
 		text-align:center; color:white; text-decoration:none;}
 	
-	 #footer { width:100%; background-color: #000; height:200px; padding:20px 0; box-sizing:border-box; min-width:1200px;}
-	.temp-footer { width:1200px; height:100%; text-align:left; color:#999;
-		display:block; margin: 0 auto; }
+
 </style>
-<head>
-<meta charset="UTF-8">
-<title>경주시 문화관광 - 식도락</title>
-<script src="${path0 }/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<div id="header">
-	<div class="temp-header">메뉴바</div>
+<div class="clr-fix">
+	<%@ include file="/header.jsp" %>
 </div>
 <div id="contents">
 	<section class="page">
@@ -96,7 +90,7 @@
 					<tr>
 						<td colspan="2" class="td-ffile">
 							<div class="btn-upload" >사진 첨부</div>
-							<input type="file" name="filename" id="filename" accept=".jpg, .png, .jpeg, .svg" 
+							<input type="file" name="filename" id="filename" accept=".jpg, .png, .jpeg, .svg, .JPG, .PNG, .JPEG, .SVG" 
 								value="${path0 }/upload/food/${food.filename}" disabled/>
 							<p>${food.filename}</p>
 						</td>
@@ -117,8 +111,8 @@
 		
 	</section>
 </div>
-<div id="footer">
-	<div class="temp-footer">푸터</div>
+<div class="clr-fix">
+	<%@ include file="/footer.jsp" %>
 </div>
 <script>
 	function typeCheck(f) {

@@ -5,20 +5,18 @@
 <c:set var="path0" value="<%=request.getContextPath() %>" /> 
 <!DOCTYPE html>
 <html>
-<style>
-	* {margin:0; padding:0; box-sizing:border-box; list-style:none;}
-	html, body { width:100%; box-sizing:border-box; }
-	ul {list-style:none;}
-	
-	hr { box-sizing:content-box;  }
-	
-	.temp-header { width:100%; background-color: #848c45; height:90px; text-align:center; 
-		line-height:90px; display:block; box-sizing:border-box; min-width:1200px;}
-	#header::after { content:""; display:block; width:100%; clear:both; }
-	
-	#contents { width:100%; min-height:100vh; margin-bottom:5rem; box-sizing:border-box; min-width:1200px;}
-	#contents::after { content:""; display:block; width:100%; clear:both; }
-	#contents .page { clear:both; width:1200px; margin:0 auto;}
+<head>
+<meta charset="UTF-8">
+<title>경주시 문화관광 - 식도락</title>
+<%@ include file="/head.jsp" %>
+<style>	
+	* {box-sizing:border-box; }
+	#contents { clear:both; width:100%; min-height:100vh; margin-bottom:5rem; box-sizing:border-box; min-width:1400px;}
+	#contents .page { clear:both; width:1200px; margin:0 auto; font-family: Noto Sans KR;}
+	.fd-vs { width:100%; height:400px; overflow:hidden; margin:0 auto; font-family: 'HSBombaram'; min-width:1400px; }
+	.fd-vs img {width:100%; height:100%; object-fit:cover;}
+	.fd-vs .vstit {position:absolute; width:100%; min-width:1400px; color:#fff; top:270px; z-index:998; margin:0 auto; }
+	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px;}
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
 	.page .lst-food { clear:both; width:1170px; margin:0 auto; min-width:1170px; margin-bottom:50px; }
 	.page .lst-food::after { content:""; display:block; width:100%; clear:both; }
@@ -48,26 +46,30 @@
 	
 	.food-tab { width:100%; float:left; margin-bottom:20px; }
 	.food-tab .foodtab-list {width:100%; float:left;}
-	.food-tab .foodtab-list li {position:relative; float:left; height:48px; line-height:47px;
+	.food-tab .foodtab-list li { float:left; height:48px; line-height:47px;
 		text-align:center; border: 1px solid #eaeaee; font-size:15px; width:300px;}
 	.food-tab .foodtab-list li a {width:100%; height:100%; text-decoration:none; color:#888888;}
 	.food-tab .foodtab-list li.active {border-top:2px solid #7192d0; background-color:#f7f7f7;}
 	
 	.emptylist { width:500px; text-align:center; margin:30px auto;}
+	
+	.paging {text-align:center;}
+	.paging-list {margin:0 auto;}
+	.paging-list li { display:inline-block;}
+	.paging-list li:not(:last-child) {margin-right:40px;}
 </style>
-<head>
-<meta charset="UTF-8">
-<title>경주시 문화관광 - 식도락</title>
-<script src="${path0 }/js/jquery-3.2.1.min.js"></script>
-
 </head>
 <body>
-<div id="header">
-	<div class="temp-header">메뉴바</div>
+<div class="clr-fix">
+ 	<%@ include file="/header.jsp" %>
 </div>
-<div id="contents">
+<div id="contents" class="clr-fix">
+	<figure class="fd-vs">
+		<img src="./images/foodlistimg.jpg" alt="식도락 배너">
+		<div class="vstit"><p class="ttext">식도락</p></div>
+	</figure>
 	<section class="page">
-		<h2 class="page-title">식도락</h2>
+		<!-- <h2 class="page-title">식도락</h2> -->
 		<div class="food-tab">
 			<ul class="foodtab-list">
 				<li><a href="${path0 }/FoodList.do?ftype=all">전체</a></li>
@@ -201,13 +203,23 @@
 				</c:if>
 				
 		</div>
+		<div class="paging">
+			<ul class="paging-list">
+				<li><</li>
+				<c:forEach var="i" begin="1" end="${pcnt }" >
+					<li><a href="${path0 }/FoodList.do?ftype=${ftype}&page=${i}"><c:out value="${i }"/></a></li>
+				</c:forEach>
+				<li>></li>
+			</ul>
+		</div>
+		
 		<div class="buttons">
 			<a role="button" href="${path0 }/food/insertFood.jsp?ftype=${ftype}">식도락 등록</a>
 		</div>
 	</section>
 </div>
-<div id="footer">
-	<div class="temp-footer">푸터</div>
+<div class="clr-fix">
+    <%@ include file="/footer.jsp" %>
 </div>
 <script>
 	var ftype = "<%=request.getParameter("ftype")%>";

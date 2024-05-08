@@ -8,9 +8,9 @@ public class Place {
 	private String paddr;
 	//private String pgps;
 	private String pcomm;
-	//private String filename;
+	private String filename;
 	
-	public Place(int pno, String pname, String ptype, String ptel, String paddr, String pcomm) {
+	public Place(int pno, String pname, String ptype, String ptel, String paddr, String pcomm, String filename) {
 		super();
 		this.pno = pno;
 		this.pname = pname;
@@ -18,6 +18,7 @@ public class Place {
 		this.ptel = ptel;
 		this.paddr = paddr;
 		this.pcomm = pcomm;
+		this.filename = filename;
 	}
 	
 	public Place() {}
@@ -69,11 +70,21 @@ public class Place {
 	public void setPcomm(String pcomm) {
 		this.pcomm = pcomm;
 	}
+	
+	
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 
 	@Override
 	public String toString() {
 		return "Place [pno=" + pno + ", pname=" + pname + ", ptype=" + ptype + ", ptel=" + ptel + ", paddr=" + paddr
-				+ ", pcomm=" + pcomm + "]";
+				+ ", pcomm=" + pcomm + ", filename=" + filename + "]";
 	}
 	
 	

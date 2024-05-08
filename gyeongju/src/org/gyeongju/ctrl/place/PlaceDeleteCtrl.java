@@ -1,5 +1,6 @@
 package org.gyeongju.ctrl.place;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -28,6 +29,12 @@ public class PlaceDeleteCtrl extends HttpServlet {
 		int pno = Integer.parseInt(request.getParameter("pno"));
 		
 		PlaceDAO dao = new PlaceDAO();
+		
+		String filename = dao.getPlace(pno).getFilename();
+		String filepath = request.getServletContext().getRealPath("/upload/place/")+filename;
+		File delFile = new File(filepath);
+		delFile.delete();
+		
 		int cnt = dao.deletePlace(pno);
 		
 		if(cnt>0) {
