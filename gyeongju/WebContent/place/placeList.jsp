@@ -45,8 +45,8 @@
 	.place-tab .placetab-list {width:100%; float:left;}
 	.place-tab .placetab-list li {float:left; height:48px; line-height:47px;
 		text-align:center; border: 1px solid #eaeaee; font-size:15px; width:300px;}
-	.place-tab .placetab-list li a {width:100%; height:100%; text-decoration:none; color:#888888;}
-	.place-tab .placetab-list li.active {border-bottom:3px solid #22333B; background-color:#f7f7f7;}
+	#contents .place-tab .placetab-list li a {width:100%; height:100%; text-decoration:none; color:#888888;}
+	#contents .place-tab .placetab-list li.active {border-bottom:3px solid #C1A483; background-color:#f7f7f7;}
 	#contents .place-tab .placetab-list li.active a {color:#101010;}
 	
 	.emptylist { width:500px; text-align:center; margin:30px auto;}
@@ -152,6 +152,7 @@
 							</div>
 							<div class="card-body">
 								<ul class="place-ul">
+									<li><span class="item_tit">${dto.pname }</span></li>
 									<li><img src="${path0 }/images/tag.svg" alt="분류"><span class="item_type">${dto.ptype }</span></li>
 									<li><img src="${path0 }/images/marker.svg" alt="주소"><span class="item_addr">${dto.paddr }</span></li>
 									<li><img src="${path0 }/images/phone.svg" alt="연락처"><span class="item_tel">
@@ -181,6 +182,7 @@
 							</div>
 							<div class="card-body">
 								<ul class="place-ul">
+									<li><span class="item_tit">${dto.pname }</span></li>
 									<li><img src="${path0 }/images/tag.svg" alt="분류"><span class="item_type">${dto.ptype }</span></li>
 									<li><img src="${path0 }/images/marker.svg" alt="주소"><span class="item_addr">${dto.paddr }</span></li>
 									<li><img src="${path0 }/images/phone.svg" alt="연락처"><span class="item_tel">
@@ -210,6 +212,7 @@
 							</div>
 							<div class="card-body">
 								<ul class="place-ul">
+									<li><span class="item_tit">${dto.pname }</span></li>
 									<li><img src="${path0 }/images/tag.svg" alt="분류"><span class="item_type">${dto.ptype }</span></li>
 									<li><img src="${path0 }/images/marker.svg" alt="주소"><span class="item_addr">${dto.paddr }</span></li>
 									<li><img src="${path0 }/images/phone.svg" alt="연락처"><span class="item_tel">

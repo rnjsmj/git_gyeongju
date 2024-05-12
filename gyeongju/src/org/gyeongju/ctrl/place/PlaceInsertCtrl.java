@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.gyeongju.dao.FoodDAO;
 import org.gyeongju.dao.PlaceDAO;
+import org.gyeongju.dto.Food;
 import org.gyeongju.dto.Place;
 
 import com.oreilly.servlet.MultipartRequest;
@@ -35,6 +37,12 @@ public class PlaceInsertCtrl extends HttpServlet {
 		
 		try {
 			String saveDirectory = application.getRealPath("/upload/place");
+			
+			File isDir = new File(saveDirectory);
+			if(!isDir.isDirectory()) {
+				isDir.mkdir();
+			}
+			
 			int maxSize = 1024*1024*10;
 			String encoding = "UTF-8";
 			MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxSize, encoding, new DefaultFileRenamePolicy());
@@ -44,6 +52,7 @@ public class PlaceInsertCtrl extends HttpServlet {
 			place.setPtel(mr.getParameter("ptel"));
 			place.setPaddr(mr.getParameter("paddr"));
 			place.setPcomm(mr.getParameter("pcomm"));
+			
 			//파일 추가
 			Enumeration files = mr.getFileNames();
 			String item = (String) files.nextElement();
@@ -52,18 +61,18 @@ public class PlaceInsertCtrl extends HttpServlet {
 			String fName = mr.getFilesystemName(item);
 			File upfile = mr.getFile(item);
 			place.setFilename(fName);
-
+			
 			PlaceDAO dao = new PlaceDAO();
 			int cnt = dao.insertPlace(place);
 			String ptype = request.getParameter("ptype");
-
+			
 			if(cnt>0) {
 				response.sendRedirect("/gyeongju/PlaceList.do?ptype=all");
 			} else {
 				response.sendRedirect("/gyeongju/place/insertPlace.jsp?ptype="+ptype);
 			}
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 	}
 

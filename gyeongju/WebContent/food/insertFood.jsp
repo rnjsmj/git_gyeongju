@@ -17,7 +17,7 @@
 	
 	#contents { width:100%; min-height:calc(100vh - 610px);  box-sizing:border-box; min-width:1200px; margin-top:160px;}
 	#contents .page { clear:both; width:1200px; margin:0 auto;}
-	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
+	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px; font-family: 'HSBombaram'; font-size:40px; letter-spacing:3px;}
 	
 	.insForm {width:1000px; margin:0 auto;}
 	.insForm * {font-family: Noto Sans KR;}
