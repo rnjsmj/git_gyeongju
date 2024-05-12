@@ -46,12 +46,14 @@ public class FoodDAO {
 	}
 	
 	//음식점 목록
-	public List<Food> getRestList() {
+	public List<Food> getRestList(int curPage) {
 		List<Food> restList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_FOOD_REST);
+			pstmt.setInt(1, ((curPage-1)*9+1));
+			pstmt.setInt(2, curPage*9);
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -75,12 +77,14 @@ public class FoodDAO {
 	}
 	
 	//카페 목록
-	public List<Food> getCafeList() {
+	public List<Food> getCafeList(int curPage) {
 		List<Food> cafeList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_FOOD_CAFE);
+			pstmt.setInt(1, ((curPage-1)*9+1));
+			pstmt.setInt(2, curPage*9);
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -104,12 +108,14 @@ public class FoodDAO {
 	}
 	
 	//기타 목록
-	public List<Food> getEtcList() {
+	public List<Food> getEtcList(int curPage) {
 		List<Food> etcList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_FOOD_ETC);
+			pstmt.setInt(1, ((curPage-1)*9+1));
+			pstmt.setInt(2, curPage*9);
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {

@@ -14,12 +14,16 @@ public class PlaceDAO {
 	ResultSet rs = null;
 	
 	//장소 목록
-	public List<Place> getPlaceList() {
+	public List<Place> getPlaceList(int curPage) {
 		List<Place> placeList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_ALL_PLACE);
+			
+			pstmt.setInt(1, ((curPage-1)*9+1));
+			pstmt.setInt(2, curPage*9);
+			
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -43,12 +47,14 @@ public class PlaceDAO {
 	}
 	
 	//문화재 목록
-	public List<Place> getCurturalList() {
+	public List<Place> getCurturalList(int curPage) {
 		List<Place> curturalList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_PLACE_CULTURAL);
+			pstmt.setInt(1, ((curPage-1)*9+1));
+			pstmt.setInt(2, curPage*9);
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -72,12 +78,14 @@ public class PlaceDAO {
 	}
 	
 	//테마파크 목록
-	public List<Place> getThemeList() {
+	public List<Place> getThemeList(int curPage) {
 		List<Place> themeList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_PLACE_THEME);
+			pstmt.setInt(1, ((curPage-1)*9+1));
+			pstmt.setInt(2, curPage*9);
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -101,12 +109,14 @@ public class PlaceDAO {
 	}
 	
 	//해변 목록
-	public List<Place> getBeachList() {
+	public List<Place> getBeachList(int curPage) {
 		List<Place> beachList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_PLACE_BEACH);
+			pstmt.setInt(1, ((curPage-1)*9+1));
+			pstmt.setInt(2, curPage*9);
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -222,5 +232,41 @@ public class PlaceDAO {
 			mysql.close(con, pstmt);
 		}
 		return cnt;
+	}
+	
+	//여기어때 레코드 개수
+	public int cntPage(String ptype) {
+		int rcnt = 0;
+		int pcnt = 0;
+		OracleDB oracle = new OracleDB();
+		try {
+			con = oracle.connect();
+			if (ptype.equals("all")) {
+				pstmt = con.prepareStatement(SqlLang.CNT_ALL_PLACE);
+			} else if (ptype.equals("curtural")) {
+				pstmt = con.prepareStatement(SqlLang.CNT_ALL_PLACE + " where ptype='문화재'");
+			} else if (ptype.equals("theme")) {
+				pstmt = con.prepareStatement(SqlLang.CNT_ALL_PLACE + " where ptype='테마파크'");
+			} else {
+				pstmt = con.prepareStatement(SqlLang.CNT_ALL_PLACE + " where ptype='해변'");
+			}
+			
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				rcnt = rs.getInt("count(*)");
+			}
+			
+			if (rcnt%9 != 0) {
+				pcnt = rcnt/9 + 1;
+			} else {
+				pcnt = rcnt/9;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			oracle.close(con, pstmt);
+		}
+		return pcnt;
 	}
 }

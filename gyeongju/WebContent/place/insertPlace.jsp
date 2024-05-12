@@ -95,7 +95,7 @@
 						<td colspan="2" class="td-submit">
 							<div class="btn-group">
 								<a class="btn-back" href="${path0 }/PlaceList.do?ptype=<%=request.getParameter("ptype")%>">취소</a>
-								<input id="submit" type="submit" value="등록" >
+								<button id="submit" type="submit">등록</button>
 							</div>
 							
 						</td>

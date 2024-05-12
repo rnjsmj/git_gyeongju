@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <c:set var="path0" value="<%=request.getContextPath() %>" /> 
 <style>
-	#ft { width: 100%; height: 300px; background: rgba(34,34,34,1); opacity: 1; position: absolute; overflow: hidden; }
+	#ft { width: 100%; height: 300px; background: rgba(34,34,34,1); opacity: 1;  position: absolute; overflow: hidden; margin-top:150px;}
 .ft_box { clear:both; width:1400px; margin: 0 auto;}
 .ft_logo { position: absolute; top: 140px; left: 260px;}
 .line { width: 1400px; height: 1px; background: rgba(255,255,255,0.10000000149011612); position: absolute; top: 104px; left: 260px;}
@@ -26,12 +26,12 @@
 </style>
 <footer id="ft">
 	<div class="ft_box">
-      <a href="" class="ft_logo"><img src="./images/logo2.png" alt="로고"></a>
+      <a href="" class="ft_logo"><img src="${path0 }/images/logo2.png" alt="로고"></a>
       <div class="icons">
-        <a href="" class="icon1"><img src="./images/icon1.png" alt="페이스북"></a>
-        <a href="" class="icon2"><img src="./images/icon2.png" alt="인스타그램"></a>
-        <a href="" class="icon3"><img src="./images/icon3.png" alt="트위터"></a>
-        <a href="" class="icon4"><img src="./images/icon4.png" alt="유튜브"></a>
+        <a href="" class="icon1"><img src="${path0 }/images/icon1.png" alt="페이스북"></a>
+        <a href="" class="icon2"><img src="${path0 }/images/icon2.png" alt="인스타그램"></a>
+        <a href="" class="icon3"><img src="${path0 }/images/icon3.png" alt="트위터"></a>
+        <a href="" class="icon4"><img src="${path0 }/images/icon4.png" alt="유튜브"></a>
     </div>
       <div class="ft_txt">
         <a href="" class="Personal">개인정보처리방침</a>

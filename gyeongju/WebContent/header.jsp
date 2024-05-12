@@ -45,7 +45,7 @@
           </ul>
 	  </div>
 	  <div class="nav">
-	      <a href="${path0 }" class="logo"><img src="./images/logo.png" alt="경주소개 홈페이지 로고"></a>
+	      <a href="${path0 }" class="logo"><img src="${path0 }/images/logo.png" alt="경주소개 홈페이지 로고"></a>
 	      <nav id="gnb">
 	          <ul class="menu clr-fix">
 	              <li class="item1">

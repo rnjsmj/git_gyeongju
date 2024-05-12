@@ -39,11 +39,11 @@ public class PlaceInsertCtrl extends HttpServlet {
 			String encoding = "UTF-8";
 			MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxSize, encoding, new DefaultFileRenamePolicy());
 			
-			place.setPname(request.getParameter("pname"));
-			place.setPtype(request.getParameter("ptypeval"));
-			place.setPtel(request.getParameter("ptel"));
-			place.setPaddr(request.getParameter("paddr"));
-			place.setPcomm(request.getParameter("pcomm"));
+			place.setPname(mr.getParameter("pname"));
+			place.setPtype(mr.getParameter("ptypeval"));
+			place.setPtel(mr.getParameter("ptel"));
+			place.setPaddr(mr.getParameter("paddr"));
+			place.setPcomm(mr.getParameter("pcomm"));
 			//파일 추가
 			Enumeration files = mr.getFileNames();
 			String item = (String) files.nextElement();

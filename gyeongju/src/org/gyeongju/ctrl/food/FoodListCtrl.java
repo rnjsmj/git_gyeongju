@@ -44,16 +44,18 @@ public class FoodListCtrl extends HttpServlet {
 		if (ftype.equals("all")) {
 			foodList = dao.getFoodList(curPage);
 		} else if (ftype.equals("rest")) {
-			foodList = dao.getRestList();
+			foodList = dao.getRestList(curPage);
 		} else if (ftype.equals("cafe")) {
-			foodList = dao.getCafeList();
+			foodList = dao.getCafeList(curPage);
 		} else if (ftype.equals("etc")) {
-			foodList = dao.getEtcList();
+			foodList = dao.getEtcList(curPage);
 		} else {
 		}
 		request.setAttribute("foodList", foodList);
 		request.setAttribute("ftype", ftype);
 		request.setAttribute("pcnt", pcnt);
+		request.setAttribute("curPage", curPage);
+		
 		
 		RequestDispatcher view = request.getRequestDispatcher("/food/foodList.jsp");
 		view.forward(request, response);

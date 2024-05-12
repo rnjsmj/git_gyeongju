@@ -11,49 +11,52 @@
 <%@ include file="/head.jsp" %>
 <script src="${path0 }/js/jquery-3.2.1.min.js"></script>
 <style>
-
+	
+	#header #hd #gnb a.dp { color:#101010;}
 	hr { box-sizing:content-box; margin-bottom:30px; }
 	
-	#contents { width:100%; min-height:100vh;  box-sizing:border-box; min-width:1200px;}
+	#contents { width:100%; min-height:100vh;  min-width:1200px; box-sizing:border-box; }
 	#contents::after { content:""; display:block; width:100%; clear:both; }
-	#contents .page { clear:both; width:1200px; margin:0 auto;}
-	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
+	#contents .page { clear:both; width:1200px; margin:0 auto; margin-top:160px;}
+	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px; font-family: 'HSBombaram'; font-size:40px; letter-spacing:3px;}
 	
 	.updForm {width:1000px; margin:0 auto;}
+	.updForm * {font-family: Noto Sans KR;}
 	.updForm .tr-fno {display:none;}
 	.updForm td {padding-bottom:10px; }
 	.updForm .td-ftype {width:200px; padding-right:5px;}
-	.updForm .td-ftype select {width:100%; height:40px; }
-	.updForm input {width:100%; height:40px; padding:10px; }
-	.updForm .td-fcomm textarea {width:100%; height:200px; resize:none; padding:10px;}
+	.updForm .td-ftype select {width:100%; height:60px; padding:10px; border:1px solid #101010; font-size:16px; }
+	.updForm input {width:100%; height:40px; padding:10px; border:1px solid #101010;  font-size:16px;}
+	.updForm .td-fcomm textarea {width:100%; height:200px; resize:none; padding:10px; font-size:16px;}
 	.updForm .td-ffile .btn-upload {width:100px; text-align:center; padding:5px; display:inline-block;
 		border:1px solid #6b717b; border-radius:3px;}
 	.updForm .td-ffile #filename {width:800px; display:none;}
 	.updForm .td-ffile #filename::file-selector-button {display:none;}
 	.updForm .td-ffile p {display:inline-block; font-size:14px; color:#777; margin-left:5px; }
-	.updForm .td-submit .btn-group { width:300px; margin:0 auto; text-align:center;}
-	.updForm .td-submit #submit {width:100px; padding:10px 20px; display:inline-block;  }
-	.updForm .td-submit .btn-back {width:100px; padding:10px 20px; display:inline-block; background-color:#747a86; border:1px solid #6b717b;
-		text-align:center; color:white; text-decoration:none;}
+	.updForm .td-submit .btn-group { margin:0 auto; text-align:center;}
+	.updForm .td-submit #submit { display:inline-block;  border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
+		background-color:#333; color:#fff; font-size:20px; font-weight:500;font-family: Noto Sans KR; }
+	.updForm .td-submit .btn-back {display:inline-block;  border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
+		background-color:#595959; color:#fff; font-size:20px; font-weight:500; }
 	
 
 </style>
 </head>
 <body>
-<div class="clr-fix">
+<div id="header" class="clr-fix">
 	<%@ include file="/header.jsp" %>
 </div>
-<div id="contents">
+<div id="contents" class="clr-fix">
 	<section class="page">
 		<h2 class="page-title">식도락</h2>
 		<hr>
 		<form action="${path0 }/FoodUpdatePro.do?ftype=<%=request.getParameter("ftype") %>" method="post" 
-			onsubmit="return typeCheck(this)" enctype="multipart/form-data">
+			onsubmit="return typeCheck(this)">
 			<table class="updForm">
 				<tbody>
 					<tr class="tr-fno">
 						<td>
-							<input type="text" name="fno" id="fno" class="form-control" value="${food.fno }" >
+							<input type="text" name="fno" id="fno" class="form-control" value="${food.fno}" >
 						</td>
 					</tr>
 					<tr>
@@ -99,7 +102,7 @@
 						<td colspan="2" class="td-submit">
 							<div class="btn-group">
 								<a class="btn-back" href="${path0 }/GetFood.do?ftype=${ftype}&fno=${food.fno}">취소</a>
-								<input id="submit" type="submit" value="등록" >
+								<button id="submit" type="submit" >등록</button>
 							</div>
 							
 						</td>
@@ -111,7 +114,7 @@
 		
 	</section>
 </div>
-<div class="clr-fix">
+<div id="footer" class="clr-fix">
 	<%@ include file="/footer.jsp" %>
 </div>
 <script>

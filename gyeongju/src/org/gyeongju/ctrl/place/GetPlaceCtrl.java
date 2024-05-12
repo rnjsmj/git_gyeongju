@@ -34,6 +34,8 @@ public class GetPlaceCtrl extends HttpServlet {
 		if (place.getPtel()==null) {
 			place.setPtel("정보 없음");
 		}
+		String ptypeVal = place.getPtype();
+		request.setAttribute("ptypeVal", ptypeVal);
 		
 		request.setAttribute("ptype", ptype);
 		request.setAttribute("place", place);

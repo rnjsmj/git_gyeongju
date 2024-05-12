@@ -5,49 +5,44 @@
 <c:set var="path0" value="<%=request.getContextPath() %>" /> 
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
+<title>경주시 문화관광 - 식도락</title>
+<%@ include file="/head.jsp" %>
+<script src="${path0 }/js/jquery-3.2.1.min.js"></script>
 <style>
-	* {margin:0; padding:0; box-sizing:border-box; list-style:none;}
-	html, body { width:100%; box-sizing:border-box; }
+	
+	#header #hd #gnb a.dp { color:#101010;}
 	hr { box-sizing:content-box; margin-bottom:30px; }
 	
-	.temp-header { width:100%; background-color: #848c45; height:90px; text-align:center; 
-		line-height:90px; display:block; box-sizing:border-box; min-width:1200px;}
-	#header::after { content:""; display:block; width:100%; clear:both; }
-	
-	#contents { width:100%; min-height:100vh;  box-sizing:border-box; min-width:1200px;}
-	#contents::after { content:""; display:block; width:100%; clear:both; }
+	#contents { width:100%; min-height:calc(100vh - 610px);  box-sizing:border-box; min-width:1200px; margin-top:160px;}
 	#contents .page { clear:both; width:1200px; margin:0 auto;}
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
 	
 	.insForm {width:1000px; margin:0 auto;}
+	.insForm * {font-family: Noto Sans KR;}
 	.insForm td {padding-bottom:10px; }
 	.insForm .td-ftype {width:200px; padding-right:5px;}
-	.insForm .td-ftype select {width:100%; height:40px; }
-	.insForm input {width:100%; height:40px; padding:10px; }
-	.insForm .td-comm textarea {width:100%; height:200px; resize:none; padding:10px;}
+	.insForm .td-ftype select {width:100%; height:60px; padding:10px; border:1px solid #101010; font-size:16px;}
+	.insForm input:not([type=file]) {width:100%; height:40px; padding:10px;  border:1px solid #101010;  font-size:16px;}
+	.insForm .td-comm textarea {width:100%; height:200px; resize:none; padding:10px; font-size:16px;}
 	.insForm .td-ffile .btn-upload {width:100px; text-align:center; padding:5px; display:inline-block;
 		border:1px solid #6b717b; border-radius:3px;}
-	.insForm .td-ffile #filename {width:800px;}
+	.insForm .td-ffile #filename {width:800px; padding-left:10px; font-size:14px;}
 	.insForm .td-ffile #filename::file-selector-button {display:none;}
 	.insForm .td-submit .btn-group { width:300px; margin:0 auto; text-align:center;}
-	.insForm .td-submit #submit {width:100px; padding:10px 20px; display:inline-block;  }
-	.insForm .td-submit .btn-back {width:100px; padding:10px 20px; display:inline-block; background-color:#747a86; border:1px solid #6b717b;
-		text-align:center; color:white; text-decoration:none;}
+	.insForm .td-submit #submit {display:inline-block;  border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
+		background-color:#333; color:#fff; font-size:20px; font-weight:500;font-family: Noto Sans KR;}
+	.insForm .td-submit .btn-back {display:inline-block;  border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
+		background-color:#595959; color:#fff; font-size:20px; font-weight:500; }
 	
-	 #footer { width:100%; background-color: #000; height:200px; padding:20px 0; box-sizing:border-box; min-width:1200px;}
-	.temp-footer { width:1200px; height:100%; text-align:left; color:#999;
-		display:block; margin: 0 auto; }
 </style>
-<head>
-<meta charset="UTF-8">
-<title>경주시 문화관광 - 식도락</title>
-<script src="${path0 }/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<div id="header">
-	<div class="temp-header">메뉴바</div>
+<div id="header" class="clr-fix">
+	<%@ include file="/header.jsp" %>
 </div>
-<div id="contents">
+<div id="contents" class="clr-fix">
 	<section class="page">
 		<h2 class="page-title">식도락</h2>
 		<hr>
@@ -95,7 +90,7 @@
 						<td colspan="2" class="td-submit">
 							<div class="btn-group">
 								<a class="btn-back" href="${path0 }/FoodList.do?ftype=<%=request.getParameter("ftype")%>">취소</a>
-								<input id="submit" type="submit" value="등록" >
+								<button id="submit" type="submit">등록</button>
 							</div>
 							
 						</td>
@@ -107,8 +102,8 @@
 		
 	</section>
 </div>
-<div id="footer">
-	<div class="temp-footer">푸터</div>
+<div id="footer" class="clr-fix">
+ 	<%@ include file="/footer.jsp" %>
 </div>
 <script>
 	function typeCheck(f) {

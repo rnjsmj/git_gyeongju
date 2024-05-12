@@ -29,23 +29,33 @@ public class PlaceListCtrl extends HttpServlet {
 		
 		String ptype = request.getParameter("ptype");
 		
+		int curPage = 0;
+		if (request.getParameter("page") == null ) {
+			curPage = 1;
+		} else {
+			curPage = Integer.parseInt(request.getParameter("page"));
+		}
+		
 		PlaceDAO dao = new PlaceDAO();
 		List<Place> placeList = new ArrayList<>();
+		int pcnt = dao.cntPage(ptype);
 		
 		if (ptype.equals("all")) {
-			placeList = dao.getPlaceList();
+			placeList = dao.getPlaceList(curPage);
 		} else if (ptype.equals("curtural")) {
-			placeList = dao.getCurturalList();
+			placeList = dao.getCurturalList(curPage);
 		} else if (ptype.equals("theme")) {
-			placeList = dao.getThemeList();
+			placeList = dao.getThemeList(curPage);
 		} else if (ptype.equals("beach")) {
-			placeList = dao.getBeachList();
+			placeList = dao.getBeachList(curPage);
 		} else {
 		}
 		
 		
 		request.setAttribute("placeList", placeList);
 		request.setAttribute("ptype", ptype);
+		request.setAttribute("pcnt", pcnt);
+		request.setAttribute("curPage", curPage);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/place/placeList.jsp");
 		view.forward(request, response);
