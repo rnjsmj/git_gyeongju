@@ -1,13 +1,12 @@
 package org.gyeongju.dto;
 
 public class Food {
-	//gps ����
-	private int fno; //��ȣ
-	private String fname; //���� �̸�
-	private String ftype; //�з�
-	private String ftel; //����ó
-	private String faddr; //���� �ּ�
-	private String fcomm; //���� ����
+	private int fno;
+	private String fname;
+	private String ftype;
+	private String ftel; 
+	private String faddr; 
+	private String fcomm; 
 	private String filename; //파일이름
 	
 	public Food() {}

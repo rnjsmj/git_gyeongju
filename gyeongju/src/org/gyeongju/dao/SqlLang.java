@@ -23,4 +23,12 @@ public interface SqlLang {
 	String INS_PLACE = "insert into place values(plc_seq.nextval, ?, ?, ?, ?, null, ?, ?)";
 	String DEL_PLACE = "delete from place where pno=?";
 	String CNT_ALL_PLACE = "select count(*) from place";
+	
+	//회원관리
+	String SELECT_ALL_MEMBER = "select * from member order by regdate desc";
+	String SELECT_ONE_MEMBER = "select * from member where id=?";
+	String INS_MEMBER = "insert into member values(?, ?, ?, ?, ?, ?, default)";
+	String UPD_MEMBER = "update member set pw=?, email=?, tel=?, postcode=?, address=? where id=?";
+	String DEL_MEMBER = "delete from member where id=?";
+	
 }

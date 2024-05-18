@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <c:set var="path0" value="<%=request.getContextPath() %>" /> 
 <style>
-#hd { width: 100%; position: absolute; top: 0; left: 0; min-width: 1400px;}
+#hd { width: 100%; position: absolute; top: 0; left: 0; min-width: 1400px; z-index:999;}
 
 .topmenu { background-color: black; height: 40px; overflow: hidden; opacity: 84%; font-family: Noto Sans KR;}
 .txt_left { margin: 0 auto; padding: 0; width:1400px; font-size:12pt; margin-top: 8PX;}
@@ -41,7 +41,7 @@
           </ul>
           <ul class="txt_right">
           <li><a href="#" style="margin-left:28px; color:#78BEFF;">회원가입</a></li>
-          <li><a href="#">로그인</a></li>
+          <li><a href="${path0 }/Login.do">로그인</a></li>
           </ul>
 	  </div>
 	  <div class="nav">
