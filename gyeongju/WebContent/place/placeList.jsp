@@ -12,7 +12,8 @@
 <script src="${path0 }/js/jquery-3.2.1.min.js"></script>
 <style>
 	* {margin:0; padding:0; box-sizing:border-box; list-style:none;}
-
+	#header #hd #gnb a.dp { color:#101010;}
+	
 	#contents { width:100%; min-height:100vh; margin-bottom:5rem; box-sizing:border-box; min-width:1200px;}
 	#contents a {color:#101010;}
 	
@@ -67,6 +68,7 @@
 	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;}
 	.bread-crumb li {display:inline-block; line-height:40px;}
 	.bread-crumb li a {color:#101010;}
+	.bread-crumb li a:hover {text-decoration:underline;}
 	.bread-crumb li:last-child a {font-weight:500;}
 	
 </style>
@@ -77,7 +79,7 @@
 </div>
 <div id="contents" class="clr-fix">
 	<figure class="fd-vs">
-		<img src="${path0 }/images/placelistimg.jpg" alt="여기어때 배너">
+		<img src="${path0 }/images/placelistimg.png" alt="여기어때 배너">
 		<div class="vstit"><p class="ttext">여기어때</p></div>
 	</figure>
 	<section class="page">
@@ -243,7 +245,9 @@
 			</ul>
 		</div>
 		<div class="buttons">
+			<c:if test="${sid.equals('admin') }">
 			<a role="button" class="insbtn" href="${path0 }/place/insertPlace.jsp?ptype=${ptype}">여기어때 등록</a>
+			</c:if>
 		</div>
 	</section>
 </div>

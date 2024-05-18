@@ -11,13 +11,15 @@
 <%@ include file="/head.jsp" %>
 <style>	
 	* {box-sizing:border-box; }
+	#header #hd #gnb a.dp { color:#101010;}
+	
 	#contents { clear:both; width:100%;  margin-bottom:5rem; box-sizing:border-box; min-width:1400px; min-height:calc(100vh - 610px);}
 	#contents a {color:#101010;}
 	#contents .page { clear:both; width:1200px; margin:0 auto; font-family: Noto Sans KR;}
 	.fd-vs { width:100%; height:400px; overflow:hidden; margin:0 auto; font-family: 'HSBombaram'; min-width:1400px; }
 	.fd-vs img {width:100%; height:100%; object-fit:cover;}
 	.fd-vs .vstit {position:absolute; width:100%; min-width:1400px; color:#fff; top:270px; z-index:998; margin:0 auto; }
-	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px;}
+	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px; color:#101010;}
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
 	.page .lst-food { clear:both; width:1170px; margin:0 auto; min-width:1170px; margin-bottom:50px; }
 	.page .lst-food::after { content:""; display:block; width:100%; clear:both; }
@@ -71,6 +73,7 @@
 	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;}
 	.bread-crumb li {display:inline-block; line-height:40px;}
 	.bread-crumb li a {color:#101010;}
+	.bread-crumb li a:hover {text-decoration:underline;}
 	.bread-crumb li:last-child a {font-weight:500;}
 	
 </style>
@@ -81,7 +84,7 @@
 </div>
 <div id="contents" class="clr-fix">
 	<figure class="fd-vs">
-		<img src="./images/foodlistimg.jpg" alt="식도락 배너">
+		<img src="./images/foodlistimg.png" alt="식도락 배너">
 		<div class="vstit"><p class="ttext">식도락</p></div>
 	</figure>
 	<section class="page">
@@ -248,7 +251,9 @@
 		</div>
 		
 		<div class="buttons">
+			<c:if test="${sid.equals('admin') }">
 			<a class="insbtn" role="button" href="${path0 }/food/insertFood.jsp?ftype=${ftype}">식도락 등록</a>
+			</c:if>
 		</div>
 	</section>
 </div>

@@ -16,7 +16,7 @@ body { width: 100%; /* overflow-x:hidden; */ background-color: #c4dfff;}
 #header #hd #gnb a.dp { color:#101010;}
 #particles-js { position: absolute; width: 100%; height: 100%; }
 
-#contents { width:100%; min-height:calc(100vh - 160px); margin-bottom:5rem; box-sizing:border-box; min-width:1200px;}
+#contents { width:100%; min-height:calc(100vh - 160px); margin-bottom:5rem; box-sizing:border-box; min-width:1200px; font-family: Noto Sans KR;}
 #contents::after { content:""; display:block; width:100%; clear:both; }
 
 .container{ margin: 0 auto; top: 264px; left: 50%; position: absolute; text-align: center; transform: translateX(-50%);

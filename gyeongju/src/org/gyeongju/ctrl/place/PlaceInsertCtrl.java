@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.gyeongju.dao.FoodDAO;
 import org.gyeongju.dao.PlaceDAO;
@@ -32,6 +33,12 @@ public class PlaceInsertCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		HttpSession session = request.getSession();
+		String sid = (String) session.getAttribute("sid");
+		if(!sid.equals("admin")){
+			response.sendRedirect("/gyeongju");
+		}
+		
 		Place place = new Place();
 		ServletContext application = request.getServletContext();
 		
@@ -52,6 +59,7 @@ public class PlaceInsertCtrl extends HttpServlet {
 			place.setPtel(mr.getParameter("ptel"));
 			place.setPaddr(mr.getParameter("paddr"));
 			place.setPcomm(mr.getParameter("pcomm"));
+			place.setItem(mr.getParameter("item"));
 			
 			//파일 추가
 			Enumeration files = mr.getFileNames();

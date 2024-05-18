@@ -5,12 +5,14 @@
 <c:set var="path0" value="<%=request.getContextPath() %>" /> 
 <style>
 #hd { width: 100%; position: absolute; top: 0; left: 0; min-width: 1400px; z-index:999;}
-
+a{color: #598ee4; text-decoration: none;}
+.sub a:hover {text-decoration: underline;}
 .topmenu { background-color: black; height: 40px; overflow: hidden; opacity: 84%; font-family: Noto Sans KR;}
 .txt_left { margin: 0 auto; padding: 0; width:1400px; font-size:12pt; margin-top: 8PX;}
 .txt_left li{ float:left}
 .txt_left li a{ color:#FFF;}
 
+.txt_right {cursor:pointer;}
 .txt_right { margin: 0 auto; padding: 0; width:1400px; font-size:12pt;}
 .txt_right li{ float:right}
 .txt_right li a{color:#FFF;}
@@ -22,12 +24,12 @@
 #gnb > .menu > li { margin-top:45px; float:left; width: 14%; text-align: center; position:relative; font-size:15pt; z-index: 999;}
 #gnb a.dp { display:block; color: #FFF; font-weight:500;}
 #gnb li a.dp { margin-bottom: 41px;}
-#gnb li:hover a.dp2 { font-weight: 600; color: #FFF;}
+#gnb li:hover a.dp2 { font-weight: 600; }
 #gnb .sub { display:none; top: 68px; z-index:100; width: 100%; height: 180px; }
-#gnb:hover .menu .sub { padding-top: 17px; display:block; height: 180px; background-color:#4376AB;}
+#gnb:hover .menu .sub { padding-top: 17px; display:block; height: 180px; background-color:#f4f8fc;}
 #gnb .sub li a { color:#0C182E; font-weight: 400; line-height: 1.6em;}
 
-#gnb:before, #gnb:after { content:""; display:block; height: 197px; width:calc(calc(100vw - 900px) / 2); position:absolute; top:155px; background-color: #4478A6; display:none; }
+#gnb:before, #gnb:after { content:""; display:block; height: 197px; width:100%; position:absolute; top:155px; background-color: #f4f8fc; display:none; }
 #gnb:before { left: 0;  }
 #gnb:after{ right: 0; }
 
@@ -40,8 +42,15 @@
           <li><a href="#">경주문화관광</a></li>
           </ul>
           <ul class="txt_right">
-          <li><a href="#" style="margin-left:28px; color:#78BEFF;">회원가입</a></li>
-          <li><a href="${path0 }/Login.do">로그인</a></li>
+          	<c:if test="${empty sid}">
+          		<li><a href="${path0 }/Join.do" style="margin-left:28px; color:#78BEFF;">회원가입</a></li>
+          		<li><a href="${path0 }/Login.do">로그인</a></li>
+          	</c:if>
+          	<c:if test="${not empty sid}">
+          		<li><a href="#" style="margin-left:28px; color:#78BEFF;">마이페이지</a></li>
+          		<li><a role="button" id="logout">로그아웃</a></li>
+          	</c:if>
+          
           </ul>
 	  </div>
 	  <div class="nav">
@@ -49,10 +58,9 @@
 	      <nav id="gnb">
 	          <ul class="menu clr-fix">
 	              <li class="item1">
-	                  <a href="" class="dp">지역소개</a>
+	                  <a href="${path0 }/intro/sub_history.jsp" class="dp">지역소개</a>
 	                  <ul class="sub">
-	                      <li><a href="" class="dp2">설화</a></li>
-	                      <li><a href="" class="dp2">신화</a></li>
+	                      <li><a href="${path0 }/intro/sub_history.jsp" class="dp2">설화</a></li>
 	                  </ul>
 	              </li>
 	              <li class="item2">
@@ -90,4 +98,12 @@
 	          </ul>
 	      </nav>
 	  </div>
+<script>
+	var logout = document.getElementById('logout');
+	logout.addEventListener("click", function() {
+		if(confirm("로그아웃 하시겠습니까?")) {
+			location.replace("${path0 }/Logout.do");
+		}
+	})
+</script>
 </header>

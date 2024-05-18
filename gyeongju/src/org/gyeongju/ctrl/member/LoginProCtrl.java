@@ -40,14 +40,14 @@ public class LoginProCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		RequestDispatcher view;
 		
-		/* 암호화 추가 후 수정
 		String key = "%02x";
 		
 		try {
 			member.setPw(AES256.decryptAES256(member.getPw(), key));
 		} catch (Exception e) {
 			e.printStackTrace();
-		}*/
+		}
+		
 		if(session.getAttribute("sid") != null) {
 			response.sendRedirect("/gyeongju");
 		}

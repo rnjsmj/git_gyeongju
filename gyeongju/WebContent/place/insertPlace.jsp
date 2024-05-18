@@ -38,6 +38,12 @@
 </style>
 </head>
 <body>
+<%
+	String sid = (String) session.getAttribute("sid");
+	if(sid == null || !sid.equals("admin")) {
+		response.sendRedirect("/gyeongju");
+	}
+%>
 <div id="header" class="clr-fix">
 	<%@ include file="/header.jsp" %>
 </div>
@@ -70,6 +76,11 @@
 					<tr>
 						<td colspan="2" class="td-ptel">
 							<input type="tel" name="ptel" id="ptel" maxlength="20" placeholder="연락처">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" class="td-item">
+							<input type="text" name="item" id="item" maxlength="20" placeholder="기타항목">
 						</td>
 					</tr>
 					<tr>

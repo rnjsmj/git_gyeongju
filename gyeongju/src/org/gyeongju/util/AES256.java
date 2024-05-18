@@ -49,6 +49,8 @@ public class AES256 {
 	    System.arraycopy(encryptedTextBytes, 0, buffer, saltBytes.length + ivBytes.length, encryptedTextBytes.length);
 	    
 		return Base64.getEncoder().encodeToString(buffer);
+		
+		
 	}
 	
 	//복호화

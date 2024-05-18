@@ -33,7 +33,8 @@ public class PlaceDAO {
 						rs.getString("ptel"),
 						rs.getString("paddr"),
 						rs.getString("pcomm"),
-						rs.getString("filename")
+						rs.getString("filename"),
+						rs.getString("item")
 						);
 				placeList.add(place);
 			}
@@ -64,7 +65,8 @@ public class PlaceDAO {
 						rs.getString("ptel"),
 						rs.getString("paddr"),
 						rs.getString("pcomm"),
-						rs.getString("filename")
+						rs.getString("filename"),
+						rs.getString("item")
 						);
 				curturalList.add(place);
 			}
@@ -95,7 +97,8 @@ public class PlaceDAO {
 						rs.getString("ptel"),
 						rs.getString("paddr"),
 						rs.getString("pcomm"),
-						rs.getString("filename")
+						rs.getString("filename"),
+						rs.getString("item")
 						);
 				themeList.add(place);
 			}
@@ -126,7 +129,8 @@ public class PlaceDAO {
 						rs.getString("ptel"),
 						rs.getString("paddr"),
 						rs.getString("pcomm"),
-						rs.getString("filename")
+						rs.getString("filename"),
+						rs.getString("item")
 						);
 				beachList.add(place);
 			}
@@ -159,6 +163,7 @@ public class PlaceDAO {
 				place.setPaddr(rs.getString("paddr"));
 				place.setPcomm(rs.getString("pcomm"));
 				place.setFilename(rs.getString("filename"));
+				place.setItem(rs.getString("item"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -181,6 +186,7 @@ public class PlaceDAO {
 			pstmt.setString(4, place.getPaddr());
 			pstmt.setString(5, place.getPcomm());
 			pstmt.setString(6,  place.getFilename());
+			pstmt.setString(7, place.getItem());
 			cnt = pstmt.executeUpdate();
 			
 			//파일 처리 추가
@@ -205,7 +211,8 @@ public class PlaceDAO {
 			pstmt.setString(3, place.getPtel());
 			pstmt.setString(4, place.getPaddr());
 			pstmt.setString(5, place.getPcomm());
-			pstmt.setInt(6, place.getPno());
+			pstmt.setString(6,  place.getItem());
+			pstmt.setInt(7, place.getPno());
 			cnt = pstmt.executeUpdate();
 			
 			//파일 처리 추가

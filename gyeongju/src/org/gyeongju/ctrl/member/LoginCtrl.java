@@ -27,7 +27,6 @@ public class LoginCtrl extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		HttpSession session = request.getSession();
-		System.out.println(session.getAttribute("sid"));
 		if(session.getAttribute("sid") != null) {
 			response.sendRedirect("/gyeongju");
 			return;

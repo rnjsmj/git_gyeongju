@@ -19,8 +19,8 @@ public interface SqlLang {
 	String SELECT_PLACE_CULTURAL = "select * from ( select rownum as rnum, place.* from place where ptype='문화재' order by pno desc ) where rnum between ? and ?";
 	String SELECT_PLACE_THEME = "select * from ( select rownum as rnum, place.* from place where ptype='테마파크' order by pno desc ) where rnum between ? and ?";
 	String SELECT_PLACE_BEACH = "select * from ( select rownum as rnum, place.* from place where ptype='해변' order by pno desc ) where rnum between ? and ?";
-	String UPD_PLACE = "update place set pname=?, ptype=?, ptel=?, paddr=?, pcomm=? where pno=?";
-	String INS_PLACE = "insert into place values(plc_seq.nextval, ?, ?, ?, ?, null, ?, ?)";
+	String UPD_PLACE = "update place set pname=?, ptype=?, ptel=?, paddr=?, pcomm=?, item=? where pno=?";
+	String INS_PLACE = "insert into place values(plc_seq.nextval, ?, ?, ?, ?, null, ?, ?, ?)";
 	String DEL_PLACE = "delete from place where pno=?";
 	String CNT_ALL_PLACE = "select count(*) from place";
 	

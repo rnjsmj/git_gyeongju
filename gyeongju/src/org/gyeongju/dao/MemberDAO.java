@@ -66,6 +66,7 @@ public class MemberDAO {
 		return member;
 	}
 	
+	//회원 가입
 	public int join(Member member) {
 		int cnt = 0;
 		OracleDB oracle = new OracleDB();
@@ -88,6 +89,7 @@ public class MemberDAO {
 		return cnt;
 	}
 	
+	//회원 정보 수정
 	public int updateMember(Member member) {
 		int cnt = 0;
 		OracleDB oracle = new OracleDB();
@@ -109,6 +111,7 @@ public class MemberDAO {
 		return cnt;
 	}
 	
+	//회원 탈퇴
 	public int deleteMember(String id) {
 		int cnt = 0;
 		OracleDB oracle = new OracleDB();
@@ -125,6 +128,7 @@ public class MemberDAO {
 		return cnt;
 	}
 	
+	//아이디 중복 확인
 	public boolean idCheck(String id) {
 		boolean ck = false;
 		OracleDB oracle = new OracleDB();

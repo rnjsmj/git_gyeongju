@@ -11,7 +11,7 @@
 <%@ include file="/head.jsp" %>
 <style>
 	a {text-decoration:none;}
-	/* #header #hd #gnb a.dp { color:#101010;} */
+	#header #hd #gnb a.dp { color:#101010;}
 	* {box-sizing:border-box; }
 	#contents { clear:both; width:100%; margin-bottom:5rem; box-sizing:border-box; min-width:1400px; min-height:calc(100vh - 610px);}
 	#contents .page { clear:both; width:1200px; margin:0 auto; font-family: Noto Sans KR; }
@@ -21,7 +21,7 @@
 	.fd-vs { width:100%; height:400px; overflow:hidden; margin:0 auto; font-family: 'HSBombaram'; min-width:1400px; }
 	.fd-vs img {width:100%; height:100%; object-fit:cover;}
 	.fd-vs .vstit {position:absolute; width:100%; min-width:1400px; color:#fff; top:270px; z-index:998; margin:0 auto; }
-	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px;}
+	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px; color:#101010;}
 	
 	/* .page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px; font-family: 'HSBombaram'; font-size:40px; letter-spacing:3px;} */
 	.page .food-wrap { width:100%;  padding:20px 0; font-family: Noto Sans KR; margin-top:30px; }
@@ -49,6 +49,7 @@
 	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;}
 	.bread-crumb li {display:inline-block; line-height:40px;}
 	.bread-crumb li a {color:#101010;}
+	.bread-crumb li a:hover {text-decoration:underline;}
 	.bread-crumb li:last-child a {font-weight:500;}
 </style>
 </head>
@@ -58,7 +59,7 @@
 </div>
 <div id="contents" class="clr-fix">
 	<figure class="fd-vs">
-		<img src="${path0 }/images/foodlistimg.jpg" alt="식도락 배너">
+		<img src="${path0 }/images/foodlistimg.png" alt="식도락 배너">
 		<div class="vstit"><p class="ttext">식도락</p></div>
 	</figure>
 	<section class="page">
@@ -109,8 +110,10 @@
 			</div>
 		</div>
 		<div class="buttons">
+			<c:if test="${sid.equals('admin') }">
 			<a role="button" id="delbtn">삭제</a>
 			<a href="${path0 }/FoodUpdate.do?ftype=${ftype }&fno=${food.fno }" role="button">수정</a>
+			</c:if>
 			<a role="button" href="${path0 }/FoodList.do?ftype=${ftype}">목록</a>
 			
 		</div>

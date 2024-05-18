@@ -39,6 +39,12 @@
 </style>
 </head>
 <body>
+<%
+	String sid = (String) session.getAttribute("sid");
+	if(sid == null || !sid.equals("admin")) {
+		response.sendRedirect("/gyeongju");
+	}
+%>
 <div id="header" class="clr-fix">
 	<%@ include file="/header.jsp" %>
 </div>

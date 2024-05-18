@@ -25,7 +25,7 @@
 .v_2 { width: 456px; height: 538px; background: url("./images/img2.png"); overflow: hidden; margin-top: 40px; margin-right: 16px; float:left;}
 .v_3 { width: 456px; height: 538px; background: url("./images/img3.png"); overflow: hidden; margin-top: 40px; float:left;}
 
-.con3_txt { width: 100%; margin: auto; margin-top: 12.6%; color: #FFF; font-family: HSBomBaram; font-weight: Regular; font-size: 20pt;
+.con3_txt { width: 100%; margin: 0 auto; top: 45%; color: #FFF; font-family: HSBomBaram; font-weight: Regular; font-size: 20pt;
             text-align: center; position:absolute;}
 .con3_img {width: 100%; height: auto; position: absolute; top: 1796px; overflow: hidden;}
 
@@ -56,7 +56,7 @@
 </style>
 </head>
 <body>
-<div class="clr-fix">
+<div id="header" class="clr-fix">
  	<%@ include file="/header.jsp" %>
 </div>
 <main id="contents">
@@ -132,7 +132,7 @@
     </ul>
   </div>
 </main>
-<div class="clr-fix">
+<div id="footer" class="clr-fix">
     <%@ include file="/footer.jsp" %>
 </div>
 </body>

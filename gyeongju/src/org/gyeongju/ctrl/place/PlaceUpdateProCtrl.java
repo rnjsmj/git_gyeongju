@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.gyeongju.dao.PlaceDAO;
 import org.gyeongju.dto.Place;
@@ -25,6 +26,12 @@ public class PlaceUpdateProCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		HttpSession session = request.getSession();
+		String sid = (String) session.getAttribute("sid");
+		if(!sid.equals("admin")){
+			response.sendRedirect("/gyeongju");
+		}
+		
 		Place place = new Place();
 		place.setPno(Integer.parseInt(request.getParameter("pno")));
 		place.setPname(request.getParameter("pname"));
@@ -32,6 +39,7 @@ public class PlaceUpdateProCtrl extends HttpServlet {
 		place.setPaddr(request.getParameter("paddr"));
 		place.setPtel(request.getParameter("ptel"));
 		place.setPcomm(request.getParameter("pcomm"));
+		place.setItem(request.getParameter("item"));
 		
 		String ptype = "";
 		if(request.getParameter("ptype").equals("all")) {

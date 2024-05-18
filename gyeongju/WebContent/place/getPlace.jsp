@@ -12,6 +12,7 @@
 <style>
 	a {text-decoration:none;}
 	* {box-sizing:border-box; }
+	#header #hd #gnb a.dp { color:#101010;}
 
 	#contents { min-height:100vh; margin-bottom:5rem; min-width:1200px;}
 
@@ -49,6 +50,7 @@
 	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;}
 	.bread-crumb li {display:inline-block; line-height:40px;}
 	.bread-crumb li a {color:#101010;}
+	.bread-crumb li a:hover {text-decoration:underline;}
 	.bread-crumb li:last-child a {font-weight:500;}
 	
 </style>
@@ -59,7 +61,7 @@
 </div>
 <div id="contents" class="clr-fix">
 	<figure class="fd-vs">
-		<img src="${path0 }/images/placelistimg.jpg" alt="여기어때 배너">
+		<img src="${path0 }/images/placelistimg.png" alt="여기어때 배너">
 		<div class="vstit"><p class="ttext">여기어때</p></div>
 	</figure>
 	<section class="page" >
@@ -101,7 +103,7 @@
 							<tr><th><img src="${path0 }/images/marker.svg" alt="주소">주소</th><td>${place.paddr }</td></tr>
 							<tr><th><img src="${path0 }/images/phone.svg" alt="연락처">연락처</th><td>${place.ptel }</td></tr>
 							<c:if test="${ptypeVal.equals('문화재') }">
-								<tr><th><img src="${path0 }/images/curtural.svg" alt="종목">종목</th><td>추후 수정</td></tr>
+								<tr><th><img src="${path0 }/images/curtural.svg" alt="종목">종목</th><td>${place.item }</td></tr>
 							</c:if>
 						</tbody>
 					</table>
@@ -111,8 +113,10 @@
 			</div>
 		</div>
 		<div class="buttons">
+			<c:if test="${sid.equals('admin') }">
 			<a role="button" id="delbtn">삭제</a>
 			<a href="${path0 }/PlaceUpdate.do?ptype=${ptype }&pno=${place.pno }" role="button">수정</a>
+			</c:if>
 			<a role="button" href="${path0 }/PlaceList.do?ptype=${ptype}">목록</a>
 		</div>
 	</section>

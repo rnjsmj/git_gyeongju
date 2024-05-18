@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.gyeongju.dao.FoodDAO;
 
@@ -25,6 +26,12 @@ public class FoodDeleteCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		HttpSession session = request.getSession();
+		String sid = (String) session.getAttribute("sid");
+		if(!sid.equals("admin")){
+			response.sendRedirect("/gyeongju");
+		}
+		
 		String ftype = request.getParameter("ftype");
 		int fno = Integer.parseInt(request.getParameter("fno"));
 		
@@ -34,8 +41,6 @@ public class FoodDeleteCtrl extends HttpServlet {
 		String filepath = request.getServletContext().getRealPath("/upload/food/")+filename;
 		File delFile = new File(filepath);
 		delFile.delete();
-//		System.out.println(filepath);
-//		System.out.println(isDel==true?"파일삭제성공" : "파일삭제실패");
 		
 		int cnt = dao.deleteFood(fno);
 		

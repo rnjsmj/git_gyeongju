@@ -82,6 +82,11 @@
 						</td>
 					</tr>
 					<tr>
+						<td colspan="2" class="td-item">
+							<input type="text" name="item" id="item" maxlength="20" placeholder="기타항목" value="${place.item }">
+						</td>
+					</tr>
+					<tr>
 						<td colspan="2" class="td-pcomm">
 							<textarea name="pcomm" id="pcomm" maxlength="2000">${place.pcomm }</textarea>
 						</td>

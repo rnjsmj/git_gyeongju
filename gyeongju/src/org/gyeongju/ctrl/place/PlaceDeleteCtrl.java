@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.gyeongju.dao.PlaceDAO;
 
@@ -24,6 +25,12 @@ public class PlaceDeleteCtrl extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
+		HttpSession session = request.getSession();
+		String sid = (String) session.getAttribute("sid");
+		if(!sid.equals("admin")){
+			response.sendRedirect("/gyeongju");
+		}
 		
 		String ptype = request.getParameter("ptype");
 		int pno = Integer.parseInt(request.getParameter("pno"));
