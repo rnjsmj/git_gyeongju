@@ -107,10 +107,10 @@ text-align: center; position:absolute;}
             고구려나 백제, 가야의 건국 신화와는 차별되는 신라 건국기<br>
             신화만의 특징이라고 할 수 있다.<br>
         </p>
-        <img class="sub_img3" src="${path0}/images/sub_img3.png" alt="">
+        <img class="sub_img3" src="${path0}/images/sub_img3.png" alt="경주 월정교 내부">
         <img class="sub_img4" src="${path0}/images/sub_img4.png" alt="경주 첨성대">
-        <img class="sub_img5" src="${path0}/images/sub_img5.png" alt="경주 첨성대">
-        <img class="sub_img6" src="${path0}/images/sub_img6.png" alt="경주 첨성대">
+        <img class="sub_img5" src="${path0}/images/sub_img5.png" alt="경주 석굴암">
+        <img class="sub_img6" src="${path0}/images/sub_img6.png" alt="경주 월정교 외관">
     </div>
 </main>
 <div id="footer" class="clr-fix">

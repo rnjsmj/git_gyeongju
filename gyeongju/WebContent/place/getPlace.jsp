@@ -49,9 +49,9 @@
 		
 	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;}
 	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
-	#contents .bread-crumb li a {color:#b8b8b8;}
+	#contents .bread-crumb li a {color:#666;}
 	.bread-crumb li a:hover {text-decoration:underline;}
-	.bread-crumb li:last-child a {font-weight:500;}
+	.bread-crumb li:last-child a {font-weight:500; color:#595959;}
 	
 </style>
 </head>
