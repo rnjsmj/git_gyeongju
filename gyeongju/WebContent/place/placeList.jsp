@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>경주시 문화관광 - 여기어때</title>
+<title>Gyeongju</title>
 <%@ include file="/head.jsp" %>
 <script src="${path0 }/js/jquery-3.2.1.min.js"></script>
 <style>
@@ -20,7 +20,7 @@
 	.fd-vs { width:100%; height:400px; overflow:hidden; margin:0 auto; font-family: 'HSBombaram'; min-width:1400px; }
 	.fd-vs img {width:100%; height:100%; object-fit:cover;}
 	.fd-vs .vstit {position:absolute; width:100%; min-width:1400px; color:#fff; top:270px; z-index:998; margin:0 auto; }
-	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px;}
+	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px; text-shadow: 2px 2px 2px gray;}
 	
 	#contents .page { clear:both; width:1200px; margin:0 auto; font-family: Noto Sans KR;}
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
@@ -66,8 +66,8 @@
 		background-color:#333; color:#fff; float:right; font-size:20px; font-weight:500;}
 
 	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;}
-	.bread-crumb li {display:inline-block; line-height:40px;}
-	.bread-crumb li a {color:#101010;}
+	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
+	#contents .bread-crumb li a {color:#b8b8b8;}
 	.bread-crumb li a:hover {text-decoration:underline;}
 	.bread-crumb li:last-child a {font-weight:500;}
 	
@@ -95,10 +95,10 @@
 						문화재목록
 					</c:if>
 					<c:if test="${ptype.equals('theme') }">
-						테마파크목록
+						테마파크/공원목록
 					</c:if>
-					<c:if test="${ptype.equals('beach') }">
-						해변목록
+					<c:if test="${ptype.equals('etc') }">
+						기타목록
 					</c:if>
 					</a>
 				</li>
@@ -109,8 +109,8 @@
 			<ul class="placetab-list">
 				<li><a href="${path0 }/PlaceList.do?ptype=all">전체</a></li>
 				<li><a href="${path0 }/PlaceList.do?ptype=curtural">문화재</a></li>
-				<li><a href="${path0 }/PlaceList.do?ptype=theme">테마파크</a></li>
-				<li><a href="${path0 }/PlaceList.do?ptype=beach">해변</a></li>
+				<li><a href="${path0 }/PlaceList.do?ptype=theme">테마파크/공원</a></li>
+				<li><a href="${path0 }/PlaceList.do?ptype=etc">기타</a></li>
 			</ul>
 		</div>
 		<div class="lst-place" id="lst-place">
@@ -204,10 +204,10 @@
 						<div class="emptylist"><h3>등록된 여기어때 정보가 없습니다.</h3></div>
 					</c:if>
 				</c:if>
-				<c:if test="${ptype.equals('beach') }">
+				<c:if test="${ptype.equals('etc') }">
 					<c:if test="${not empty placeList }">
 					<c:forEach var="dto" items="${placeList }">
-						<a href="${path0}/GetPlace.do?ptype=beach&pno=${dto.pno}">
+						<a href="${path0}/GetPlace.do?ptype=etc&pno=${dto.pno}">
 						<div class="place-div" id="place-div">
 							<div class="card-image">
 								<figure class="fig"><img src="${path0 }/upload/place/${dto.filename }" alt="여기어때${dto.pno }"></figure>
@@ -262,7 +262,7 @@
 		document.querySelector(".placetab-list li:nth-child(2)").classList.add('active');
 	} else if (ptype == 'theme') {
 		document.querySelector(".placetab-list li:nth-child(3)").classList.add('active');
-	} else if (ptype == 'beach') {
+	} else if (ptype == 'etc') {
 		document.querySelector(".placetab-list li:nth-child(4)").classList.add('active');
 	} 
 	

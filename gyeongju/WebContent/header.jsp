@@ -5,7 +5,7 @@
 <c:set var="path0" value="<%=request.getContextPath() %>" /> 
 <style>
 #hd { width: 100%; position: absolute; top: 0; left: 0; min-width: 1400px; z-index:999;}
-a{color: #598ee4; text-decoration: none;}
+a{text-decoration: none;}
 .sub a:hover {text-decoration: underline;}
 .topmenu { background-color: black; height: 40px; overflow: hidden; opacity: 84%; font-family: Noto Sans KR;}
 .txt_left { margin: 0 auto; padding: 0; width:1400px; font-size:12pt; margin-top: 8PX;}
@@ -38,8 +38,8 @@ a{color: #598ee4; text-decoration: none;}
 <header id="hd" >
 	<div class="topmenu">
           <ul class="txt_left">
-          <li><a href="#" style="margin-right:28px">경주시청</a></li>
-          <li><a href="#">경주문화관광</a></li>
+          <li><a href="https://www.gyeongju.go.kr/open_content/ko/index.do" style="margin-right:28px">경주시청</a></li>
+          <li><a href="https://www.gyeongju.go.kr/tour/index.do">경주문화관광</a></li>
           </ul>
           <ul class="txt_right">
           	<c:if test="${empty sid}">
@@ -77,15 +77,15 @@ a{color: #598ee4; text-decoration: none;}
 	                  <ul class="sub">
 	                      <li><a href="${path0 }/PlaceList.do?ptype=curtural" class="dp2">문화재</a></li>
 	                      <li><a href="${path0 }/PlaceList.do?ptype=theme" class="dp2">테마파크</a></li>
-	                      <li><a href="${path0 }/PlaceList.do?ptype=beach" class="dp2">해변</a></li>
+	                      <li><a href="${path0 }/PlaceList.do?ptype=etc" class="dp2">기타</a></li>
 	                      <li><a href="" class="dp2">여행코스</a></li>
 	                  </ul>
 	              </li>
 	              <li class="item4">
-	                  <a href="" class="dp">커뮤니티</a>
+	                  <a href="${path0 }/QnaList.do" class="dp">커뮤니티</a>
 	                  <ul class="sub">
-	                      <li><a href="" class="dp2">공지사항</a></li>
-	                      <li><a href="" class="dp2">문의하기</a></li>
+	                      <li><a href="${path0 }/NoticeList.do" class="dp2">공지사항</a></li>
+	                      <li><a href="${path0 }/QnaList.do" class="dp2">문의하기</a></li>
 	                  </ul>
 	              </li>
 	              <li class="item5">

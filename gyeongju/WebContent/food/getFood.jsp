@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>경주시 문화관광 - 식도락</title>
+<title>Gyeongju</title>
 <%@ include file="/head.jsp" %>
 <style>
 	a {text-decoration:none;}
@@ -21,17 +21,17 @@
 	.fd-vs { width:100%; height:400px; overflow:hidden; margin:0 auto; font-family: 'HSBombaram'; min-width:1400px; }
 	.fd-vs img {width:100%; height:100%; object-fit:cover;}
 	.fd-vs .vstit {position:absolute; width:100%; min-width:1400px; color:#fff; top:270px; z-index:998; margin:0 auto; }
-	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px; color:#101010;}
+	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px; color:#101010; text-shadow: 2px 2px 2px gray;}
 	
 	/* .page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px; font-family: 'HSBombaram'; font-size:40px; letter-spacing:3px;} */
 	.page .food-wrap { width:100%;  padding:20px 0; font-family: Noto Sans KR; margin-top:30px; }
 	.page .food-wrap .food-col1 {width:50%; float:left;}
-	.page .food-wrap .food-col1 .fig {display:block; width:540px; height:540px; margin:0 auto;}
-	.page .food-wrap .food-col1 .fig img { width:100%; height:100%; object-fit:contain;}
+	.page .food-wrap .food-col1 .fig {display:block; width:560px; height:540px;}
+	.page .food-wrap .food-col1 .fig img { width:100%; height:100%; object-fit:cover;}
 	.page .food-wrap .food-col2 {width:50%; float:right;}
 	.page .food-wrap .food-col2 hr { margin: 7px auto;}
-	.page .food-wrap .food-col2 .food-dtl {width:100%; box-sizing:border-box; padding-right:5%; }
-	.page .food-wrap .food-col2 .food-dtl .fname { padding:15px 5px; font-family: 'MaruBuri-Regular'; font-size:37px; font-weight:600; }
+	.page .food-wrap .food-col2 .food-dtl {width:100%; box-sizing:border-box; padding-right:5%; margin-top:75px;}
+	.page .food-wrap .food-col1 .fname { padding:0px 5px 30px 10px; font-family: 'MaruBuri-Regular'; font-size:39px; font-weight:600; }
 	.page .food-wrap .food-col2 .food-dtl ul {list-style:none; padding:15px 5px;}
 	.page .food-wrap .food-col2 .food-dtl li { line-height:50px;}
 	.page .food-wrap .food-col2 .food-dtl p {padding:15px 5px;}
@@ -47,8 +47,8 @@
 		background-color:#333; color:#fff; font-size:20px; font-weight:500;}
 		
 	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;}
-	.bread-crumb li {display:inline-block; line-height:40px;}
-	.bread-crumb li a {color:#101010;}
+	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
+	#contents .bread-crumb li a {color:#b8b8b8;}
 	.bread-crumb li a:hover {text-decoration:underline;}
 	.bread-crumb li:last-child a {font-weight:500;}
 </style>
@@ -89,11 +89,12 @@
 		</div>
 		<div class="food-wrap clr-fix">
 			<div class="food-col1">
+				<p class="fname">${food.fname }</p>
 				<figure class="fig"><img src="${path0 }/upload/food/${food.filename}" alt="식도락${food.fno }"></figure>
 			</div>
 			<div class="food-col2">
 				<div class="food-dtl">
-				<p class="fname">${food.fname }</p>
+				
 				<!-- <hr> -->
 				<div class="tb-wrap">
 					<table class="tb">

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>경주시 문화관광 - 식도락</title>
+<title>Gyeongju</title>
 <%@ include file="/head.jsp" %>
 <style>	
 	* {box-sizing:border-box; }
@@ -19,7 +19,7 @@
 	.fd-vs { width:100%; height:400px; overflow:hidden; margin:0 auto; font-family: 'HSBombaram'; min-width:1400px; }
 	.fd-vs img {width:100%; height:100%; object-fit:cover;}
 	.fd-vs .vstit {position:absolute; width:100%; min-width:1400px; color:#fff; top:270px; z-index:998; margin:0 auto; }
-	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px; color:#101010;}
+	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px; color:#101010; text-shadow: 2px 2px 2px gray;}
 	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;}
 	.page .lst-food { clear:both; width:1170px; margin:0 auto; min-width:1170px; margin-bottom:50px; }
 	.page .lst-food::after { content:""; display:block; width:100%; clear:both; }
@@ -70,9 +70,9 @@
 	#contents .buttons .insbtn {border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
 		background-color:#333; color:#fff; float:right; font-size:20px; font-weight:500;}
 
-	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;}
-	.bread-crumb li {display:inline-block; line-height:40px;}
-	.bread-crumb li a {color:#101010;}
+	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px; }
+	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
+	#contents .bread-crumb li a {color:#b8b8b8;}
 	.bread-crumb li a:hover {text-decoration:underline;}
 	.bread-crumb li:last-child a {font-weight:500;}
 	
@@ -84,7 +84,7 @@
 </div>
 <div id="contents" class="clr-fix">
 	<figure class="fd-vs">
-		<img src="./images/foodlistimg.png" alt="식도락 배너">
+		<img src="${path0 }/images/foodlistimg.png" alt="식도락 배너">
 		<div class="vstit"><p class="ttext">식도락</p></div>
 	</figure>
 	<section class="page">

@@ -11,6 +11,11 @@
     <title>Gyeongju</title>
     <%@ include file="/head.jsp" %>
     <style>
+    
+    .content_title{ margin: 0 auto; padding: 0; width: 220px;}
+.sub_txt1 { color: #FFF; position: absolute; top: 172px; font-family: MaruBuri-Regular; font-weight: SemiBold; font-size: 32px;}
+.sub_txt2 { color: #FFF; position: absolute; top: 216px; left: 46%; font-family: HSBombaram; font-weight: Regular; font-size: 120px;}
+    
 #contents { width: 100%; background-repeat: no-repeat; top: 0px; left: 0px; overflow: hidden;}
 
 .con_1 { clear:both; width:1400px; height: auto; margin: 0 auto; overflow: hidden;}
@@ -65,10 +70,14 @@
   <p class="sub_txt2">경주</p>
   </div>
   -->
+  <div class="content_title">
+  <p class="sub_txt1">문화와 역사가 숨쉬는</p>
+  <p class="sub_txt2">경주</p>
+  </div>
   <figure id="vs">
       <ul class="img_box">
           <li>
-            <img src="./images/main1.png" alt="배너">
+            <img src="./images/main.png" alt="배너">
           </li>
       </ul>
   </figure>
@@ -79,9 +88,9 @@
       </div>
   </div>
   <div class="con_2">
-      <div class="v_1"></div>
-      <div class="v_2"></div>
-      <div class="v_3"></div>
+      <a href="http://localhost:8080/gyeongju/GetPlace.do?ptype=all&pno=64"><div class="v_1"></div></a>
+      <a href="http://localhost:8080/gyeongju/GetPlace.do?ptype=all&pno=63"><div class="v_2"></div></a>
+      <a href="http://localhost:8080/gyeongju/GetPlace.do?ptype=all&pno=62"><div class="v_3"></div></a>
   </div>
   <div class="con3_img">
     <a href="" class="con3_txt">World Cultural Heritage</a>
@@ -90,7 +99,7 @@
   <div class="con_4">
     <h5 class="con_title4">경주의 정보를 한 눈에!</h5>
     <div id="btn2">
-      <p><a href="">공지사항 전체보기</a></p>
+      <p><a href="${path0 }/CommunityList.do">공지사항 전체보기</a></p>
     </div>
   </div>
   <div class="con4_wrap">

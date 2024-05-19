@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>경주시 문화관광 - 여기어때</title>
+<title>Gyeongju</title>
 <%@ include file="/head.jsp" %>
 <style>
 	a {text-decoration:none;}
@@ -19,19 +19,19 @@
 	.fd-vs { width:100%; height:400px; overflow:hidden; margin:0 auto; font-family: 'HSBombaram'; min-width:1400px; }
 	.fd-vs img {width:100%; height:100%; object-fit:cover;}
 	.fd-vs .vstit {position:absolute; width:100%; min-width:1400px; color:#fff; top:270px; z-index:998; margin:0 auto; }
-	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px;}	
+	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px; text-shadow: 2px 2px 2px gray;}	
 	
 	#contents .page { clear:both; width:1200px; margin:0 auto;font-family: Noto Sans KR; }
 	
 	/* .page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;} */
 	.page .place-wrap { width:100%;  padding:20px 0; font-family: Noto Sans KR; margin-top:30px;}
 	.page .place-wrap .place-col1 {width:50%; float:left;}
-	.page .place-wrap .place-col1 .fig {display:block; width:540px; height:540px; margin:0 auto;}
-	.page .place-wrap .place-col1 .fig img { width:100%; height:100%; object-fit:contain;}
+	.page .place-wrap .place-col1 .fig {display:block; width:560px; height:540px; }
+	.page .place-wrap .place-col1 .fig img { width:100%; height:100%; object-fit:cover;}
 	.page .place-wrap .place-col2 {width:50%; float:right;}
 	.page .place-wrap .place-col2 hr { margin: 7px auto;}
-	.page .place-wrap .place-col2 .place-dtl {width:100%; box-sizing:border-box; padding-right:5%; }
-	.page .place-wrap .place-col2 .place-dtl .pname { padding:15px 5px; font-family: 'MaruBuri-Regular'; font-size:37px; font-weight:600; }
+	.page .place-wrap .place-col2 .place-dtl {width:100%; box-sizing:border-box; padding-right:5%; margin-top:75px; }
+	.page .place-wrap .place-col1 .pname { padding:0px 5px 30px 10px; font-family: 'MaruBuri-Regular'; font-size:39px; font-weight:600; }
 	.page .place-wrap .place-col2 .place-dtl ul {list-style:none; padding:15px 5px;}
 	.page .place-wrap .place-col2 .place-dtl li { line-height:50px;}
 	.page .place-wrap .place-col2 .place-dtl p {padding:15px 5px;}
@@ -48,8 +48,8 @@
 		background-color:#333; color:#fff; font-size:20px; font-weight:500;}
 		
 	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;}
-	.bread-crumb li {display:inline-block; line-height:40px;}
-	.bread-crumb li a {color:#101010;}
+	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
+	#contents .bread-crumb li a {color:#b8b8b8;}
 	.bread-crumb li a:hover {text-decoration:underline;}
 	.bread-crumb li:last-child a {font-weight:500;}
 	
@@ -79,10 +79,10 @@
 						문화재목록
 					</c:if>
 					<c:if test="${ptype.equals('theme') }">
-						테마파크목록
+						테마파크/공원목록
 					</c:if>
-					<c:if test="${ptype.equals('beach') }">
-						해변목록
+					<c:if test="${ptype.equals('etc') }">
+						기타목록
 					</c:if>
 					</a>  >  
 				</li>
@@ -91,11 +91,12 @@
 		</div>
 		<div class="place-wrap clr-fix">
 			<div class="place-col1">
+				<p class="pname">${place.pname }</p>
 				<figure class="fig"><img src="${path0 }/upload/place/${place.filename}" alt="여기어때${place.pno }"></figure>
 			</div>
 			<div class="place-col2">
 				<div class="place-dtl">
-				<p class="pname">${place.pname }</p>
+				
 				<div class="tb-wrap">
 					<table class="tb">
 						<tbody>

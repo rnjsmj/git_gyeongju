@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>경주시 문화관광 - 여기어때</title>
+<title>Gyeongju</title>
 <%@ include file="/head.jsp" %>
 <script src="${path0 }/js/jquery-3.2.1.min.js"></script>
 <style>
@@ -60,8 +60,8 @@
 							<select name="ptypeval" id="ptypeval">
 								<option >분류</option>
 								<option>문화재</option>
-								<option>테마파크</option>
-								<option>해변</option>
+								<option>테마파크/공원</option>
+								<option>기타</option>
 							</select>
 						</td>
 						<td class="td-pname">
@@ -83,7 +83,7 @@
 					</tr>
 					<tr>
 						<td colspan="2" class="td-item">
-							<input type="text" name="item" id="item" maxlength="20" placeholder="기타항목" value="${place.item }">
+							<input type="text" name="item" id="item" maxlength="35" placeholder="기타항목" value="${place.item }">
 						</td>
 					</tr>
 					<tr>
@@ -129,9 +129,9 @@
 	var ptypeOp = '<%=request.getAttribute("ptypeOp")%>';
 	if(ptypeOp == '문화재') {
 		document.querySelector('#ptypeval option:nth-child(2)').selected = true;
-	} else if(ptypeOp == '테마파크') {
+	} else if(ptypeOp == '테마파크/공원') {
 		document.querySelector('#ptypeval option:nth-child(3)').selected = true;
-	} else if(ptypeOp == '해변') {
+	} else if(ptypeOp == '기타') {
 		document.querySelector('#ptypeval option:nth-child(4)').selected = true;
 	} else {
 		document.querySelector('#ptypeval option:nth-child(1)').selected = true;

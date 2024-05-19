@@ -46,10 +46,10 @@ public class PlaceUpdateProCtrl extends HttpServlet {
 			ptype = "all";
 		} else if (place.getPtype().equals("문화재")) {
 			ptype ="curtural";
-		} else if (place.getPtype().equals("테마파크")) {
+		} else if (place.getPtype().equals("테마파크/공원")) {
 			ptype ="theme";
-		} else if (place.getPtype().equals("해변")) {
-			ptype ="beach";
+		} else if (place.getPtype().equals("기타")) {
+			ptype ="etc";
 		} 
 		
 		PlaceDAO dao = new PlaceDAO();

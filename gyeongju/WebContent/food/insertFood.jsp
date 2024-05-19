@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>경주시 문화관광 - 식도락</title>
+<title>Gyeongju</title>
 <%@ include file="/head.jsp" %>
 <script src="${path0 }/js/jquery-3.2.1.min.js"></script>
 <style>

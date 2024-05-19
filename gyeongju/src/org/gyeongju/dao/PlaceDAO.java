@@ -111,13 +111,13 @@ public class PlaceDAO {
 		return themeList;
 	}
 	
-	//해변 목록
-	public List<Place> getBeachList(int curPage) {
-		List<Place> beachList = new ArrayList<>();
+	//기타 목록
+	public List<Place> getEtcList(int curPage) {
+		List<Place> etcList = new ArrayList<>();
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
-			pstmt = con.prepareStatement(SqlLang.SELECT_PLACE_BEACH);
+			pstmt = con.prepareStatement(SqlLang.SELECT_PLACE_ETC);
 			pstmt.setInt(1, ((curPage-1)*9+1));
 			pstmt.setInt(2, curPage*9);
 			rs = pstmt.executeQuery();
@@ -132,7 +132,7 @@ public class PlaceDAO {
 						rs.getString("filename"),
 						rs.getString("item")
 						);
-				beachList.add(place);
+				etcList.add(place);
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -140,7 +140,7 @@ public class PlaceDAO {
 			oracle.close(con, pstmt, rs);
 		}
 		
-		return beachList;
+		return etcList;
 	}
 	
 	
@@ -253,9 +253,9 @@ public class PlaceDAO {
 			} else if (ptype.equals("curtural")) {
 				pstmt = con.prepareStatement(SqlLang.CNT_ALL_PLACE + " where ptype='문화재'");
 			} else if (ptype.equals("theme")) {
-				pstmt = con.prepareStatement(SqlLang.CNT_ALL_PLACE + " where ptype='테마파크'");
+				pstmt = con.prepareStatement(SqlLang.CNT_ALL_PLACE + " where ptype='테마파크/공원'");
 			} else {
-				pstmt = con.prepareStatement(SqlLang.CNT_ALL_PLACE + " where ptype='해변'");
+				pstmt = con.prepareStatement(SqlLang.CNT_ALL_PLACE + " where ptype='기타'");
 			}
 			
 			rs = pstmt.executeQuery();

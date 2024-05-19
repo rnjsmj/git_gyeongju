@@ -46,8 +46,8 @@ public class PlaceListCtrl extends HttpServlet {
 			placeList = dao.getCurturalList(curPage);
 		} else if (ptype.equals("theme")) {
 			placeList = dao.getThemeList(curPage);
-		} else if (ptype.equals("beach")) {
-			placeList = dao.getBeachList(curPage);
+		} else if (ptype.equals("etc")) {
+			placeList = dao.getEtcList(curPage);
 		} else {
 		}
 		
