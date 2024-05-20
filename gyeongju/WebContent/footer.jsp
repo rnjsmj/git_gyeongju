@@ -28,18 +28,18 @@
 	<div class="ft_box">
       <a href="" class="ft_logo"><img src="${path0 }/images/logo2.png" alt="로고"></a>
       <div class="icons">
-        <a href="" class="icon1"><img src="${path0 }/images/icon1.png" alt="페이스북"></a>
-        <a href="" class="icon2"><img src="${path0 }/images/icon2.png" alt="인스타그램"></a>
-        <a href="" class="icon3"><img src="${path0 }/images/icon3.png" alt="트위터"></a>
-        <a href="" class="icon4"><img src="${path0 }/images/icon4.png" alt="유튜브"></a>
+        <a href="https://www.facebook.com/gj.tour1/" class="icon1"><img src="${path0 }/images/icon1.png" alt="페이스북"></a>
+        <a href="https://www.instagram.com/gj_tour/" class="icon2"><img src="${path0 }/images/icon2.png" alt="인스타그램"></a>
+        <a href="https://blog.naver.com/gj_tour" class="icon3"><img src="${path0 }/images/icon3.png" alt="블로그"></a>
+        <a href="https://www.youtube.com/channel/UCQh-jbXM1DkVnC8vUYqfkVw" class="icon4"><img src="${path0 }/images/icon4.png" alt="유튜브"></a>
     </div>
       <div class="ft_txt">
-        <a href="" class="Personal">개인정보처리방침</a>
-        <a href="" class="terms">회원약관</a>
+        <a href="${path0 }/member/term2.jsp" class="Personal">개인정보처리방침</a>
+        <a href="${path0 }/member/policy.jsp" class="terms">회원약관</a>
       </div>
-      <a href="" class="subscription">이벤트 정보 & 소식 구독</a>
+      <a href="https://www.youtube.com/channel/UCQh-jbXM1DkVnC8vUYqfkVw" class="subscription">경주관광 정보 & 소식 구독</a>
       <div id="btn3">
-        <p><a href="">구독 신청</a></p>
+        <p><a href="https://knto.or.kr/index">관광 안내</a></p>
       </div>
       <span class="copyright">38102 경상북도 경주시 양정로 260 (동천동, 경주시청)<br>
                               © COPYRIGHT 2019 Gyeongju Tourguide. All rights reserved.</span>

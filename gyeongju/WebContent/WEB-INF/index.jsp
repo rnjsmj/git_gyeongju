@@ -11,10 +11,14 @@
     <title>Gyeongju</title>
     <%@ include file="/head.jsp" %>
     <style>
-    
-    .content_title{ margin: 0 auto; padding: 0; width: 220px;}
+.clr-fix:after {content:""; display:block; width:100%; clear:both;}
+.content_title{ margin: 0 auto; padding: 0; width: 220px;}
 .sub_txt1 { color: #FFF; position: absolute; top: 172px; font-family: MaruBuri-Regular; font-weight: SemiBold; font-size: 32px;}
 .sub_txt2 { color: #FFF; position: absolute; top: 216px; left: 46%; font-family: HSBombaram; font-weight: Regular; font-size: 120px;}
+.sub_txt3 { color: #FFF; position: absolute; top: 75.2%; font-family: Noto Sans KR; font-weight: Regular; font-size: 14pt; text-align: center; margin:0 auto;}
+#btn { margin: 0 auto; padding: 0; position: absolute; top: 82.8%; left: 48.3%;}
+#btn p a { padding: 4px 12px 6px 12px; border: 1px solid #999; color:#FFF; border-radius:100px; font-family: Noto Sans KR; font-size:15pt; font-weight: 500; }
+#btn p a:hover { border: 2px solid #FFF; }
     
 #contents { width: 100%; background-repeat: no-repeat; top: 0px; left: 0px; overflow: hidden;}
 
@@ -22,9 +26,9 @@
 .con_title1 { color: #101010; font-family: Noto Sans KR; font-weight: 600; font-size: 40px; opacity: 1; text-align: left; margin-top: 80px; float: left;}
 .con_2 { clear:both; width:1400px; margin: 0 auto; overflow: hidden;}
 
-#btn { float:right; margin-top: 90px;}
-#btn p a { padding: 8px 14px; background-color: #333; color:#FFF; border-radius:100px; font-family: Noto Sans KR; font-size:16pt; font-weight: 500; }
-#btn p a:hover { background-color: #598ee4; }
+#btn1 { float:right; margin-top: 90px;}
+#btn1 p a { padding: 8px 14px; background-color: #333; color:#FFF; border-radius:100px; font-family: Noto Sans KR; font-size:16pt; font-weight: 500; }
+#btn1 p a:hover { background-color: #598ee4; }
 
 .v_1 { width: 456px; height: 538px; background: url("./images/img1.png"); overflow: hidden; margin-top: 40px; margin-right: 16px; float:left;}
 .v_2 { width: 456px; height: 538px; background: url("./images/img2.png"); overflow: hidden; margin-top: 40px; margin-right: 16px; float:left;}
@@ -57,6 +61,11 @@
 #btn2 p a { padding: 8px 20px; background-color: #333; color:#FFF; border-radius:100px; font-family: Noto Sans KR; font-size:16pt; font-weight: 500; }
 #btn2 p a:hover { background-color: #452616;}
 
+.top-button { display: none; position: fixed; bottom: 30px; right: 5%; z-index: 999; border: none; background-color: #999999; color: #FFF; margin-bottom: 194px;
+    cursor: pointer; padding: 10px 10px 12px 10px; font-size: 12pt; font-family: Noto Sans KR; font-weight: 600;}
+
+.top-button:hover { background-color: #101010; color: #FFF;}
+
 
 </style>
 </head>
@@ -65,25 +74,24 @@
  	<%@ include file="/header.jsp" %>
 </div>
 <main id="contents">
-  <!--<div class="content_title">
+  <div class="content_title clr-fix">
   <p class="sub_txt1">문화와 역사가 숨쉬는</p>
   <p class="sub_txt2">경주</p>
+  <div id="btn">
+    <p><a href="${path0 }/intro/sub_history.jsp">자세히 보기</a></p>
   </div>
-  -->
-  <div class="content_title">
-  <p class="sub_txt1">문화와 역사가 숨쉬는</p>
-  <p class="sub_txt2">경주</p>
+  <p class="sub_txt3">시간의 선을 넘어 이어온<br>천년의 경주로 여러분을 초대합니다.</p>
   </div>
-  <figure id="vs">
+  <figure id="vs" >
       <ul class="img_box">
           <li>
-            <img src="./images/main.png" alt="배너">
+            <img src="${path0 }/images/main.png" alt="배너">
           </li>
       </ul>
   </figure>
   <div class="con_1">
       <h5 class="con_title1">경주여행 여기어때</h5>
-      <div id="btn">
+      <div id="btn1">
         <p><a href="${path0 }/PlaceList.do?ptype=all">여기어때 전체보기</a></p>
       </div>
   </div>
@@ -141,6 +149,8 @@
     </ul>
   </div>
 </main>
+<button id="topBtn" class="top-button">TOP</button>
+<script src="./js/move-top.js"></script>
 <div id="footer" class="clr-fix">
     <%@ include file="/footer.jsp" %>
 </div>

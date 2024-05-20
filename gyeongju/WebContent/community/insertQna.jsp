@@ -10,77 +10,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gyeongju</title>
 <%@ include file="/head.jsp" %>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<style>
+<!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+ -->
+ <style>
+	#header #hd #gnb a.dp { color:#101010;} 
+	 
 	* {margin: 0;padding: 0;}
 	body,html {width: 100%; overflow-x: hidden;}
 	a { text-decoration: none;}
 	ol { list-style: none; }
 	
-	#wrap { width: 100%; height: auto; }
-	.head { clear: both; width: 100%; height: 300px; overflow: hidden; }
-	#nav { width: 100%; float: left; }
-	#title { float:left; text-align: left; margin-top: 3rem; margin-left: 15%; padding-bottom: 1rem; display: flex; align-items: center; }
-	.breadcrumb { clear: both; float: right; margin: 15px 30px; }
-	.breadcrumb-item { float: left; text-align: left; }
-	.breadcrumb-item:after { content: ">"; }
-	.breadcrumb-item:last-child:after { content: " "; }
+	#contents {margin-top:160px;}
 	
-	.content { clear: both; width: 100%; height: auto; }
-	#table { width: 1200px; text-align: left; margin: 0 auto; padding-top: 10%; line-height: 4rem; }
+	hr { box-sizing:content-box;  }
+	
+	#contents { width:100%; min-height:calc(100vh - 610px);  box-sizing:border-box; min-width:1200px; margin-top:160px;}
+	#contents .page { clear:both; width:1200px; margin:0 auto;}
+	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px; font-family: 'HSBombaram'; font-size:40px; letter-spacing:3px;}
+	
+	
+	#table { width: 1000px; margin: 0 auto; }
+	#table * {font-family: Noto Sans KR;}
+	#table td {padding-bottom:10px; }
+	#table input:not([type=file]) {width:100%; height:40px; padding:10px;  border:1px solid #101010;  font-size:16px;}
+	#table textarea {width:100%; height:200px; resize:none; padding:10px; font-size:16px;}
+	#table .td-filename .btn-upload {width:100px; text-align:center; padding:5px; display:inline-block;
+		border:1px solid #6b717b; border-radius:3px;}
+	#table .td-filename #filename {width:800px; padding-left:10px; font-size:14px;}
+	#table .td-filename #filename::file-selector-button {display:none;}
+	#table .td-submit .btn-group { width:300px; margin:0 auto; text-align:center;}
+	#table .td-submit #submit {display:inline-block;  border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
+		background-color:#333; color:#fff; font-size:20px; font-weight:500;font-family: Noto Sans KR;}
+	#table .td-submit .btn-back {display:inline-block;  border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
+		background-color:#595959; color:#fff; font-size:20px; font-weight:500; }
+	
+	
 	#btn_group {  margin: 5% auto; width: 100%; display: block; float: left; }
 	.btn-primar, .btn-secondary { }
 	
+	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px; margin-bottom:30px;}
+	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
+	#contents .bread-crumb li a {color:#666;}
+	.bread-crumb li a:hover {text-decoration:underline;}
+	.bread-crumb li:last-child a {font-weight:500; color:#595959;}
 </style>
 </head>
 <body>
+<%
+	String sid = (String) session.getAttribute("sid");
+	if(sid == null) {
+		response.sendRedirect("/gyeongju/Login.do");
+	} 
+	if (sid.equals("admin")) {
+%>	
+		<script>
+		alert("관리자 계정으로는 문의를 작성할 수 없습니다.");
+		location.href = "/gyeongju/QnaList.do";
+		</script>
+<% 
+	}
+%>
 <div id="header" class="clr-fix">
 	<%@ include file="/header.jsp" %>		
 </div>
 <div id="contents" class="clr-fix">	
-	<div id="wrap">
-			<div class="head">
-				<img src="../img/a.jpg" alt="담벼락">
-			</div>
-		</div>	
-	<section id="page">
-		<div id="nav">
-			<h1 id="title"><i class="xi-forum-o xi-2x"></i>글 작성(임시)</h1>
-			<nav aria-label="breadcrumb">
-			  <ol class="breadcrumb">
-			    <li class="breadcrumb-item"><a href="#">Home</a></li>
-			    <li class="breadcrumb-item"><a href="#">커뮤니티</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">담벼락</li>
-			  </ol>
-			</nav>
-		</div>
+	
+	<section class="page">
+		<h2 class="page-title">담벼락</h2>
 		<hr>
-		<div class="content">
+		<div class="bread-crumb">
+			<ul>
+				<li><a href="${path0 }/">홈</a>  >  </li>
+				<li><a >커뮤니티</a>  >  </li>
+				<li><a href="${path0 }/QnaList.do">담벼락</a>  >  </li>
+				<li><a href="${path0 }/QnaInsert.do">문의 등록</a></li>
+			</ul>
+		</div>
 		<form action="${path0 }/QnaInsertPro.do" method="post" enctype="multipart/form-data" >
 			<table id="table">
 				<tr>
-					<th>글 제목 </th>
-					<td><input type="text" name="title" id="title" maxlength="100" required placeholder="제목을 입력하세요" /></td>
+					<td><input type="text" name="title" id="title" maxlength="100" required placeholder="제목" /></td>
 				</tr>
 				<tr>
-					<th>글 내용 </th>
-					<td><textarea rows="20" cols="100" name="content" required placeholder="내용을 입력하세요"></textarea></td>
+					<td><textarea  name="content" id="content" required placeholder="내용을 입력하세요"></textarea></td>
 				</tr>
 				<tr>
-					<th>파일 첨부</th>
-					<td>
-					<input type="file" id="filename" name="filename" accept=".gif, .jpg, .png, .hwp, .doc, .txt, .xls, .xlsx, .ppt, .pptx, .zip"></input>
+					<td class="td-filename">
+					<label for="filename">
+								<div class="btn-upload">사진 첨부</div>
+						</label>
+					<input type="file" name="filename" id="filename" accept=".jpg, .png, .jpeg, .svg, .PNG, .JPG, .JPEG, .SVG"/>
 					</td>
 				</tr>
+				<tr>
+						<td class="td-submit">
+							<div class="btn-group">
+								<a class="btn-back" href="${path0 }/QnaList.do">취소</a>
+								<button id="submit" type="submit">등록</button>
+							</div>
+							
+						</td>
+					</tr>
 			</table>
-		
-		
-		<div id="btn_group">
-			<button type="submit" class="btn btn-primary">등록</button>
-			<a href="${path0 }/CommunityList.do" class="btn btn-secondary">취소</a>
-		</div>
 		</form>
-		</div>
 		
 	</section>
 </div>

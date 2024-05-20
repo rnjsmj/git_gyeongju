@@ -76,7 +76,7 @@ a{text-decoration: none;}
 	                  <a href="${path0 }/PlaceList.do?ptype=all" class="dp">여기어때</a>
 	                  <ul class="sub">
 	                      <li><a href="${path0 }/PlaceList.do?ptype=curtural" class="dp2">문화재</a></li>
-	                      <li><a href="${path0 }/PlaceList.do?ptype=theme" class="dp2">테마파크</a></li>
+	                      <li><a href="${path0 }/PlaceList.do?ptype=theme" class="dp2">테마파크 및 공원</a></li>
 	                      <li><a href="${path0 }/PlaceList.do?ptype=etc" class="dp2">기타</a></li>
 	                      <li><a href="" class="dp2">여행코스</a></li>
 	                  </ul>
@@ -85,7 +85,7 @@ a{text-decoration: none;}
 	                  <a href="${path0 }/QnaList.do" class="dp">커뮤니티</a>
 	                  <ul class="sub">
 	                      <li><a href="${path0 }/NoticeList.do" class="dp2">공지사항</a></li>
-	                      <li><a href="${path0 }/QnaList.do" class="dp2">문의하기</a></li>
+	                      <li><a href="${path0 }/QnaList.do" class="dp2">담벼락</a></li>
 	                  </ul>
 	              </li>
 	              <li class="item5">
