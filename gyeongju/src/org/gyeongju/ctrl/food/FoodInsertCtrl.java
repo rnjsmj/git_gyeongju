@@ -42,6 +42,12 @@ public class FoodInsertCtrl extends HttpServlet {
 		
 		try {
 			String saveDirectory = application.getRealPath("/upload/food");
+			
+			File isDir = new File(saveDirectory);
+			if(!isDir.isDirectory()) {
+				isDir.mkdir();
+			}
+			
 			int maxSize = 1024*1024*10;
 			String encoding = "UTF-8";
 			MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxSize, encoding, new DefaultFileRenamePolicy());
