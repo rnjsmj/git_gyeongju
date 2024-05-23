@@ -21,9 +21,9 @@
 	ol { list-style: none; }
 	
 	#header #hd #gnb a.dp { color:#101010;} 
-	.fd-vs { width:100%; height:400px; overflow:hidden; margin:0 auto; font-family: 'HSBombaram'; min-width:1400px; }
+	.fd-vs { width:100%; height:618px; overflow:hidden; margin:0 auto; font-family: 'HSBombaram'; min-width:1400px; }
 	.fd-vs img {width:100%; height:100%; object-fit:cover;}
-	.fd-vs .vstit {position:absolute; width:100%; min-width:1400px; color:#fff; top:270px; z-index:998; margin:0 auto; }
+	.fd-vs .vstit {position:absolute; width:100%; min-width:1400px; color:#fff; top:400px; z-index:998; margin:0 auto; }
 	.fd-vs .vstit .ttext {font-size:70px; font-weight:400; width:1200px; min-width:1200px; margin:0 auto; padding-left:25px; letter-spacing:10px; color:#fff; text-shadow: 2px 2px 2px gray;}
 	
 	.head { clear: both; width: 100%; height: 300px; overflow: hidden; }
@@ -85,7 +85,7 @@
 	#contents .buttons #insbtn {border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
 		background-color:#333; color:#fff; float:right; font-size:20px; font-weight:500;}
 	
-	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px; }
+	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;margin-top:20px;  }
 	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
 	#contents .bread-crumb li a {color:#666;}
 	.bread-crumb li a:hover {text-decoration:underline;}

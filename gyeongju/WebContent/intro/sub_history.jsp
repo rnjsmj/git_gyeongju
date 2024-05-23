@@ -17,7 +17,7 @@ a { text-decoration: none;}
 
 .container { width:1400px;}
 
-.submain_txt { width: 100%; margin: 0 auto; top: 36.5%; margin-left: -30.5%; color: #FFF; font-family: HSBomBaram; font-weight: Regular; font-size: 54pt;
+.submain_txt { width: 100%; margin: 0 auto; top: 330px; margin-left: -30.5%; color: #FFF; font-family: HSBomBaram; font-weight: Regular; font-size: 54pt;
 text-align: center; position:absolute;}
 #vs {width: 100%; height: auto;}
 
