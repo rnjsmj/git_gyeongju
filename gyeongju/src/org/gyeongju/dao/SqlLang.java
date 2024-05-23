@@ -13,7 +13,7 @@ public interface SqlLang {
 	String DEL_FOOD = "delete from food where fno=?";
 	String CNT_ALL_FOOD = "select count(*) from food";
 	
-	//여기어때
+	//여기어때a
 	String SELECT_ALL_PLACE = "select b.* from (select rownum as rnum, a.* from ( select * from place order by pno desc ) a ) b where b.rnum between ? and ?";
 	String SELECT_PLACE_BYNO = "select * from place where pno=?";
 	String SELECT_PLACE_CULTURAL = "select b.* from (select rownum as rnum, a.* from ( select * from place where ptype='문화재' order by pno desc ) a ) b where b.rnum between ? and ?";
