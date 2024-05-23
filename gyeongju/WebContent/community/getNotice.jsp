@@ -120,7 +120,7 @@
 	var delbtn = document.getElementById('delbtn');
 	delbtn.addEventListener("click", function() {
 		if(confirm("삭제 하시겠습니까?")) {
-			location.replace("${path0 }/DelCommunity.do?bno="+<%=request.getAttribute("bno")%>);
+			location.replace("${path0 }/DelCommunity.do?bno="+<%=request.getAttribute("bno")%>+"&t=notice");
 		}
 	});
 </script>

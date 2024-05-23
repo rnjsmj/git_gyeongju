@@ -49,11 +49,11 @@
 
 	#page2 {width:1200px; margin:0 auto;}
 	#page2 * {box-sizing:border-box;}
-	#page2 #reply-wrap {width:100%; height:190px; background-color:#f0eae4; padding:20px;}
-	#page2 #reply-wrap #rep-input {display:inline-block; width:1020px; height:150px; margin-right:15px; vertical-align:middle; padding:20px;}
-	#page2 #reply-wrap #btn-col {display:inline-block; width:115px; height:150px;  }
-	#page2 #reply-wrap #btn-col #rep-btn {display:inline-block; width:100%; height:100%; vertical-align:middle;}
-	
+	#page2 #reply-wrap {width:100%; height:140px; background-color:#f0eae4; padding:20px;}
+	#page2 #reply-wrap #rep-input {display:inline-block; width:1020px; height:100px; margin-right:15px; vertical-align:middle; padding:20px; resize:none; }
+	#page2 #reply-wrap #btn-col {display:inline-block; width:115px; height:100px;  }
+	#page2 #reply-wrap #btn-col #rep-btn {display:inline-block; width:100%; height:100%; vertical-align:middle; font-size:22px; color:#fff; background-color:#C1A483; border:none; border-radius:5px; font-weight:500; box-shadow: 2px 5px 10px 1px #C1A48366;}
+	#page2 #reply-wrap * {font-family: Noto Sans KR; }
 
 </style>
 </head>
@@ -97,7 +97,7 @@
 						</tbody>
 					</table>
 					<div class="buttons">
-					  <c:if test="${aid.equals('admin') or sid.equals(qna.aid) }">
+					  <c:if test="${sid.equals('admin') or sid.equals(qna.aid) }">
 						  <a role="button" id="delbtn">삭제</a>
 					  </c:if>
 					  <c:if test="${sid.equals(qna.aid) }">
@@ -129,7 +129,7 @@
 	var delbtn = document.getElementById('delbtn');
 	delbtn.addEventListener("click", function() {
 		if(confirm("삭제 하시겠습니까?")) {
-			location.replace("${path0 }/DelCommunity.do?bno="+<%=request.getAttribute("bno")%>);
+			location.replace("${path0 }/DelCommunity.do?bno="+<%=request.getAttribute("bno")%>+"&t=qna");
 		}
 	});
 </script>

@@ -34,8 +34,11 @@ public class DelCommunityCtrl extends HttpServlet {
 		String sid = (String) session.getAttribute("sid");
 		String aid = dao.getCommunity2(bno).getAid();
 		
-		if(!sid.equals("admin")|| !sid.equals(aid)){
+		if(sid.equals("admin")|| sid.equals(aid)){
+			
+		} else {
 			response.sendRedirect("/gyeongju");
+			return;
 		}
 		
 		String filename = dao.getCommunity2(bno).getFilename();
@@ -45,11 +48,24 @@ public class DelCommunityCtrl extends HttpServlet {
 		
 		int cnt = dao.delCommunity(bno);
 		
+		String redirectURL = "";
+		
 		if(cnt>0) {
-			response.sendRedirect("/gyeongju/QnaList.do");
+			if (request.getParameter("t").equals("notice")) {
+				redirectURL = "/gyeongju/NoticeList.do";
+			} else if (request.getParameter("t").equals("qna")){
+				redirectURL = "/gyeongju/QnaList.do";
+			}
 		} else {
-			response.sendRedirect("/gyeongju/GetQna2.do?bno="+bno);
+			if (request.getParameter("t").equals("qna")) {
+				redirectURL = "/gyeongju/GetQna2.do?bno="+bno;
+				
+			} else {
+				redirectURL = "/gyeongju/GetNotice2.do?bno="+bno;
+			}
+			
 		}
+		response.sendRedirect(redirectURL);
 	}
 
 }

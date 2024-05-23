@@ -49,16 +49,28 @@
 .con4_lst2 { width: 279px; height: 262px; background-color: #C1A483; top: 0px; left: 0px; border-radius: 16px; overflow: hidden;
              padding: 28px; float: left; margin-right: 20px;}
 .con4_lst3 { width: 279px; height: 262px; background-color: #F1EEE4; top: 0px; left: 0px; border-radius: 16px; overflow: hidden;
-             padding: 28px; float: left; margin-right: 20px;}
+             padding: 28px; float: left; margin-right: 20px; color: }
 .con4_lst4 { width: 279px; height: 262px; background-color: #22333B; top: 0px; left: 0px; border-radius: 16px; overflow: hidden;
              padding: 28px;}
 
 .item_txt1 { color: #FFF; font-family: Noto Sans KR; font-weight: Medium; font-size: 14pt; opacity: 80%; }
 .item_txt2 { background-color: #FFE24B; color:#101010; border-radius:100px; width: 50px; height: 26px; padding-left: 10px; padding-bottom: 3px;
              font-family: Noto Sans KR; font-weight: 600; font-size: 14pt; }
-.item_tit { color: #FFF; font-family: Noto Sans KR; font-weight: 400; font-size: 19pt; padding-top: 18px;}
+.item_tit { color: #FFF; font-family: Noto Sans KR; font-weight: 500; font-size: 24pt; padding-top: 18px; word-break: keep-all; overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+#contents .con4_lst3 .item_txt1, #contents .con4_lst3 .moreli a{ color:#333;}
+#contents .con4_lst3 .item_tit {color:#101010;}
+
 .item_tit2 { color: #FFF; font-family: Noto Sans KR; font-weight: 620; font-size: 19pt; padding-bottom: 100px; }
 .item_btn { color: #FFF; font-family: Noto Sans KR; font-weight: Medium; font-size: 14pt; opacity: 80%;}
+.conlst {position:relative;}
+.conlst .moreli {position:absolute; bottom:28px;}
+
 
 #btn2 { float:right; margin-top: 80px;}
 #btn2 p a { padding: 8px 20px; background-color: #333; color:#FFF; border-radius:100px; font-family: Noto Sans KR; font-size:16pt; font-weight: 500; }
@@ -114,42 +126,26 @@
     </div>
   </div>
   <div class="con4_wrap">
-    <ul class="con4_lst1">
+  	<c:forEach var="dto" items="${newNoti }" varStatus="status">
+    <ul class="con4_lst${status.count } conlst">
       <li>
-        <p class="item_txt1">이달의 소식</p>
-        <h2 class="item_tit">2024 경주 국악여행</h2>
-        <h2 class="item_tit2">국악열전</h2>
-        <a href="" class="item_btn">자세히 보기</a>
-        <a href="" class="item_icon"><img src="./images/con4_btn.png"></a>
+      <ul>
+        <li><p class="item_txt1">이달의 소식</p></li>
+        <li><h2 class="item_tit">${dto.title }</h2></li>
+        <li class="moreli"><a href="${path0 }/GetNotice.do?bno=${dto.bno }" class="item_btn">자세히 보기</a>
+        <a href="${path0 }/GetNotice.do?bno=${dto.bno }" class="item_icon">
+        	<c:if test="${status.count eq 3 }">
+        	<img src="./images/con4_btn2.png">
+        	</c:if>
+        	<c:if test="${!(status.count eq 3) }">
+        	<img src="./images/con4_btn.png">
+        	</c:if>
+        </a></li>
+      </ul>
       </li>
     </ul>
-    <ul class="con4_lst2">
-      <li>
-        <p class="item_txt1">이달의 소식</p>
-        <h2 class="item_tit">2024 형산강</h2>
-        <h2 class="item_tit2">연등문화축제</h2>
-        <a href="" class="item_btn">자세히 보기</a>
-        <a href="" class="item_icon"><img src="./images/con4_btn.png"></a>
-      </li>
-    </ul>
-    <ul class="con4_lst3">
-      <li>
-        <p class="item_txt1" style="color: #333; font-weight: 500;">이달의 소식</p>
-        <h2 class="item_tit" style="color: #101010;">APEC 경주유치기원</h2>
-        <h2 class="item_tit2" style="color: #101010;">경주국제뮤직페스티벌</h2>
-        <a href="" class="item_btn" style="color: #333; font-weight: 500;">자세히 보기</a>
-        <a href="" class="item_icon"><img src="./images/con4_btn2.png"></a>
-      </li>
-    </ul>
-    <ul class="con4_lst4">
-      <li>
-        <p class="item_txt1">이달의 소식</p>
-        <h2 class="item_tit">2024 형산강</h2>
-        <h2 class="item_tit2">연등문화축제</h2>
-        <a href="" class="item_btn">자세히 보기</a>
-        <a href="" class="item_icon"><img src="./images/con4_btn.png"></a>
-      </li>
-    </ul>
+    </c:forEach>
+    
   </div>
 </main>
 <button id="topBtn" class="top-button">TOP</button>

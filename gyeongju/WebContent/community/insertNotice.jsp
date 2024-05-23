@@ -94,7 +94,7 @@
 					<td><input type="text" name="title" id="title" maxlength="100" required placeholder="제목" /></td>
 				</tr>
 				<tr>
-					<td><textarea  name="content" id="content" required placeholder="내용을 입력하세요"></textarea></td>
+					<td><textarea  name="content" id="content" required placeholder="내용을 입력하세요" cols="20" wrap="hard"></textarea></td>
 				</tr>
 				<tr>
 					<td class="td-filename">
