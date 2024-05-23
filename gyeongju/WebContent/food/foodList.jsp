@@ -70,7 +70,7 @@
 	#contents .buttons .insbtn {border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
 		background-color:#333; color:#fff; float:right; font-size:20px; font-weight:500;}
 
-	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px; }
+	.bread-crumb {width:100%; height:40px; text-align:right; padding-right:10px; margin-top:20px; margin-bottom:20px;}
 	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
 	#contents .bread-crumb li a {color:#666;}
 	.bread-crumb li a:hover {text-decoration:underline;}
@@ -94,16 +94,16 @@
 				<li><a href="${path0 }/FoodList.do?ftype=all">식도락</a>  >  </li>
 				<li><a href="${path0 }/FoodList.do?ftype=${ftype}">
 					<c:if test="${ftype.equals('all') }">
-						전체목록
+						전체
 					</c:if>
 					<c:if test="${ftype.equals('rest') }">
-						음식점목록
+						음식점
 					</c:if>
 					<c:if test="${ftype.equals('cafe') }">
-						카페목록
+						카페
 					</c:if>
 					<c:if test="${ftype.equals('etc') }">
-						기타목록
+						기타
 					</c:if>
 					</a>
 				</li>

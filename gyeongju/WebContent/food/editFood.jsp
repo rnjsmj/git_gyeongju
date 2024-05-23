@@ -13,12 +13,12 @@
 <style>
 	
 	#header #hd #gnb a.dp { color:#101010;}
-	hr { box-sizing:content-box;  }
+	hr { box-sizing:content-box;  margin-bottom:30px;}
 	
 	#contents { width:100%; min-height:100vh;  min-width:1200px; box-sizing:border-box; }
 	#contents::after { content:""; display:block; width:100%; clear:both; }
 	#contents .page { clear:both; width:1200px; margin:0 auto; margin-top:160px;}
-	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px; font-family: 'HSBombaram'; font-size:40px; letter-spacing:3px;}
+	.page .page-title { width:50%; margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px; font-family: 'HSBombaram'; font-size:40px; letter-spacing:3px; display:inline-block; box-sizing:border-box;}
 	
 	.updForm {width:1000px; margin:0 auto;}
 	.updForm * {font-family: Noto Sans KR;}
@@ -39,7 +39,7 @@
 	.updForm .td-submit .btn-back {display:inline-block;  border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
 		background-color:#595959; color:#fff; font-size:20px; font-weight:500; }
 	
-	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px; margin-bottom:30px; margin-bottom:30px;}
+	.bread-crumb {display:inline-block; width:49%; height:40px; text-align:right; padding-right:10px; margin-top:20px; margin-bottom:20px; box-sizing:border-box;}
 	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
 	#contents .bread-crumb li a {color:#666;}
 	.bread-crumb li a:hover {text-decoration:underline;}
@@ -54,14 +54,15 @@
 <div id="contents" class="clr-fix">
 	<section class="page">
 		<h2 class="page-title">식도락</h2>
-		<hr>
+		
 		<div class="bread-crumb">
 			<ul>
 				<li><a href="${path0 }/">홈</a>  >  </li>
 				<li><a href="${path0 }/FoodList.do?ftype=all">식도락</a>  >  </li>
-				<li><a href="${path0 }/food/insertFood.jsp?ftype=${ftype}">식도락 수정</a></li>
+				<li><a href="${path0 }/food/insertFood.jsp?ftype=${ftype}">수정</a></li>
 			</ul>
 		</div>
+		<hr>
 		<form action="${path0 }/FoodUpdatePro.do?ftype=<%=request.getParameter("ftype") %>" method="post" 
 			onsubmit="return typeCheck(this)">
 			<table class="updForm">

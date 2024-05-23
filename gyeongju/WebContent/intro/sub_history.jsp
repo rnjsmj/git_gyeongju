@@ -11,11 +11,13 @@
 <%@ include file="/head.jsp" %>
 <style>
 * { margin: 0; padding: 0; font-family: Noto Sans KR;}    
-body { width: 100%; background-color: #f8f8f8;}
+body { width: 100%; background-color: #f8f8f8; }
 ul { list-style: none; }
 a { text-decoration: none;}
 
 .container { width:1400px;}
+
+#contents {overflow-x:hidden;}
 
 .submain_txt { width: 100%; margin: 0 auto; top: 330px; margin-left: -30.5%; color: #FFF; font-family: HSBomBaram; font-weight: Regular; font-size: 54pt;
 text-align: center; position:absolute;}
@@ -42,7 +44,7 @@ text-align: center; position:absolute;}
 .sub_img6 { float:right;}
 
 .line1 {width: 1400px; margin: 0 auto; padding: 0; margin-top: 48px; border-top: 2px solid #E8E8E8;}
-.breadcrumb {width: 1400; float:right; padding-top: 12px; padding-right: 13%; color: #b8b8b8;}
+.breadcrumb {width: 1400px; text-align:right; padding-top: 12px; padding-right: 20px; color: #b8b8b8; margin:0 auto;}
 .breadcrumb a{ color: #666; font-size: 12pt; font-weight: 400;}
 .breadcrumb span{ color: #595959; font-size: 12pt; font-weight: 500;}
 

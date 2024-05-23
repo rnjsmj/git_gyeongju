@@ -13,7 +13,7 @@
 <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
  -->
  <style>
- 
+
 	#header #hd #gnb a.dp { color:#101010;} 
 	 
 	* {margin: 0;padding: 0;}
@@ -62,11 +62,11 @@
 	if(sid == null) {
 		response.sendRedirect("/gyeongju/Login.do");
 	} 
-	if (sid.equals("admin")) {
+	if (!sid.equals("admin")) {
 %>	
 		<script>
-		alert("관리자 계정으로는 문의를 작성할 수 없습니다.");
-		location.href = "/gyeongju/QnaList.do";
+		alert("관리자 권한입니다.");
+		location.href = "/gyeongju/NoticeList.do";
 		</script>
 <% 
 	}
@@ -77,18 +77,18 @@
 <div id="contents" class="clr-fix">	
 	
 	<section class="page">
-		<h2 class="page-title">담벼락</h2>
+		<h2 class="page-title">공지사항</h2>
 		
 		<div class="bread-crumb">
 			<ul>
 				<li><a href="${path0 }/">홈</a>  >  </li>
 				<li><a >커뮤니티</a>  >  </li>
-				<li><a href="${path0 }/QnaList.do">담벼락</a>  >  </li>
-				<li><a href="${path0 }/QnaInsert.do">등록</a></li>
+				<li><a href="${path0 }/NoticeList.do">공지사항</a>  >  </li>
+				<li><a href="${path0 }/NoticeInsert.do">등록</a></li>
 			</ul>
 		</div>
 		<hr>
-		<form action="${path0 }/QnaInsertPro.do" method="post" enctype="multipart/form-data" >
+		<form action="${path0 }/NoticeInsertPro.do" method="post" enctype="multipart/form-data" >
 			<table id="table">
 				<tr>
 					<td><input type="text" name="title" id="title" maxlength="100" required placeholder="제목" /></td>
@@ -107,7 +107,7 @@
 				<tr>
 						<td class="td-submit">
 							<div class="btn-group">
-								<a class="btn-back" href="${path0 }/QnaList.do">취소</a>
+								<a class="btn-back" href="${path0 }/NoticeList.do">취소</a>
 								<button id="submit" type="submit">등록</button>
 							</div>
 							

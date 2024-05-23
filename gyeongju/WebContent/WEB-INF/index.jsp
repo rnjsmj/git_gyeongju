@@ -12,15 +12,17 @@
     <%@ include file="/head.jsp" %>
     <style>
 .clr-fix:after {content:""; display:block; width:100%; clear:both;}
-.content_title{ margin: 0 auto; padding: 0; width: 220px;}
-.sub_txt1 { color: #FFF; position: absolute; top: 172px; font-family: MaruBuri-Regular; font-weight: SemiBold; font-size: 32px;}
-.sub_txt2 { color: #FFF; position: absolute; top: 216px; left: 46%; font-family: HSBombaram; font-weight: Regular; font-size: 120px;}
-.sub_txt3 { color: #FFF; position: absolute; top: 75.2%; font-family: Noto Sans KR; font-weight: Regular; font-size: 14pt; text-align: center; margin:0 auto;}
-#btn { margin: 0 auto; padding: 0; position: absolute; top: 82.8%; left: 48.3%;}
+.content_title{ margin: 0 auto; padding: 0; width: 100%; min-width:1400px;}
+.sub_txt1 { color: #FFF; position: absolute; top: 172px; left:811.5px; font-family: MaruBuri-Regular; font-weight: SemiBold; font-size: 32px; width:300px; }
+.sub_txt2 { color: #FFF; position: absolute; top: 216px; left:852px; font-family: HSBombaram; font-weight: Regular; font-size: 120px; width:216px;}
+.sub_txt3 { color: #FFF; position: absolute; top: 68.5%; left:820.8px; font-family: Noto Sans KR; font-weight: Regular; font-size: 14pt;  text-align:center; width:279px;}
+#btn { margin: 0 auto; padding: 0; position: absolute; top:  75.1%;; left:898.2px;width:126px; }
 #btn p a { padding: 4px 12px 6px 12px; border: 1px solid #999; color:#FFF; border-radius:100px; font-family: Noto Sans KR; font-size:15pt; font-weight: 500; }
 #btn p a:hover { border: 2px solid #FFF; }
     
 #contents { width: 100%; background-repeat: no-repeat; top: 0px; left: 0px; overflow: hidden;}
+
+#vs {min-width:1400px; margin:0 auto;}
 
 .con_1 { clear:both; width:1400px; height: auto; margin: 0 auto; overflow: hidden;}
 .con_title1 { color: #101010; font-family: Noto Sans KR; font-weight: 600; font-size: 40px; opacity: 1; text-align: left; margin-top: 80px; float: left;}
@@ -36,10 +38,11 @@
 
 .con3_txt { width: 100%; margin: 0 auto; top: 45%; color: #FFF; font-family: HSBomBaram; font-weight: Regular; font-size: 20pt;
             text-align: center; position:absolute;}
-.con3_img {width: 100%; height: auto; position: absolute; top: 1796px; overflow: hidden;}
+.con3_img {width: 100%; height: auto; position: relative; overflow: hidden; margin:0 auto; margin-top:200px;}
+.con3_img img {margin:0 auto;}
 
 .con_4 { clear:both; width:1400px; height: auto; margin: 0 auto; overflow: hidden;}
-.con_title4 { color: #101010; font-family: Noto Sans KR; font-weight: 600; font-size: 40px; opacity: 1; text-align: left; margin-top: 754px; float: left;}
+.con_title4 { color: #101010; font-family: Noto Sans KR; font-weight: 600; font-size: 40px; opacity: 1; text-align: left; margin-top: 80px; float: left;}
 .con4_wrap { clear:both; width:1400px; margin: 0 auto; padding-top: 40px;}
 .con4_lst1 { width: 279px; height: 262px; background-color: #FA8214; top: 0px; left: 0px; border-radius: 16px; overflow: hidden; 
              padding: 28px; float: left; margin-right: 20px;}
@@ -57,7 +60,7 @@
 .item_tit2 { color: #FFF; font-family: Noto Sans KR; font-weight: 620; font-size: 19pt; padding-bottom: 100px; }
 .item_btn { color: #FFF; font-family: Noto Sans KR; font-weight: Medium; font-size: 14pt; opacity: 80%;}
 
-#btn2 { float:right; margin-top: 764px;}
+#btn2 { float:right; margin-top: 80px;}
 #btn2 p a { padding: 8px 20px; background-color: #333; color:#FFF; border-radius:100px; font-family: Noto Sans KR; font-size:16pt; font-weight: 500; }
 #btn2 p a:hover { background-color: #452616;}
 
@@ -107,7 +110,7 @@
   <div class="con_4">
     <h5 class="con_title4">경주의 정보를 한 눈에!</h5>
     <div id="btn2">
-      <p><a href="${path0 }/CommunityList.do">공지사항 전체보기</a></p>
+      <p><a href="${path0 }/NoticeList.do">공지사항 전체보기</a></p>
     </div>
   </div>
   <div class="con4_wrap">

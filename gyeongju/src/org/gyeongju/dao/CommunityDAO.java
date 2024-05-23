@@ -18,9 +18,9 @@ public class CommunityDAO {
 	//문의하기 목록
 	public List<Community> getQnaList(){
 		List<Community> qnaList = new ArrayList<>();
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_ALL_QNA);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -37,7 +37,7 @@ public class CommunityDAO {
 		} catch(Exception e){
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt, rs);
+			maria.close(con, pstmt, rs);
 		}
 		return qnaList;
 	}
@@ -45,9 +45,9 @@ public class CommunityDAO {
 	//공지사항 목록
 		public List<Community> getNoticeList(){
 			List<Community> noticeList = new ArrayList<>();
-			OracleDB oracle = new OracleDB();
+			MariaDB maria = new MariaDB();
 			try {
-				con = oracle.connect();
+				con = maria.connect();
 				pstmt = con.prepareStatement(SqlLang.SELECT_ALL_NOTICE);
 				rs = pstmt.executeQuery();
 				while(rs.next()) {
@@ -64,17 +64,17 @@ public class CommunityDAO {
 			} catch(Exception e){
 				e.printStackTrace();
 			} finally {
-				oracle.close(con, pstmt, rs);
+				maria.close(con, pstmt, rs);
 			}
 			return noticeList;
 		}
 	
 	public Community getCommunity(int bno) {
 		Community com = new Community();
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = con.prepareStatement(SqlLang.VISITED_UPD_COMMUNITY);
 			pstmt.setInt(1, bno);
 			pstmt.executeUpdate();
@@ -94,16 +94,16 @@ public class CommunityDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt, rs);
+			maria.close(con, pstmt, rs);
 		}
 		return com;
 	}
 	
 	public int insCommunity(Community com) {
 		int cnt = 0;
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = con.prepareStatement(SqlLang.INS_COMMUNITY);
 			pstmt.setString(1, com.getTitle());
 			pstmt.setString(2, com.getContent());
@@ -113,16 +113,16 @@ public class CommunityDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt);
+			maria.close(con, pstmt);
 		}
 		return cnt;
 	}
 	
 	public int editProCommunity(Community com) {
 		int cnt = 0;
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = con.prepareStatement(SqlLang.UPD_COMMUNITY);
 			pstmt.setString(1, com.getTitle());
 			pstmt.setString(2, com.getContent());
@@ -132,33 +132,33 @@ public class CommunityDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt);
+			maria.close(con, pstmt);
 		}
 		return cnt;
 	}
 	
 	public int delCommunity(int bno){
 		int cnt = 0;
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = con.prepareStatement(SqlLang.DEL_COMMUNITY);
 			pstmt.setInt(1, bno);
 			cnt = pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt);
+			maria.close(con, pstmt);
 		}
 		return cnt;
 	}
 
 	public Community getCommunity2(int no) {
 		Community com = new Community();
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = null;
 			pstmt = con.prepareStatement(SqlLang.SELECT_COMMUNITY_BYNO);
 			pstmt.setInt(1, no);
@@ -175,7 +175,7 @@ public class CommunityDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt, rs);
+			maria.close(con, pstmt, rs);
 		}
 		return com;
 	}

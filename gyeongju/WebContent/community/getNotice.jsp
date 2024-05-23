@@ -28,7 +28,7 @@
 	
 	#table {margin:0 auto; width:1200px;}
 	#table #td-title {border-top:3px solid #C1A483; font-size:22px; border-bottom:1px solid #C1A483; padding:15px 0 15px 15px; font-weight:500;}
-	#table #td-aid {width:1%; white-space:nowrap; padding:5px 0 5px 15px; text-align:left;}
+	#table #td-aid { width:1%; white-space:nowrap; padding:5px 0 5px 15px; text-align:left;}
 	#table #td-resdate span {margin:0 15px; color:#b8b8b8;}
 	#table #td-visited {text-align:right; padding-right:15px;}
 	#table #td-visited span {margin-right:15px; }
@@ -63,33 +63,33 @@
 </div>
 <div id="contents" class="clr-fix">
 	<figure class="fd-vs">
-		<img src="${path0 }/images/qnalistimg.png" alt="담벼락 배너">
-		<div class="vstit"><p class="ttext">담벼락</p></div>
+		<img src="${path0 }/images/noticelistimg.jpg" alt="공지사항 배너">
+		<div class="vstit"><p class="ttext">공지사항</p></div>
 	</figure>
 	<section class="page" id="page1">
 		<div class="bread-crumb">
 			<ul>
 				<li><a href="${path0 }/">홈</a>  >  </li>
 				<li><a >커뮤니티</a>  >  </li>
-				<li><a href="${path0 }/QnaList.do">담벼락</a>  >  </li>
-				<li><a href="${path0 }/GetQna2.do?bno=${qna.bno}">상세보기</a></li>
+				<li><a href="${path0 }/NoticeList.do">공지사항</a>  >  </li>
+				<li><a href="${path0 }/GetNotice2.do?bno=${notice.bno}">상세보기</a></li>
 			</ul>
 		</div>
 				<div class="wrap">
 					<table class="table" id="table">
 						<tbody>
 							<tr class="tr-title">
-								<td id="td-title" colspan="3" >${qna.title }</td>
+								<td id="td-title" colspan="3" >${notice.title }</td>
 							</tr>	
 							<tr>
-								<td id="td-aid">${qna.aid }</td><td id="td-resdate"><span>|</span>${qna.resdate }</td>
-								<td id="td-visited"><span>조회</span>${qna.visited }</td>
+								<td id="td-aid">관리자</td><td id="td-resdate"><span>|</span>${notice.resdate }</td>
+								<td id="td-visited"><span>조회</span>${notice.visited }</td>
 							</tr>
 							<tr class="tr-content" >
 								<td id="td-content" colspan="3">
-									${qna.content }<br><br><br>
-									<c:if test="${not empty qna.filename }">
-									<figure class="fig"><img src="${path0 }/upload/community/${qna.filename}" alt="담벼락${qna.bno }"></figure>
+									${notice.content }<br><br><br>
+									<c:if test="${not empty notice.filename }">
+									<figure class="fig"><img src="${path0 }/upload/community/${notice.filename}" alt="공지사항${notice.bno }"></figure>
 									</c:if>
 								</td>
 							</tr>
@@ -97,24 +97,15 @@
 						</tbody>
 					</table>
 					<div class="buttons">
-					  <c:if test="${aid.equals('admin') or sid.equals(qna.aid) }">
+					  <c:if test="${sid.equals('admin') }">
 						  <a role="button" id="delbtn">삭제</a>
 					  </c:if>
-					  <c:if test="${sid.equals(qna.aid) }">
-						  <a href="${path0 }/EditQna.do?bno=${qna.bno }">수정</a>
+					  <c:if test="${sid.equals('admin') }">
+						  <a href="${path0 }/EditNotice.do?bno=${notice.bno }">수정</a>
 					  </c:if>
-					 <a role="button" href="${path0 }/QnaList.do" >목록</a>
+					 <a role="button" href="${path0 }/NoticeList.do" >목록</a>
 					</div>
 				</div>
-		</section>
-		<section id="page2">
-			<div id="reply-wrap">
-				<form id="repForm"  >
-					<textarea id="rep-input" placeholder="댓글 기능 준비 중"></textarea>
-					<div id="btn-col"><button id="rep-btn">등록</button></div>
-				</form>
-				
-			</div>
 		</section>
 	<!-- <section class="page" id="page2">
 		<div id="coment">	

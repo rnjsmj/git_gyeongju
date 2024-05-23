@@ -86,7 +86,7 @@
 	#contents .buttons #insbtn {border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
 		background-color:#333; color:#fff; float:right; font-size:20px; font-weight:500;}
 	
-	.bread-crumb {width:100%; height:40px; text-align:right; padding-right:10px;margin-top:20px; margin-bottom:20px; }
+	.bread-crumb {width:100%; height:40px; text-align:right; padding-right:10px;margin-top:20px; margin-bottom:20px;  }
 	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
 	#contents .bread-crumb li a {color:#666;}
 	.bread-crumb li a:hover {text-decoration:underline;}
@@ -99,15 +99,15 @@
 </div>
 <div id="contents" class="clr-fix">
 	<figure class="fd-vs">
-		<img src="${path0 }/images/qnalistimg.png" alt="담벼락 배너">
-		<div class="vstit"><p class="ttext">담벼락</p></div>
+		<img src="${path0 }/images/noticelistimg.jpg" alt="공지사항 배너">
+		<div class="vstit"><p class="ttext">공지사항</p></div>
 	</figure>
 	<section id="page1">
 		<div class="bread-crumb">
 			<ul>
 				<li><a href="${path0 }/">홈</a>  >  </li>
 				<li><a >커뮤니티</a>  >  </li>
-				<li><a href="${path0 }/QnaList.do">담벼락</a>
+				<li><a href="${path0 }/NoticeList.do">공지사항</a>
 				</li>
 			</ul>
 		</div>
@@ -116,7 +116,6 @@
 				<colgroup>
 					<col style="width:88px">
 					<col>
-					<col style="width:150px">
 					<col style="width:220px">
 					<col style="width:80px">
 				</colgroup>
@@ -124,14 +123,13 @@
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">제목</th>
-						<th scope="col">작성자</th>
 						<th scope="col">작성일</th>
 						<th scope="col">조회</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:if test="${not empty qnaList }">
-						<c:forEach var="dto" items="${qnaList }">
+					<c:if test="${not empty noticeList }">
+						<c:forEach var="dto" items="${noticeList }">
 						<tr>
 							<td>${dto.bno }</td>
 							<td class="td-title">
@@ -139,20 +137,18 @@
 									${dto.title }
 								</c:if>
 								<c:if test="${not empty sid }">
-								<a href="${path0 }/GetQna.do?bno=${dto.bno }">${dto.title }</a>
+								<a href="${path0 }/GetNotice.do?bno=${dto.bno }">${dto.title }</a>
 								</c:if>
-							</td>
-							<td>${dto.aid }
 							</td>
 							<td>${dto.resdate }</td>
 							<td>${dto.visited }</td>
 						</tr>
 						</c:forEach>
 					</c:if>
-					<c:if test="${empty qnaList }">
+					<c:if test="${empty noticeList }">
 						<tr>
-							<td colspan="5">
-								<strong>담벼락 글이 존재하지 않습니다.</strong>
+							<td colspan="4">
+								<strong>공지사항이 존재하지 않습니다.</strong>
 							</td>
 						</tr>
 					</c:if>
@@ -161,8 +157,8 @@
 			
 			</div>
 		<div class="buttons">
-			<c:if test="${not empty sid and !sid.equals('admin')}">
-			<a id="insbtn" role="button" href="${path0 }/QnaInsert.do">글 등록</a>
+			<c:if test="${sid.equals('admin') }">
+			<a id="insbtn" role="button" href="${path0 }/NoticeInsert.do">글 등록</a>
 			</c:if>
 		</div>
 	</section>

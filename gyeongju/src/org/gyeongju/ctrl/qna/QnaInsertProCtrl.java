@@ -50,7 +50,6 @@ public class QnaInsertProCtrl extends HttpServlet {
 			
 			com.setTitle(mr.getParameter("title"));
 			com.setContent(mr.getParameter("content"));
-			System.out.println(session.getAttribute("sid"));
 			com.setAid((String) session.getAttribute("sid"));
 			
 			Enumeration files = mr.getFileNames();

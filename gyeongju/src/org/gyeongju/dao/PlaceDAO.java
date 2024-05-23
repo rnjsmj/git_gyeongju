@@ -16,13 +16,12 @@ public class PlaceDAO {
 	//장소 목록
 	public List<Place> getPlaceList(int curPage) {
 		List<Place> placeList = new ArrayList<>();
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_ALL_PLACE);
 			
-			pstmt.setInt(1, ((curPage-1)*9+1));
-			pstmt.setInt(2, curPage*9);
+			pstmt.setInt(1, ((curPage-1)*9));
 			
 			rs = pstmt.executeQuery();
 			
@@ -41,7 +40,7 @@ public class PlaceDAO {
 		}catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt, rs);
+			maria.close(con, pstmt, rs);
 		}
 		
 		return placeList;
@@ -50,12 +49,11 @@ public class PlaceDAO {
 	//문화재 목록
 	public List<Place> getCurturalList(int curPage) {
 		List<Place> curturalList = new ArrayList<>();
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_PLACE_CULTURAL);
-			pstmt.setInt(1, ((curPage-1)*9+1));
-			pstmt.setInt(2, curPage*9);
+			pstmt.setInt(1, ((curPage-1)*9));
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -73,7 +71,7 @@ public class PlaceDAO {
 		}catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt, rs);
+			maria.close(con, pstmt, rs);
 		}
 		
 		return curturalList;
@@ -82,12 +80,11 @@ public class PlaceDAO {
 	//테마파크 목록
 	public List<Place> getThemeList(int curPage) {
 		List<Place> themeList = new ArrayList<>();
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_PLACE_THEME);
-			pstmt.setInt(1, ((curPage-1)*9+1));
-			pstmt.setInt(2, curPage*9);
+			pstmt.setInt(1, ((curPage-1)*9));
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -105,7 +102,7 @@ public class PlaceDAO {
 		}catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt, rs);
+			maria.close(con, pstmt, rs);
 		}
 		
 		return themeList;
@@ -114,12 +111,11 @@ public class PlaceDAO {
 	//기타 목록
 	public List<Place> getEtcList(int curPage) {
 		List<Place> etcList = new ArrayList<>();
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_PLACE_ETC);
-			pstmt.setInt(1, ((curPage-1)*9+1));
-			pstmt.setInt(2, curPage*9);
+			pstmt.setInt(1, ((curPage-1)*9));
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -137,7 +133,7 @@ public class PlaceDAO {
 		}catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt, rs);
+			maria.close(con, pstmt, rs);
 		}
 		
 		return etcList;
@@ -147,10 +143,10 @@ public class PlaceDAO {
 	//장소 상세보기
 	public Place getPlace(int pno) {
 		Place place = new Place();
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			
 			pstmt = con.prepareStatement(SqlLang.SELECT_PLACE_BYNO);
 			pstmt.setInt(1, pno);
@@ -168,7 +164,7 @@ public class PlaceDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt, rs);
+			maria.close(con, pstmt, rs);
 		}
 		return place;
 	}
@@ -176,9 +172,9 @@ public class PlaceDAO {
 	//장소 등록
 	public int insertPlace(Place place) {
 		int cnt = 0;
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			pstmt = con.prepareStatement(SqlLang.INS_PLACE);
 			pstmt.setString(1, place.getPname());
 			pstmt.setString(2, place.getPtype());
@@ -193,7 +189,7 @@ public class PlaceDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt);
+			maria.close(con, pstmt);
 		}
 		return cnt;
 	}
@@ -201,9 +197,9 @@ public class PlaceDAO {
 	//장소 수정
 	public int updatePlace(Place place) {
 		int cnt = 0;
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			//String UPD_FOOD = "update place set pname=?, ptype=?, ptel=?, paddr=?, pcomm=? where pno=?";
 			pstmt = con.prepareStatement(SqlLang.UPD_PLACE);
 			pstmt.setString(1, place.getPname());
@@ -219,7 +215,7 @@ public class PlaceDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt);
+			maria.close(con, pstmt);
 		}
 		return cnt;
 	}
@@ -227,7 +223,7 @@ public class PlaceDAO {
 	//장소 삭제
 	public int deletePlace(int pno) {
 		int cnt = 0;
-		OracleDB mysql = new OracleDB();
+		MariaDB mysql = new MariaDB();
 		try {
 			con = mysql.connect();
 			pstmt = con.prepareStatement(SqlLang.DEL_PLACE);
@@ -245,9 +241,9 @@ public class PlaceDAO {
 	public int cntPage(String ptype) {
 		int rcnt = 0;
 		int pcnt = 0;
-		OracleDB oracle = new OracleDB();
+		MariaDB maria = new MariaDB();
 		try {
-			con = oracle.connect();
+			con = maria.connect();
 			if (ptype.equals("all")) {
 				pstmt = con.prepareStatement(SqlLang.CNT_ALL_PLACE);
 			} else if (ptype.equals("curtural")) {
@@ -272,7 +268,7 @@ public class PlaceDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			oracle.close(con, pstmt);
+			maria.close(con, pstmt);
 		}
 		return pcnt;
 	}

@@ -16,13 +16,12 @@ public class FoodDAO {
 	//식도락 목록
 	public List<Food> getFoodList(int curPage) {
 		List<Food> foodList = new ArrayList<>();
-		OracleDB oracle = new OracleDB();
+		MariaDB oracle = new MariaDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_ALL_FOOD);
 			
-			pstmt.setInt(1, ((curPage-1)*9+1));
-			pstmt.setInt(2, curPage*9);
+			pstmt.setInt(1, ((curPage-1)*9));
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -48,12 +47,11 @@ public class FoodDAO {
 	//음식점 목록
 	public List<Food> getRestList(int curPage) {
 		List<Food> restList = new ArrayList<>();
-		OracleDB oracle = new OracleDB();
+		MariaDB oracle = new MariaDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_FOOD_REST);
-			pstmt.setInt(1, ((curPage-1)*9+1));
-			pstmt.setInt(2, curPage*9);
+			pstmt.setInt(1, ((curPage-1)*9));
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -79,12 +77,11 @@ public class FoodDAO {
 	//카페 목록
 	public List<Food> getCafeList(int curPage) {
 		List<Food> cafeList = new ArrayList<>();
-		OracleDB oracle = new OracleDB();
+		MariaDB oracle = new MariaDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_FOOD_CAFE);
-			pstmt.setInt(1, ((curPage-1)*9+1));
-			pstmt.setInt(2, curPage*9);
+			pstmt.setInt(1, ((curPage-1)*9));
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -110,12 +107,11 @@ public class FoodDAO {
 	//기타 목록
 	public List<Food> getEtcList(int curPage) {
 		List<Food> etcList = new ArrayList<>();
-		OracleDB oracle = new OracleDB();
+		MariaDB oracle = new MariaDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_FOOD_ETC);
-			pstmt.setInt(1, ((curPage-1)*9+1));
-			pstmt.setInt(2, curPage*9);
+			pstmt.setInt(1, ((curPage-1)*9));
 			rs = pstmt.executeQuery();
 			
 		while(rs.next()) {
@@ -142,7 +138,7 @@ public class FoodDAO {
 	//식도락 상세보기
 	public Food getFood(int fno) {
 		Food food = new Food();
-		OracleDB oracle = new OracleDB();
+		MariaDB oracle = new MariaDB();
 		
 		try {
 			con = oracle.connect();
@@ -170,7 +166,7 @@ public class FoodDAO {
 	//식도락 등록
 	public int insertFood(Food food) {
 		int cnt = 0;
-		OracleDB oracle = new OracleDB();
+		MariaDB oracle = new MariaDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.INS_FOOD);
@@ -194,7 +190,7 @@ public class FoodDAO {
 	//식도락 수정
 	public int updateFood(Food food) {
 		int cnt = 0;
-		OracleDB oracle = new OracleDB();
+		MariaDB oracle = new MariaDB();
 		try {
 			con = oracle.connect();
 			//String UPD_FOOD = "update food set fname=?, ftype=?, ftel=?, faddr=?, fcomm=? where no=?";
@@ -219,7 +215,7 @@ public class FoodDAO {
 	//식도락 삭제
 	public int deleteFood(int fno) {
 		int cnt = 0;
-		OracleDB oracle = new OracleDB();
+		MariaDB oracle = new MariaDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.DEL_FOOD);
@@ -241,7 +237,7 @@ public class FoodDAO {
 	public int cntPage(String ftype) {
 		int rcnt = 0;
 		int pcnt = 0;
-		OracleDB oracle = new OracleDB();
+		MariaDB oracle = new MariaDB();
 		try {
 			con = oracle.connect();
 			if (ftype.equals("all")) {

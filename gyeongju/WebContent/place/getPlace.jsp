@@ -24,7 +24,7 @@
 	#contents .page { clear:both; width:1200px; margin:0 auto;font-family: Noto Sans KR; }
 	
 	/* .page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px;} */
-	.page .place-wrap { width:100%;  padding:20px 0; font-family: Noto Sans KR; margin-top:30px;}
+	.page .place-wrap { width:100%;  padding:20px 0; font-family: Noto Sans KR; }
 	.page .place-wrap .place-col1 {width:50%; float:left;}
 	.page .place-wrap .place-col1 .fig {display:block; width:560px; height:540px; }
 	.page .place-wrap .place-col1 .fig img { width:100%; height:100%; object-fit:cover;}
@@ -47,7 +47,7 @@
 	.page .buttons a { display:inline-block;  border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
 		background-color:#333; color:#fff; font-size:20px; font-weight:500;}
 		
-	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px;}
+		.bread-crumb {width:100%; height:40px; text-align:right; padding-right:10px; margin-top:20px; }
 	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
 	#contents .bread-crumb li a {color:#666;}
 	.bread-crumb li a:hover {text-decoration:underline;}
@@ -73,16 +73,16 @@
 				<li><a href="${path0 }/PlaceList.do?ptype=all">여기어때</a>  >  </li>
 				<li><a href="${path0 }/PlaceList.do?ptype=${ptype}">
 					<c:if test="${ptype.equals('all') }">
-						전체목록
+						전체
 					</c:if>
 					<c:if test="${ptype.equals('curtural') }">
-						문화재목록
+						문화재
 					</c:if>
 					<c:if test="${ptype.equals('theme') }">
-						테마파크/공원목록
+						테마파크/공원
 					</c:if>
 					<c:if test="${ptype.equals('etc') }">
-						기타목록
+						기타
 					</c:if>
 					</a>  >  
 				</li>

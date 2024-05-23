@@ -23,7 +23,7 @@ font-style: normal;
 }
 
 * { margin: 0; padding: 0; }    
-body { width: 100%; /* overflow-x:hidden; */ }
+body { width: 100%; min-width:1400px; overflow-x:auto;  }
 ul { list-style: none; }
 a { text-decoration: none; font-family: Noto Sans KR;}
 .clr-fix:after { content:""; display:block; width:100%; clear:both;}

@@ -7,7 +7,7 @@
 #hd { width: 100%; position: absolute; top: 0; left: 0; min-width: 1400px; z-index:999;}
 a{text-decoration: none;}
 .sub a:hover {text-decoration: underline;}
-.topmenu { background-color: black; height: 40px; overflow: hidden; opacity: 84%; font-family: Noto Sans KR;}
+.topmenu { background-color: black; height: 40px; overflow: hidden; opacity: 84%; font-family: Noto Sans KR; width:100%;}
 .txt_left { margin: 0 auto; padding: 0; width:1400px; font-size:12pt; margin-top: 8PX;}
 .txt_left li{ float:left}
 .txt_left li a{ color:#FFF;}

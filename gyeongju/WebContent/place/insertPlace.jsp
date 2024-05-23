@@ -16,7 +16,7 @@
 	
 	#contents { width:100%; min-height:calc(100vh - 610px);  box-sizing:border-box; min-width:1200px; margin-top:160px;}
 	#contents .page { clear:both; width:1200px; margin:0 auto;}
-	.page .page-title { margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px; font-family: 'HSBombaram'; font-size:40px; letter-spacing:3px;}
+	.page .page-title { width:50%; margin-top : 2rem; margin-bottom:1.5rem; padding-left:20px; font-family: 'HSBombaram'; font-size:40px; letter-spacing:3px; display:inline-block; box-sizing:border-box;}
 	
 	.insForm {width:1000px; margin:0 auto;}
 	.insForm * {font-family: Noto Sans KR;}
@@ -35,7 +35,7 @@
 	.insForm .td-submit .btn-back {display:inline-block;  border:none; text-align:center; padding:7px 20px; border-radius:30px; margin-left:3px; 
 		background-color:#595959; color:#fff; font-size:20px; font-weight:500; }
 	
-	.bread-crumb {width:100%; height:40px; text-align:left; padding-right:10px; margin-bottom:30px;}
+	.bread-crumb {display:inline-block; width:49%; height:40px; text-align:right; padding-right:10px; margin-top:20px; margin-bottom:20px; box-sizing:border-box;}
 	#contents .bread-crumb li {display:inline-block; line-height:40px; color:#b8b8b8;}
 	#contents .bread-crumb li a {color:#666;}
 	.bread-crumb li a:hover {text-decoration:underline;}
@@ -55,14 +55,15 @@
 <div id="contents" class="clr-fix">
 	<section class="page">
 		<h2 class="page-title">여기어때</h2>
-		<hr>
+		
 		<div class="bread-crumb">
 			<ul>
 				<li><a href="${path0 }/">홈</a>  >  </li>
 				<li><a href="${path0 }/PlaceList.do?ptype=all">여기어때</a>  >  </li>
-				<li><a href="${path0 }/place/insertPlace.jsp?ptype=${ptype}">여기어때 등록</a></li>
+				<li><a href="${path0 }/place/insertPlace.jsp?ptype=${ptype}">등록</a></li>
 			</ul>
 		</div>
+		<hr>
 		<form action="${path0 }/PlaceInsert.do?ptype=<%=request.getParameter("ptype") %>" method="post" 
 			onsubmit="return typeCheck(this)" enctype="multipart/form-data">
 			<table class="insForm">
