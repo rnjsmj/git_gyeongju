@@ -5,7 +5,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -43,12 +42,6 @@ public class dataDownloadCtrl extends HttpServlet {
 		response.setHeader("Content-Disposition", "attachment;filename=" + filename);
 
 		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
-			
-	
-//		out.clear();
-//		out = pageContext.pushBody();
-//		
-//		OutputStream out = response.getOutputStream();
 		
 		BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
 
@@ -58,7 +51,6 @@ public class dataDownloadCtrl extends HttpServlet {
 			bos.flush();
 		}
 
-		// 8] 스트림 닫기
 		bis.close();
 		bos.close();
 	}
