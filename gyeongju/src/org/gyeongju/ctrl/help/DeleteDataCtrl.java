@@ -1,8 +1,8 @@
-package org.gyeongju.ctrl.place;
+package org.gyeongju.ctrl.help;
 
+import java.io.File;
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,14 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.gyeongju.dao.PlaceDAO;
-import org.gyeongju.dto.Place;
+import org.gyeongju.dao.DataDAO;
 
-@WebServlet("/PlaceUpdate.do")
-public class PlaceUpdateCtrl extends HttpServlet {
+@WebServlet("/DeleteData.do")
+public class DeleteDataCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public PlaceUpdateCtrl() {
+    public DeleteDataCtrl() {
         super();
     }
 
@@ -32,21 +31,22 @@ public class PlaceUpdateCtrl extends HttpServlet {
 			response.sendRedirect("/gyeongju");
 		}
 		
-		int pno = Integer.parseInt(request.getParameter("pno"));
+		int bno = Integer.parseInt(request.getParameter("bno"));
 		
-		PlaceDAO dao = new PlaceDAO();
-		Place place = dao.getPlace(pno);
-		String contents = place.getPcomm().replace("<br>", "\r\n");
-		place.setPcomm(contents);
-		String ptypeOp = place.getPtype();
-		String ptype = request.getParameter("ptype");
+		DataDAO dao = new DataDAO();
 		
-		request.setAttribute("place", place);
-		request.setAttribute("ptypeOp", ptypeOp);
-		request.setAttribute("ptype", ptype);
+		String filename = dao.getData(bno).getFilename();
+		String filepath = request.getServletContext().getRealPath("/upload/data/")+filename;
+		File delFile = new File(filepath);
+		delFile.delete();
 		
-		RequestDispatcher view = request.getRequestDispatcher("/place/editPlace.jsp");
-		view.forward(request, response);
+		int cnt = dao.delData(bno);
+		
+		if(cnt>0) {
+			response.sendRedirect("/gyeongju/DataList.do");
+		} else {
+			response.sendRedirect("/gyeongju/GetData2.do?no="+bno);
+		}
 	}
 
 }

@@ -92,7 +92,7 @@ a{text-decoration: none;}
 	                  <a href="" class="dp">고객지원</a>
 	                  <ul class="sub">
 	                      <li><a href="${path0 }/intro/map.jsp" class="dp2">오시는 길</a></li>
-	                      <li><a href="" class="dp2">자료실</a></li>
+	                      <li><a href="${path0 }/DataList.do" class="dp2">자료실</a></li>
 	                  </ul>
 	              </li>
 	          </ul>

@@ -1,4 +1,4 @@
-package org.gyeongju.ctrl.qna;
+package org.gyeongju.ctrl.help;
 
 import java.io.IOException;
 
@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.gyeongju.dao.CommunityDAO;
-import org.gyeongju.dto.Community;
+import org.gyeongju.dao.DataDAO;
+import org.gyeongju.dto.Data;
 
-@WebServlet("/GetQna2.do")
-public class GetQnaCtrl2 extends HttpServlet {
+@WebServlet("/EditData.do")
+public class EditDataCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public GetQnaCtrl2() {
+    public EditDataCtrl() {
         super();
     }
 
@@ -26,18 +26,20 @@ public class GetQnaCtrl2 extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 
-		int bno = Integer.parseInt(request.getParameter("bno"));
-		
-		CommunityDAO dao = new CommunityDAO();
-		Community qna = dao.getCommunity2(bno);
-		
 		HttpSession session = request.getSession();
 		String loginId = (String) session.getAttribute("sid");
 		
-		request.setAttribute("qna", qna);
-		request.setAttribute("sid", loginId);
-		request.setAttribute("bno", bno);
-		RequestDispatcher view = request.getRequestDispatcher("/community/getQna.jsp");
+		if(!loginId.equals("admin")) {
+			response.sendRedirect("/DataList.do");
+		}
+		
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		
+		DataDAO dao = new DataDAO();
+		Data data = dao.getData2(bno);
+		
+		request.setAttribute("data", data);
+		RequestDispatcher view = request.getRequestDispatcher("/data/editData.jsp");
 		view.forward(request, response);
 	}
 

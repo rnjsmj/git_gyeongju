@@ -7,15 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MariaDB {
-	final static String DRIVER = "oracle.jdbc.OracleDriver";
-	final static String URL = "jdbc:oracle:thin:@localhost:1521:xe"; 
-	final static String USERID = "system";
-	final static String USERPW = "1234";
+//	final static String DRIVER = "oracle.jdbc.OracleDriver";
+//	final static String URL = "jdbc:oracle:thin:@localhost:1521:xe"; 
+//	final static String USERID = "system";
+//	final static String USERPW = "1234";
 	
-//	final static String DRIVER = "org.mariadb.jdbc.Driver";
-//	final static String URL = "jdbc:mariadb://192.168.20.221:3308/team12"; 
-//	final static String USERID = "team12";
-//	final static String USERPW = "ab1234";
+	final static String DRIVER = "org.mariadb.jdbc.Driver";
+	final static String URL = "jdbc:mariadb://192.168.20.221:3308/team12"; 
+	final static String USERID = "team12";
+	final static String USERPW = "ab1234";
 	
 	Connection con = null;
 	

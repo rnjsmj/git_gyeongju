@@ -13,11 +13,11 @@ import javax.servlet.http.HttpSession;
 import org.gyeongju.dao.CommunityDAO;
 import org.gyeongju.dto.Community;
 
-@WebServlet("/GetQna2.do")
-public class GetQnaCtrl2 extends HttpServlet {
+@WebServlet("/EditNotice.do")
+public class EditNoticeCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public GetQnaCtrl2() {
+    public EditNoticeCtrl() {
         super();
     }
 
@@ -26,18 +26,21 @@ public class GetQnaCtrl2 extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 
-		int bno = Integer.parseInt(request.getParameter("bno"));
-		
-		CommunityDAO dao = new CommunityDAO();
-		Community qna = dao.getCommunity2(bno);
-		
 		HttpSession session = request.getSession();
 		String loginId = (String) session.getAttribute("sid");
 		
-		request.setAttribute("qna", qna);
-		request.setAttribute("sid", loginId);
-		request.setAttribute("bno", bno);
-		RequestDispatcher view = request.getRequestDispatcher("/community/getQna.jsp");
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		CommunityDAO dao = new CommunityDAO();
+		Community notice = dao.getCommunity2(bno);
+		String contents = notice.getContent().replace("<br>", "\r\n");
+		notice.setContent(contents);
+		
+		if (loginId == null || !loginId.equals("admin")) {
+			response.sendRedirect("/NoticeList.do");
+		}
+		
+		request.setAttribute("notice", notice);
+		RequestDispatcher view = request.getRequestDispatcher("/community/editNotice.jsp");
 		view.forward(request, response);
 	}
 

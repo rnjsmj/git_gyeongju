@@ -40,7 +40,6 @@ public class FoodListCtrl extends HttpServlet {
 		
 		int pcnt = dao.cntPage(ftype);
 		
-		
 		if (ftype.equals("all")) {
 			foodList = dao.getFoodList(curPage);
 		} else if (ftype.equals("rest")) {

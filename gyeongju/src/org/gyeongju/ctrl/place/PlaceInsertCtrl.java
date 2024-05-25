@@ -58,7 +58,8 @@ public class PlaceInsertCtrl extends HttpServlet {
 			place.setPtype(mr.getParameter("ptypeval"));
 			place.setPtel(mr.getParameter("ptel"));
 			place.setPaddr(mr.getParameter("paddr"));
-			place.setPcomm(mr.getParameter("pcomm"));
+			String pcomm = mr.getParameter("pcomm").replace("\r\n","<br>");
+			place.setPcomm(pcomm);
 			place.setItem(mr.getParameter("item"));
 			
 			//파일 추가

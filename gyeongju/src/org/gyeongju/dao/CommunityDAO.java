@@ -14,7 +14,7 @@ public class CommunityDAO {
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	/*
+	
 	//문의하기 목록
 	public List<Community> getQnaList(){
 		List<Community> qnaList = new ArrayList<>();
@@ -178,7 +178,35 @@ public class CommunityDAO {
 			maria.close(con, pstmt, rs);
 		}
 		return com;
-	}*/
+	}
+	
+	//상위 4개 공지사항
+	public List<Community> newNotice() {
+		List<Community> newNoti = new ArrayList<>();
+		MariaDB maria = new MariaDB();
+		try {
+			con = maria.connect();
+			pstmt = con.prepareStatement(SqlLang.LATEST_NOTICE);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Community com = new Community(
+						rs.getInt("bno"),
+						rs.getString("title"),
+						rs.getString("content"),
+						rs.getString("aid"),
+						rs.getString("filename"),
+						rs.getString("resdate"),
+						rs.getInt("visited"));
+				newNoti.add(com);
+			}
+		} catch(Exception e){
+			e.printStackTrace();
+		} finally {
+			maria.close(con, pstmt, rs);
+		}
+		return newNoti;
+	}
+	/*
 	//문의하기 목록
 		public List<Community> getQnaList(){
 			List<Community> qnaList = new ArrayList<>();
@@ -369,5 +397,5 @@ public class CommunityDAO {
 				oracle.close(con, pstmt, rs);
 			}
 			return newNoti;
-		}
+		}*/
 }

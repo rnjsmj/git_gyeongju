@@ -32,6 +32,8 @@ public class EditQnaCtrl extends HttpServlet {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		CommunityDAO dao = new CommunityDAO();
 		Community qna = dao.getCommunity2(bno);
+		String contents = qna.getContent().replace("<br>", "\r\n");
+		qna.setContent(contents);
 		
 		if (loginId == null) {
 			response.sendRedirect("/gyeongju/login.do");

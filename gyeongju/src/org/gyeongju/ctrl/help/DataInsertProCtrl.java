@@ -1,4 +1,4 @@
-package org.gyeongju.ctrl.qna;
+package org.gyeongju.ctrl.help;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,66 +12,68 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.gyeongju.dao.CommunityDAO;
-import org.gyeongju.dto.Community;
+import org.gyeongju.dao.DataDAO;
+import org.gyeongju.dto.Data;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-@WebServlet("/NoticeInsertPro.do")
-public class NoticeInsertProCtrl extends HttpServlet {
+@WebServlet("/DataInsertPro.do")
+public class DataInsertProCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public NoticeInsertProCtrl() {
+    public DataInsertProCtrl() {
         super();
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
 		
-		HttpSession session = request.getSession();
-		String sid = (String) session.getAttribute("sid");
-		if(!sid.equals("admin")){
-			response.sendRedirect("/gyeongju");
-		}
-		
-		Community com= new Community ();
-		
-		ServletContext application = request.getServletContext();
 		
 		try {
-			String saveDirectory = application.getRealPath("/upload/community");
-			int maxSize = 1024*1024*10;
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
+			
+			HttpSession session = request.getSession();
+			String sid = (String) session.getAttribute("sid");
+			if(!sid.equals("admin")){
+				response.sendRedirect("/gyeongju");
+			}
+			
+			Data data = new Data();
+			
+			ServletContext application = request.getServletContext();
+			String saveDirectory = application.getRealPath("/upload/data");
+			int maxSize = 52428800;
 			String encoding = "UTF-8";
 			MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxSize, encoding, new DefaultFileRenamePolicy());
 			
+			data.setTitle(mr.getParameter("title"));
 			String contents = mr.getParameter("content").replace("\r\n","<br>");
-			com.setTitle(mr.getParameter("title"));
-			com.setContent(contents);
-			com.setAid((String) session.getAttribute("sid"));
+			data.setContent(contents);
+			data.setFilename(mr.getParameter("filename"));
 			
 			Enumeration files = mr.getFileNames();
 			String item = (String) files.nextElement(); 			
 			
 			String oriFile = mr.getOriginalFileName(item); 
-			String fileName = mr.getFilesystemName(item);
+			String datafile = mr.getFilesystemName(item);
 
 			File upfile = mr.getFile(item);	 
-			com.setFilename(fileName);
-			CommunityDAO dao = new CommunityDAO();
-			int cnt = dao.insCommunity(com);
+			data.setFilename(datafile);
+			DataDAO dao = new DataDAO();
+			int cnt = dao.insData(data);
 			
+
 			String home = application.getContextPath();
 			if(cnt>0) {
-				response.sendRedirect(home+"/NoticeList.do");
+				response.sendRedirect(home+"/DataList.do");
 			} else {
-				response.sendRedirect(home+"/community/insertNotice.jsp");
+				response.sendRedirect(home+"/data/insertData.jsp");
 			}
 		} catch(Exception e) {
-				e.printStackTrace();
-			}
+			e.printStackTrace();
+		}
 	}
 
 }

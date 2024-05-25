@@ -47,9 +47,9 @@ public class QnaInsertProCtrl extends HttpServlet {
 			String encoding = "UTF-8";
 			MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxSize, encoding, new DefaultFileRenamePolicy());
 			
-			
+			String contents = mr.getParameter("content").replace("\r\n","<br>");
 			com.setTitle(mr.getParameter("title"));
-			com.setContent(mr.getParameter("content"));
+			com.setContent(contents);
 			com.setAid((String) session.getAttribute("sid"));
 			
 			Enumeration files = mr.getFileNames();

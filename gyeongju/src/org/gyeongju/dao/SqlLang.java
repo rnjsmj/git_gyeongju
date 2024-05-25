@@ -36,15 +36,23 @@ public interface SqlLang {
 	String SELECT_ALL_QNA = "select * from community where not aid='admin' order by resdate desc";
 	//공지사항
 	String SELECT_ALL_NOTICE = "select * from community where aid='admin' order by resdate desc";
-	//String LATEST_NOTICE = "select * from community where aid='admin' order by resdate desc limit 0, 4";
+	String LATEST_NOTICE = "select * from community where aid='admin' order by resdate desc limit 0, 4";
 	//Oracle
-	String LATEST_NOTICE = "select * from (select rownum rnum, c.* from community c where aid='admin' order by resdate desc) where rownum between 1 and 4";
+	//String LATEST_NOTICE = "select * from (select rownum rnum, c.* from community c where aid='admin' order by resdate desc) where rownum between 1 and 4";
 	//공용
 	String SELECT_COMMUNITY_BYNO = "select * from community where bno=?";
-	//String INS_COMMUNITY = "insert into community values(default, ?, ?, ?, ?, default, 0)";
+	String INS_COMMUNITY = "insert into community values(default, ?, ?, ?, ?, default, 0)";
 	//Oracle
-	String INS_COMMUNITY = "insert into community values(comm_seq.nextval, ?, ?, ?, ?, default, 0)";
+	//String INS_COMMUNITY = "insert into community values(comm_seq.nextval, ?, ?, ?, ?, default, 0)";
 	String UPD_COMMUNITY = "update community set title=?, content=? where bno=?";
 	String DEL_COMMUNITY = "delete from community where bno=?";
 	String VISITED_UPD_COMMUNITY = "update community set visited=visited+1 where bno=?";
+
+	//자료실
+	String SELECT_ALL_DATA = "select * from data order by resdate desc";
+	String VISITED_UPD_DATA = "update data set visited=visited+1 where bno=?";
+	String SELECT_DATA_BYBNO = "select * from data where bno=?";
+	String INS_DATA = "insert into data values(default, ?, ?, ?, default, default)";
+	String UPD_DATA = "update data set title=?, content=? where bno=?";
+	String DEL_DATA = "delete from data where bno=?";
 }

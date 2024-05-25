@@ -38,7 +38,8 @@ public class FoodUpdateProCtrl extends HttpServlet {
 		food.setFtype(request.getParameter("ftypeval"));
 		food.setFaddr(request.getParameter("faddr"));
 		food.setFtel(request.getParameter("ftel"));
-		food.setFcomm(request.getParameter("fcomm"));
+		String fcomm = request.getParameter("fcomm").replace("\r\n","<br>");
+		food.setFcomm(fcomm);
 		
 		String ftype = "";
 		if(request.getParameter("ftype").equals("all")) {

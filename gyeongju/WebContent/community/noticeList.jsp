@@ -16,7 +16,7 @@
 <style>
 * {box-sizing:border-box; }
 	#contents { clear:both; width:100%;  margin-bottom:5rem; box-sizing:border-box; min-width:1400px; min-height:100vh;}
-	#contents #page1 { clear:both; width:1200px; margin:0 auto; font-family: Noto Sans KR;}
+	#contents #page1 { clear:both; width:1200px; margin:0 auto;  margin-bottom: 50px; font-family: Noto Sans KR;}
 	#contents a {color:#101010;}
 	#page1 a { text-decoration: none;}
 	ol { list-style: none; }
@@ -32,7 +32,6 @@
 	#title { float:left; text-align: left; margin-top: 3rem; margin-left: 15%; display: flex; align-items: center; }
 	
 	
-	#page1 {  margin: 0 auto; margin-bottom: 50px; display: block; width: 1400px; }
 			
 	table { border: 1px #a39485 solid; font-size: 18px; box-shadow: 0 2px 5px rgba(0,0,0,.25); width: 1200px; margin: 0 auto; border-collapse: collapse; border-radius: 5px; overflow: hidden; margin-bottom:40px;}
 	thead { font-weight: bold; color: #fff; background-color: #C1A483; }
@@ -158,7 +157,7 @@
 			</div>
 		<div class="buttons">
 			<c:if test="${sid.equals('admin') }">
-			<a id="insbtn" role="button" href="${path0 }/NoticeInsert.do">글 등록</a>
+			<a id="insbtn" role="button" href="${path0 }/NoticeInsert.do">공지사항 등록</a>
 			</c:if>
 		</div>
 	</section>

@@ -33,6 +33,16 @@
 		<url-pattern>*.mp3</url-pattern>
 		<url-pattern>*.wav</url-pattern>
 		<url-pattern>*.ogg</url-pattern>
+		<url-pattern>*.hwp</url-pattern>
+		<url-pattern>*.pdf</url-pattern>
+		<url-pattern>*.xls</url-pattern>
+		<url-pattern>*.xlsx</url-pattern>
+		<url-pattern>*.ppt</url-pattern>
+		<url-pattern>*.pptx</url-pattern>
+		<url-pattern>*.doc</url-pattern>
+		<url-pattern>*.docx</url-pattern>
+		<url-pattern>*.zip</url-pattern>
+		<url-pattern>*.txt</url-pattern>
 	</servlet-mapping>
 	<filter>
 		<filter-name>SetCharEncoding</filter-name>

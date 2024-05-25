@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.gyeongju.dao.CommunityDAO;
 import org.gyeongju.dto.Community;
 
-@WebServlet("/EditProQna.do")
-public class EditProQnaCtrl extends HttpServlet {
+@WebServlet("/EditProNotice.do")
+public class EditProNoticeCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public EditProQnaCtrl() {
+    public EditProNoticeCtrl() {
         super();
     }
     
@@ -34,9 +34,9 @@ public class EditProQnaCtrl extends HttpServlet {
 		int cnt = dao.editProCommunity(com);
 		
 		if(cnt>0) {
-			response.sendRedirect("/gyeongju/GetQna2.do?bno="+com.getBno());
+			response.sendRedirect("/gyeongju/GetNotice2.do?bno="+com.getBno());
 		} else {
-			response.sendRedirect("/gyeongju/EditQna.do?bno="+com.getBno());
+			response.sendRedirect("/gyeongju/EditNotice.do?bno="+com.getBno());
 		}
 	}
 

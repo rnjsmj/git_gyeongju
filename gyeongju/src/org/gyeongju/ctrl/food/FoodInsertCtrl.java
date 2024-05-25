@@ -56,7 +56,8 @@ public class FoodInsertCtrl extends HttpServlet {
 			food.setFtype(mr.getParameter("ftypeval"));
 			food.setFtel(mr.getParameter("ftel"));
 			food.setFaddr(mr.getParameter("faddr"));
-			food.setFcomm(mr.getParameter("fcomm"));
+			String fcomm = mr.getParameter("fcomm").replace("\r\n","<br>");
+			food.setFcomm(fcomm);
 			
 			//파일 추가
 			Enumeration files = mr.getFileNames();

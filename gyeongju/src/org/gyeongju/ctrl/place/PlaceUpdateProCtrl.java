@@ -38,7 +38,8 @@ public class PlaceUpdateProCtrl extends HttpServlet {
 		place.setPtype(request.getParameter("ptypeval"));
 		place.setPaddr(request.getParameter("paddr"));
 		place.setPtel(request.getParameter("ptel"));
-		place.setPcomm(request.getParameter("pcomm"));
+		String pcomm = request.getParameter("pcomm").replace("\r\n","<br>");
+		place.setPcomm(pcomm);
 		place.setItem(request.getParameter("item"));
 		
 		String ptype = "";

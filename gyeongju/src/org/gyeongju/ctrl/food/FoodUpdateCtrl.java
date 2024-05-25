@@ -36,6 +36,8 @@ public class FoodUpdateCtrl extends HttpServlet {
 		
 		FoodDAO dao = new FoodDAO();
 		Food food = dao.getFood(fno);
+		String contents = food.getFcomm().replace("<br>", "\r\n");
+		food.setFcomm(contents);
 		String ftypeOp = food.getFtype();
 		String ftype = request.getParameter("ftype");
 		

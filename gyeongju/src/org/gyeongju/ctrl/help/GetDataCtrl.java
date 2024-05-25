@@ -1,4 +1,4 @@
-package org.gyeongju.ctrl.qna;
+package org.gyeongju.ctrl.help;
 
 import java.io.IOException;
 
@@ -8,16 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.gyeongju.dao.CommunityDAO;
-import org.gyeongju.dto.Community;
+import org.gyeongju.dao.DataDAO;
+import org.gyeongju.dto.Data;
 
-@WebServlet("/GetQna2.do")
-public class GetQnaCtrl2 extends HttpServlet {
+@WebServlet("/GetData.do")
+public class GetDataCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public GetQnaCtrl2() {
+    public GetDataCtrl() {
         super();
     }
 
@@ -28,16 +27,12 @@ public class GetQnaCtrl2 extends HttpServlet {
 
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		
-		CommunityDAO dao = new CommunityDAO();
-		Community qna = dao.getCommunity2(bno);
+		DataDAO dao = new DataDAO();
+		Data data = dao.getData(bno);
 		
-		HttpSession session = request.getSession();
-		String loginId = (String) session.getAttribute("sid");
-		
-		request.setAttribute("qna", qna);
-		request.setAttribute("sid", loginId);
+		request.setAttribute("data", data);
 		request.setAttribute("bno", bno);
-		RequestDispatcher view = request.getRequestDispatcher("/community/getQna.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/data/getData.jsp");
 		view.forward(request, response);
 	}
 
