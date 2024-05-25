@@ -36,10 +36,10 @@ public class EditQnaCtrl extends HttpServlet {
 		qna.setContent(contents);
 		
 		if (loginId == null) {
-			response.sendRedirect("/gyeongju/login.do");
+			response.sendRedirect("/gyeongju/Login.do");
 		}
 		if(!loginId.equals(qna.getAid())) {
-			response.sendRedirect("/qnaList.do");
+			response.sendRedirect("/QnaList.do");
 		} 
 		
 		request.setAttribute("qna", qna);
